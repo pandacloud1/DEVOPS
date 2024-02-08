@@ -1,0 +1,17 @@
+# Namespaces can be created by imperative command as below
+
+kubectl create namespace <namespace-name>
+
+# eg:
+kubectl create ns sit
+kubectl create ns uat
+kubectl create ns dev
+
+# Example to create pod in sit environment
+kubectl apply -f pod.yaml -n sit
+kubectl get pods -n sit
+kubectl describe pods -n sit
+
+# NOTE:
+# For Non-prod environments we have: DEV, SIT & UAT
+# For Production environments we have: STAGING & PROD

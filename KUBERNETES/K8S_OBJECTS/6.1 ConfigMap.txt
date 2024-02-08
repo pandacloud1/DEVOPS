@@ -1,0 +1,17 @@
+# NOTE: 
+# 1. ConfigMap contains configuration data only
+# 2. If you want to store any confidential data, then use 'Secrets'
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-configmap
+data:
+  name: "my-app"
+  marketname: "blue-ocean"
+  marketID: "bo"
+  category: "non-prod"
+  env: "uat"
+  url: "my-blue-ocean.com"
+...

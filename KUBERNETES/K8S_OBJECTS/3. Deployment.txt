@@ -1,0 +1,28 @@
+# TIP: 
+# 1. Replace 'kind: ReplicaSet' --> 'kind: Deployment'
+# 2. Change the name under 'metadata' & create replicas as required
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: my-pod1
+  template:
+    metadata:
+      labels:
+        name: my-pod1
+    spec:
+      containers:
+      - name: container1
+        image: httpd:latest
+...
+
+
+# NOTE:
+# Deployment itself cannot expose pods to outside world, we need to combine it with 'Service'

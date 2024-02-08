@@ -1,0 +1,23 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod1
+spec:
+  containers:
+  - name: container1
+    image: httpd:latest
+...
+
+# COMMANDS:
+# kubectl apply -f pod.yaml
+# kubectl get pods                        #(to see list of pods)
+# kubectl exec <pod-name> -- /bin/bash    #(to go inside the pod/container)
+# httpd -version                          #(to see the apache version)
+# exit                                    #(to exit from the pod)
+
+# NOTE:
+# Pod can be easily deleted by running below
+# kubectl delete pod <pod-name>
+# To avoid losing pod, use 'ReplicationController' or 'ReplicaSet' or 'Deployment')
+# 'ReplicationController' is old form of K8s & not used anymore

@@ -1,0 +1,42 @@
+# NOTE:
+# 1. We need to manually create an EBS from AWS & get the volumeID & enter in below manifest
+# 2. EBS must be created in same region as EC2
+# 3. EBS is integrated with PV & Pod is integrated with PVC
+
+# PersistentVolume yaml file
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: my-pv
+spec:
+  capacity:
+    storage: 20Gi                      
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce                   
+  awsElasticBlockStore:
+    volumeID: vol-0e4686933f1c2c88e    #(Replace with your EBS volume ID)
+    fsType: ext4                      
+  persistentVolumeReclaimPolicy: Retain  
+...
+
+# PersistentVolumeClaim yaml file
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: standard          #(storage class is standard by default, same can be checked using kubectl get storageclass)
+  selector:
+    matchLabels:
+      name: my-pv
+...

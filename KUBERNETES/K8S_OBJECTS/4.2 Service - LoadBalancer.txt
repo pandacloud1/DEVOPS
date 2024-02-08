@@ -1,0 +1,25 @@
+# TIP:
+# 1. To create 'Service' manifest, remember phrase 'The Service Provider'
+# 2. Add 'type', 'selector' & 'ports' (The Service Provider)
+# 3. Here 'port= service-port-no' & 'targetPort= pod-port-no' 
+# 4. Don't forget to add the 'selector' to select the relevant labelled 'Deployment'
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  type: LoadBalancer
+  selector:
+    name: my-pod1
+  ports:
+    - protocol: TCP
+      port: 80             #(service-port)     
+      targetPort: 80       #(pod-port)
+...
+
+# NOTE:
+# ClusterIP gets automatically created along with 'NodePort', which is default behaviour & meant is for cluster internal communication
+# To allow networking, open SSH terminal in separate tab & run 'minikube tunnel'
+# Then check curl <NodePort-IP> must work in SSH terminal

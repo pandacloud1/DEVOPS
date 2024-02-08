@@ -1,0 +1,21 @@
+# NOTE:
+1. Pod is integrated using PVC
+2. EBS is integrated using PV
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod1
+spec:
+  containers:
+  - name: container1
+    image: httpd:latest
+    volumeMounts:
+      - name: my-volume
+        mountPath: /data
+  volumes:
+    - name: my-volume
+      persistentVolumeClaim:
+        claimName: my-pvc             #(paste your pvc name here)
+...
