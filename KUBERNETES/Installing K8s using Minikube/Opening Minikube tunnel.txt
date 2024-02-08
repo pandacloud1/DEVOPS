@@ -1,0 +1,2 @@
+# Open the below command in new tab when exposing ports
+minikube tunnel
