@@ -1,0 +1,35 @@
+// CREATING MY FIRST JENKINS PIPELINE SCRIPT
+
+pipeline {
+    agent any
+    stages {
+        stage ("1. Cleanup") {
+            steps {
+                deleteDir ()     // optional - standard practise
+            }
+        }
+
+        stage ("2. Clone Github") {
+            steps {
+                sh "git clone https://github.com/jenkins-docs/simple-java-maven-app.git"
+            }
+        }
+
+        stage ("3. Maven Build") {
+            steps {
+                dir ("simple-java-maven-app") {
+                  sh "mvn clean install"     // clean artifacts, build maven job
+                }                
+            }
+        }
+        
+        stage ("4. Maven Test") {
+            steps {
+                dir ("simple-java-maven-app") {
+                  sh "mvn test"              // unit testing
+                }                
+            }
+        }
+
+    }
+}
