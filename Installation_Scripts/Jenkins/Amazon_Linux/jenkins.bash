@@ -8,3 +8,9 @@ sudo yum install java-17-amazon-corretto -y
 sudo yum install jenkins -y
 sudo systemctl enable jenkins
 sudo systemctl start jenkins
+
+# Generate Jenkins initial login password
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+	  
+# Get Public IP of Jenkins
+curl ifconfig.me
