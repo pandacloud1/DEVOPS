@@ -2,8 +2,7 @@
 # **DOCKER MINI PROJECT**
 ---
 
-![image](https://github.com/pandacloud1/DEVOPS/assets/134182273/2ed47774-1b01-48de-ab05-cd7d9ae0e229)
-
+![image](https://github.com/pandacloud1/DEVOPS/assets/134182273/e7a14622-fc73-4036-b64c-e41f0f175b07)
 
 ## Objective:
 Pulling content from Github & exposing through container
