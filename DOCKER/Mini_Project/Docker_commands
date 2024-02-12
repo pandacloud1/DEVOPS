@@ -1,0 +1,50 @@
+=====================
+# Build image (from Dockerfile)
+=====================
+docker build -t project/myapp:v1 .
+# 'project/myapp' is user-defined name
+
+=====================
+# Create container (from Image)
+=====================
+docker run -dt --name container1 -p 80:80 project/myapp
+# here 80:80 means <local_machine_port>:<container_port>
+# 'container1' is user-defined name
+
+=====================
+# Access the content
+=====================
+# Open browser & use <ec2_publicIP> to access the content
+
+------------------------------------------------------------
+--- END ---
+------------------------------------------------------------
+=====================
+# OTHER COMMANDS
+=====================
+
+=====================
+# Go inside container
+=====================
+docker exec -it /bin/bash
+
+=====================
+# Stop & remove all containers
+=====================
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+
+=====================
+# Delete all docker images
+=====================
+docker image prune -af
+
+=====================
+# To delete all content from text file using 'vi'
+# use 'Esc:%d'
+=====================
+
+=====================
+# To check which directories are consuming space in Linux
+=====================
+du -h /usr | sort -rh | head -n 10
