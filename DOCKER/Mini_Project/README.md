@@ -21,6 +21,6 @@ Pulling content from Github & exposing through container
 5. Create container from Docker image exposing required port of the container with the local machine
 6. Access the content from the browser using <ec2_public_IP>
 
-- Dockerfile: (https://github.com/pandacloud1/DEVOPS/blob/main/DOCKER/Mini_Project/Dockerfile)
-- Docker_Commands (https://github.com/pandacloud1/DEVOPS/blob/main/DOCKER/Mini_Project/Docker_commands)
+- 'Dockerfile': (https://github.com/pandacloud1/DEVOPS/blob/main/DOCKER/Mini_Project/Dockerfile)
+- 'Docker_Commands:' (https://github.com/pandacloud1/DEVOPS/blob/main/DOCKER/Mini_Project/Docker_commands)
 
