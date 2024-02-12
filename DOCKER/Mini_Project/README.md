@@ -8,7 +8,7 @@
 Pulling content from Github & exposing through container
 
 ## Instructions:
-1. Create EC2 instance & enable ports 22, 80, 8080 in the security group
+1. Create EC2 instance & enable required ports (eg. 22, 80, 8080) in the security group
 2. Install docker
    * *(https://github.com/pandacloud1/DEVOPS/tree/main/Installation_Scripts/Docker)*
 3. Create Dockerfile as below: 
