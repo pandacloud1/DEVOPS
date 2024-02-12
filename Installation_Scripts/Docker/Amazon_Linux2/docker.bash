@@ -6,4 +6,4 @@ sudo systemctl start docker
 sudo systemctl enable docker
 # Add ec2-user to the docker group so that Docker commands can be run w/o using sudo.
 sudo usermod -a -G docker ec2-user
-sudo chmod 700 /var/run/docker.sock
+sudo chmod 777 /var/run/docker.sock
