@@ -1,4 +1,4 @@
-# REF: https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html
+# REF: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-docker.html
 #!/bin/bash
 sudo yum update -y
 sudo yum install docker -y
