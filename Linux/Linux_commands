@@ -1,0 +1,214 @@
+## ==========================
+## OS-INFO
+## ==========================
+* `hostnamectl`
+  - Displays OS info with operating system, kernel version, architecture
+
+* `uname -a`
+  - Displays system information, including the kernel version and architecture
+
+* `lsb_release -a`
+  - Displays OS info with distribution ID, description, release number, and codename
+
+* `cat /etc/os-release`
+  - Displays OS info with distribution name, version, ID, and other details
+  - Alternatively, use `cat /etc/*-release`
+
+## ==========================
+## USER
+## ==========================
+* `adduser` / `useradd`
+  - Create user
+
+* `userdel`
+  - Delete user
+
+* `passwd`
+  - Set user password
+
+* `addgroup`
+  - Create user group
+
+* `delgroup`
+  - Delete user group
+
+* `gpasswd` (-a, -M)
+  - Add user(s) to a group
+
+* `whoami`
+  - Shows the name of current user
+
+* `su`
+  - Switch user
+
+## ===========================
+## FILE/DIRECTORY PERMISSIONS
+## ===========================
+* `chown`
+  - Change owner of file/directory
+
+* `chgrp`
+  - Change group of file/directory
+
+* `chmod`
+  - Change mod (r/w/x: 4/2/1)
+
+* `umask`
+  - Read/write/execute permissions
+
+## ==========================
+## FILE LINKS
+## ==========================
+* `ln`
+  - Hardlink
+  - Creates a shortcut of file, but the shortcut is still retained even after deleting the original file
+
+* `ln -s`
+  - Softlink
+  - Creates a shortcut of file, but the shortcut becomes inaccessible after deleting the original file
+
+## ==========================
+## FILE CONTENT
+## ==========================
+* `more`
+* `less`
+* `head` (-n)
+  - Shows content in first 10 lines of a file
+
+* `tail` (-n)
+  - Shows content in last 10 lines of a file
+
+* `wc`
+  - Word count
+
+* `diff` (-y)
+  - Compare difference between files
+
+* `sort` (-r, -u)
+* `uniq` (-d)
+  - List unique items/duplicates
+
+* `which`
+  - Check location of app
+
+## ==========================
+## FIND CONTENT/FILE/FOLDER
+## ==========================
+* `file`
+* `find`
+  - Find `<path> -name <file/dir>` (e.g., `find / -type d -name 'my-dir'` to find only directories named 'my-dir')
+
+* `locate`
+  - Locate `<path> <file_name>` (e.g., `apt install -y plocate` or `apt install -y mlocate`)
+
+* `grep`
+  - Global regular expression print
+
+* `egrep`
+  - Extended global regular expression print
+
+* `cut` (-f)
+  - View a specific content in a file
+
+* `awk`
+  - `awk {print $1} <file_name>` (Aho, Weinberger, and Kernighan)
+
+* `sed`
+  - Stream editor (e.g., `sed -e 's/oldtext/newtext/g' file-name`, where `s` means substitute and `g` means global)
+
+## ==========================
+## ZIP/TAR
+## ==========================
+* `tar`
+  - Tape archive
+  - `vf`: verbose forcefully (e.g., `tar -cvf name.tar <dir-name>` or `tar -xvf name.tar`)
+
+* `gzip`
+  - Gzip `name.tar`
+
+* `gunzip`
+  - Gunzip `name.tar.gz`
+
+## =============================
+## DISK FREE / DISK UTILIZATION
+## =============================
+* `df`
+  - Disk free (drives)
+
+* `du`
+  - Disk utilization (directories/files)
+
+## ==========================
+## RUNNING PROCESSES
+## ==========================
+* `top`
+  - Running performance
+
+* `ps` (-ef)
+  - Running processes (ef: all processes in a list format)
+
+* `free -h`
+  - Check the free & used RAM
+
+## ==========================
+## CONNECTIVITY
+## ==========================
+* `ping`
+  - Ping `www.google.com`
+
+* `netstat`
+  - Shows a list of all active network connections & ports
+  - (e.g., `apt install net-tools -y` and `netstat -tunlp`, where `t`: tcp, `u`: udp, `n`: numerical address, `l`: listening sockets, `p`: processID)
+
+* `ifconfig`
+  - View private IP
+
+* `curl ifconfig.me`
+  - View public IP
+
+## ==========================
+## DOWNLOAD PACKAGES
+## ==========================
+* `wget`
+  - `wget <url>`
+
+* `curl`
+  - Advanced version of wget
+
+## ==========================
+## PACKAGE MANAGERS
+## ==========================
+* `apt`
+  - Update/install/remove packages (apt: advanced package tool)
+
+* `yum`
+  - Update/install/remove packages (yum: yellowdog updater modified)
+
+* `dnf`
+  - Advanced version of `yum` (dnf: dandified yum)
+
+## ==========================
+## SCHEDULER
+## ==========================
+* `crontab` (-e)
+  - Schedule a task in a specific period
+  - `Min Hour Day Month Week-day number` (starts from Monday)
+  - `* * * * *`
+
+## ==========================
+## OTHER COMMANDS
+## ==========================
+* `alias`
+  - Replace an existing command with a user-defined one (e.g., `alias list='ls -la'`)
+
+* `nohup`
+  - No hangup
+
+* `date`
+  - Shows current date
+
+* `cal`
+  - (e.g., `apt install ncal -y`)
+
+* `history`
+  - Check the history of all the commands run in the server
