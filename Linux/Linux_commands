@@ -1,4 +1,32 @@
 ## ==========================
+## OS INFORMATION
+## ==========================
+* `hostnamectl`
+  - Displays OS info with kernel version, hostname, architecture
+
+* `uname -a`
+  - Displays system information, kernel version, hostname and architecture
+
+* `cat /etc/os-release`
+  - Displays OS info with distribution name, version, ID, and other details
+  - Alternatively, use `cat /etc/*-release`
+
+* `lsb_release -a`
+  - Displays OS info with distribution ID, description, release number, and codename
+
+## ==========================
+## SHELL
+## ==========================
+* 'echo $0'
+  - Displays the current shell
+
+* 'bash'
+  - To change the current shell to 'bash'
+
+# '#!/bin/bash'  (known as 'shebang' or 'hashbang')
+  - Ensures that the script is executed using 'bash' regardless of the current shell
+
+## ==========================
 ## DIRECTORY CREATION
 ## ==========================
 * 'mkdir' (make directory)
@@ -39,44 +67,35 @@
   - nano is basic command & mostly available in modern Linux OS
 
 ## ==========================
-## OS-INFO
-## ==========================
-* `hostnamectl`
-  - Displays OS info with operating system, kernel version, architecture
-
-* `uname -a`
-  - Displays system information, including the kernel version and architecture
-
-* `lsb_release -a`
-  - Displays OS info with distribution ID, description, release number, and codename
-
-* `cat /etc/os-release`
-  - Displays OS info with distribution name, version, ID, and other details
-  - Alternatively, use `cat /etc/*-release`
-
-## ==========================
 ## USER
 ## ==========================
 * `adduser` / `useradd`
   - Create user
+  - adduser alexa
 
 * `userdel`
   - Delete user
+  - userdel alexa
 
 * `passwd`
   - Set user password
 
 * `addgroup`
   - Create user group
+  - addgroup amazon
 
 * `delgroup`
   - Delete user group
 
-* `gpasswd` (-a, -M)
+* `gpasswd` (-a, -M) OR 'usermod'
   - Add user(s) to a group
+  - gpasswd -a alexa amazon  (add 'alexa' to 'amazon' group)
+  - gpasswd -M user1 user2 user3 my-group  (add multiple users to a group in one go) 
+  - usermod -aG alexa amazon (alternate command)
 
 * `whoami`
   - Shows the name of current user
+  - Alternatively, we can use 'echo $USER'
 
 * `su`
   - Switch user
@@ -137,9 +156,13 @@
 * `file`
 * `find`
   - Find `<path> -name <file/dir>` (e.g., `find / -type d -name 'my-dir'` to find only directories named 'my-dir')
+  - find / -type d -name 'my-dir'  (finds only directory with name 'my-dir' in '/' location)
+  - find / -name 'abc'  (finds file or directory with name 'abc' in '/' location)
 
 * `locate`
-  - Locate `<path> <file_name>` (e.g., `apt install -y plocate` or `apt install -y mlocate`)
+  - Locate `<file/dir>` (To install use command `apt install -y plocate` or `apt install -y mlocate`)
+  - locate my-dir
+  - locate my-file | grep '^/home/ubuntu'  (searches for 'my-file' & filter out results only from '/home/ubuntu')
 
 * `grep`
   - Global regular expression print
@@ -186,6 +209,8 @@
 
 * `ps` (-ef)
   - Running processes (ef: all processes in a list format)
+  - ps -a  (shows all running processes)
+  - ps aux | grep jenkins  (filters out processes with name 'jenkins'  ('ps -ef' can also be used instead)
 
 * `free -h`
   - Check the free & used RAM
