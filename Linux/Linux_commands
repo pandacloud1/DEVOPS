@@ -21,8 +21,8 @@
 * `echo`
   - Displays text passed as input.
   - Can also be used to input text into a file
-  - echo "hello world" > file  (create new file if doesn't exists or replace text in the existing file)
-  - echo "hello world" >> file (create new file if doesn't exists or add text in the existing file content)
+  - echo "hello world" > file  (creates a new file if doesn't exists or replace text in the existing file)
+  - echo "hello world" >> file (creates a new file if doesn't exists or add text in the existing file content)
 
 * 'cat'
   - Read a file
