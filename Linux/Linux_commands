@@ -1,4 +1,15 @@
 ## ==========================
+## DIRECTORY CREATION
+## ==========================
+* 'mkdir' (make directory)
+  - Command to create a directory
+  - mkdir my-dir
+  - mkdir dir1 dir2 dir3  (creates multiple directories in a single go)
+  - mkdir dir{1..20}  (create dir1 to dir20  in a single go)
+  - mkdir -p /abc/def/my-dir  (creates 'my-dir' along with parent directories 'abc' & 'def'; p: parent)
+  - mkdir -m 777 my-dir  (creates 'my-dir' with permissions, r/w/x permissions to owner, group & other users; m: mode)
+
+## ==========================
 ## FILE COMMANDS
 ## ==========================
 * 'touch'
