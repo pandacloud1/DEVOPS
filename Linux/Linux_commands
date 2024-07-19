@@ -13,6 +13,7 @@
 
 * `lsb_release -a`
   - Displays OS info with distribution ID, description, release number, and codename
+  - Note: This command is not supported in Amazon Linux
 
 ## ==========================
 ## SHELL
