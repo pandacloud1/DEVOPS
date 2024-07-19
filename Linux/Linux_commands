@@ -14,6 +14,7 @@
 ## ==========================
 * 'touch'
   - Create empty files
+  - touch file1
 
 * `echo`
   - Displays text passed as input.
@@ -23,15 +24,17 @@
 
 * 'cat'
   - Read a file
+  - cat file1
 
 * 'vi' (visual) or 'vim'
   - File editor
+  - vi file1  (make necessary changes)
   - Use ":wq" to exit from file or use "q!" to exit forcefully
 
 * 'nano'
   - File editor same as 'vi'
   - Use 'Ctrl X' --> 'Y' --> (Enter key) --> to save & exit
-  - nano is basic & available in modern Linux OS
+  - nano is basic command & mostly available in modern Linux OS
 
 ## ==========================
 ## OS-INFO
