@@ -78,8 +78,7 @@
 * `adduser` / `useradd`
   - Create user
   - adduser alexa
-  - list of users can be checked using below command
-  - cat /etc/passwd
+  - cat /etc/passwd  (see the list of users)
 
 * `userdel`
   - Delete user
@@ -91,6 +90,7 @@
 * `addgroup` / 'groupadd'
   - Create user group
   - addgroup amazon
+  - cat /etc/group  (to see the list of groups)
 
 * `delgroup`
   - Delete user group
@@ -99,7 +99,7 @@
   - Add user(s) to a group
   - gpasswd -a alexa amazon  (add 'alexa' to 'amazon' group)
   - gpasswd -M user1 user2 user3 my-group  (add multiple users to a group in one go) 
-  - usermod -aG alexa amazon (alternate command)
+  - usermod -G <group-name> <user-name> (alternate command, here 'G' means group)
 
 * `whoami`
   - Shows the name of current user
