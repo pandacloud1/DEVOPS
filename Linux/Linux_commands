@@ -92,8 +92,8 @@
   - addgroup amazon
   - cat /etc/group  (to see the list of groups)
 
-* `delgroup`
-  - Delete user group
+* `delgroup` / 'groupdel'
+  - Delete group
 
 * `gpasswd` (-a, -M) OR 'usermod'
   - Add user(s) to a group
