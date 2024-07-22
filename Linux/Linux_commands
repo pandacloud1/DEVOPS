@@ -98,7 +98,7 @@
 * `gpasswd` (-a, -M) OR 'usermod'
   - Add user(s) to a group
   - gpasswd -a alexa amazon  (add 'alexa' to 'amazon' group)
-  - gpasswd -M user1 user2 user3 my-group  (add multiple users to a group in one go) 
+  - gpasswd -M user1,user2,user3 my-group  (add multiple users to a group in one go) 
   - usermod -G <group-name> <user-name> (alternate command, here 'G' means group)
 
 * `whoami`
