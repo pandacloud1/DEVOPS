@@ -55,6 +55,8 @@
   - Can also be used to input text into a file
   - echo "hello world" > file  (creates a new file if doesn't exists or replace text in the existing file)
   - echo "hello world" >> file (creates a new file if doesn't exists or add text in the existing file content)
+  - echo -e "Line1\nLine2\nLine3" > file  (adds Line1 to Line3 one after other in the file)
+  - printf "Line1\nLine2\nLine3" > file  (alternate command of the above command)
 
 * 'cat'
   - Read a file
