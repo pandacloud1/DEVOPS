@@ -21,6 +21,9 @@
 * 'echo $0'
   - Displays the current shell
 
+* 'cat /etc/shells'
+  - Displays all the shell in the current system
+
 * 'bash'
   - To change the current shell to 'bash'
 
