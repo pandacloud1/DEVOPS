@@ -78,6 +78,8 @@
 * `adduser` / `useradd`
   - Create user
   - adduser alexa
+  - list of users can be checked using below command
+  - cat /etc/passwd
 
 * `userdel`
   - Delete user
@@ -86,7 +88,7 @@
 * `passwd`
   - Set user password
 
-* `addgroup`
+* `addgroup` / 'groupadd'
   - Create user group
   - addgroup amazon
 
