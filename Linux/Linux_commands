@@ -108,9 +108,9 @@
 * `su`
   - Switch user
 
-## ===========================
-## FILE/DIRECTORY PERMISSIONS
-## ===========================
+## ==============================================
+## FILE/DIRECTORY CHANGE OWNER/GROUP/PERMISSIONS
+## ==============================================
 * `chown`
   - Change owner of file/directory
   - chown user1 dir1  (Changes the owner of 'dir1' to 'user1')
