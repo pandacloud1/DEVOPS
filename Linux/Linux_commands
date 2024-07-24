@@ -123,7 +123,7 @@
   - chgrp group1 dir1  (Changes the group of 'dir1' along with all sub-directories & files of 'dir1' to 'group1')
 
 * `chmod`
-  - Changes mod of a file/directory (r/w/x: 4/2/1)
+  - Changes mode of a file/directory (r/w/x: 4/2/1)
   - chmod 764 file1  (Changes the permissions of 'file1'--> as below)
     [OWNER: Read, Write, eXecute]
     [GROUP: Read & Write]
