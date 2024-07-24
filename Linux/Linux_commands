@@ -212,6 +212,8 @@
 
 * `grep`
   - Global regular expression print
+  - Used to find content from a file
+  - grep "apple" file1  (Will only search for the word "apple" in the file)
 
 * `egrep`
   - Extended global regular expression print
