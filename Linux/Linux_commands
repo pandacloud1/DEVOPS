@@ -153,14 +153,19 @@
 ## ==========================
 ## FILE CONTENT
 ## ==========================
-* `more`
-* `less`
+* `more` / `less`
+  - Used to read content in a file page by page (Press "Ctrl+C" to exit)
+  - more file1
+  - less is similar to 'more' but with advanced features (Press ":q" to exit)
+
 * `head` (-n)
-  - Shows content in first 10 lines of a file
+  - Shows content in first few lines of a file (default 10 lines)
+  - head -n file1  (shows the first 3 lines of the file)
 
 * `tail` (-n)
-  - Shows content in last 10 lines of a file
-
+  - Shows content in last few lines of a file (default 10 lines)
+  - tail -n file1
+ 
 * `wc`
   - Word count
 
