@@ -128,6 +128,7 @@
     [OWNER: Read, Write, eXecute]
     [GROUP: Read & Write]
     [OTHER-USERS: Read-only]
+  - chmod -R 700 dir1  (Changes the permissions of all files/directories inside 'dir1')
 
 * `umask`
   - Read/write/execute default permissions
