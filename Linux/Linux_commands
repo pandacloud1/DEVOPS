@@ -268,13 +268,13 @@
 ## PACKAGE MANAGERS
 ## ==========================
 * `apt`
-  - Update/install/remove packages (apt: advanced package tool)
+  - Update/install/remove packages for Debian distros (apt: advanced package tool)
 
 * `yum`
-  - Update/install/remove packages (yum: yellowdog updater modified)
+  - Update/install/remove packages for RHEL distros (yum: yellowdog updater modified)
 
 * `dnf`
-  - Advanced version of `yum` (dnf: dandified yum)
+  - Advanced version of `yum` for RHEL distros (dnf: dandified yum)
 
 ## ==========================
 ## SCHEDULER
