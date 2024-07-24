@@ -175,7 +175,7 @@
   - Compare difference between files
   - diff file1 file2
 
-* `sort` (-r, -u)
+* `sort` (-r, -u, -n)
   - Arranges the file lines in sorted way (eg. arranging lines of code in alphabetical order)
   - echo -e "banana\ncherry\napple" > file2
   - sort file1  (Output "apple banana cherry")
@@ -185,9 +185,11 @@
 
 * `uniq` (-d)
   - List unique items/duplicates
+  - sort file1 | uniq
 
 * `which`
   - Check location of app
+  - which git  (shows the path where git is installed)
 
 ## ==========================
 ## FIND CONTENT/FILE/FOLDER
