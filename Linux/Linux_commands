@@ -120,7 +120,7 @@
 * `chgrp`
   - Change group of file/directory
   - chgrp group1 dir1  (Changes the group of 'dir1' to 'group1')
-  - chgrp group1 dir1  (Changes the group of 'dir1' along with all sub-directories & files of 'dir1' to 'group1')
+  - chgrp -R group1 dir1  (Changes the group of 'dir1' along with all sub-directories & files of 'dir1' to 'group1')
 
 * `chmod`
   - Changes mode of a file/directory (r/w/x: 4/2/1)
