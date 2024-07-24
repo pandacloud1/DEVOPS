@@ -113,9 +113,14 @@
 ## ===========================
 * `chown`
   - Change owner of file/directory
+  - chown user1 dir1  (Changes the owner of 'dir1' to 'user1')
+  - chown -R user1 dir1  (Changes the owner of 'dir1' along with all sub-directories & files inside 'dir1' to 'user1')
+  - chown -R user1:group1 dir1  (Changes the owner & the group of 'dir1' to 'user1' & 'group1' respectively)
 
 * `chgrp`
   - Change group of file/directory
+  - chgrp group1 dir1  (Changes the group of 'dir1' to 'group1')
+  - chgrp group1 dir1  (Changes the group of 'dir1' along with all sub-directories & files of 'dir1' to 'group1')
 
 * `chmod`
   - Change mod (r/w/x: 4/2/1)
