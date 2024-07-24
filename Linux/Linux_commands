@@ -173,6 +173,7 @@
 
 * `diff` (-y)
   - Compare difference between files
+  - diff file1 file2
 
 * `sort` (-r, -u)
 * `uniq` (-d)
