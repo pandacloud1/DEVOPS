@@ -176,9 +176,12 @@
   - diff file1 file2
 
 * `sort` (-r, -u)
-  - Sorts the file content (eg. arranging letters in alphabetical order)
-  - echo "banana cherry apple" > file1
+  - Arranges the file lines in sorted way (eg. arranging lines of code in alphabetical order)
+  - echo -e "banana\ncherry\napple" > file2
   - sort file1  (Output "apple banana cherry")
+  - sort -r file1  (Output "cherry banana apple"; r: reverse)
+  - sort -u file1  (Arranges only the unique words, ignores duplicate words)
+  - sort -n file1  (To arrange numbers in ascending order)
 
 * `uniq` (-d)
   - List unique items/duplicates
