@@ -138,7 +138,7 @@
 ## ==========================
 * `ln -s`
   - Softlink
-  - Creates a shortcut of file, but the shortcut becomes inaccessible after deleting the original file
+  - Creates a shortcut of file/directory, but the shortcut becomes inaccessible after deleting the original file
   - This is same as shortcut in Windows
   - ln -s file1 file1-softlink  (Creates a shortcut with name 'file1-softlink' from the original file 'file1')
   - If you run "ls -la", the softlink will be displayed as a "l" which means "link"
@@ -146,6 +146,7 @@
 * `ln`
   - Hardlink
   - Creates a shortcut of file, but the shortcut is still retained even after deleting the original file
+  - Note: Hardlinks can be created for directories, but is only permissible to root user & it avoided mostly to avoid complications
   - Hardlink is like a backup of your original file which reflects new changes & is accessible even if you lose your mail file
   - ln file1 file1-hardlink  (Creates a link with name 'file1-hardlink' from the file 'file1')
   - If you run "ls -la", the hardlink will be displayed as a normal file
