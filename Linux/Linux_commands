@@ -149,7 +149,6 @@
   - ln file1 file1-hardlink  (Creates a link with name 'file1-hardlink' from the file 'file1')
   - If you run "ls -la", the hardlink will be displayed as a normal file
 
-
 ## ==========================
 ## FILE CONTENT
 ## ==========================
