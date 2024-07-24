@@ -155,6 +155,7 @@
 ## ==========================
 * `more` / `less`
   - Used to read content in a file page by page (Press "Ctrl+C" to exit)
+  - for i in {1..100}; do echo "Line$i" > file1; done  (Create file with Line1 to Line100)
   - more file1
   - less is similar to 'more' but with advanced features (Press ":q" to exit)
 
