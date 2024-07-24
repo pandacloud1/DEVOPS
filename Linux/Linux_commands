@@ -183,9 +183,13 @@
   - sort -u file1  (Arranges only the unique words, ignores duplicate words)
   - sort -n file1  (To arrange numbers in ascending order)
 
-* `uniq` (-d)
+* `uniq` (-d, -u, -c)
   - List unique items/duplicates
-  - sort file1 | uniq
+  - echo -e "apple\ncherry\nbanana\ncherry\napple\ndates" > file1
+  - sort file1 | uniq  (Output will display only apply, banana, cherry, dates)
+  - sort file1 | uniq -d  (Will display only the duplicate items --> apple & cherry)
+  - sort file1 | uniq -u  (Will display only the unique items --> banana, dates)
+  - sort file1 | uniq -c  (Will display the count of all items --> 2apple, 1banana, 2cherry, 1date)
 
 * `which`
   - Check location of app
