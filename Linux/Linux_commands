@@ -176,6 +176,10 @@
   - diff file1 file2
 
 * `sort` (-r, -u)
+  - Sorts the file content (eg. arranging letters in alphabetical order)
+  - echo "banana cherry apple" > file1
+  - sort file1  (Output "apple banana cherry")
+
 * `uniq` (-d)
   - List unique items/duplicates
 
