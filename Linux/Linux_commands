@@ -217,6 +217,10 @@
 
 * `egrep`
   - Extended global regular expression print
+  - More advanced version of grep
+  - We can search multiple words, case-insensitive search, etc.
+  - egrep 'error | fail' file1
+  - egrep -i error file1 (Will search word error even if it is upper case)
 
 * `cut` (-f)
   - View a specific content in a file
