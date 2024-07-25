@@ -224,7 +224,7 @@
   - egrep -i 'apple' file1 (Will search word even if it is in different case)
 
 * `awk`
-  - (Aho, Weinberger, and Kernighan)
+  - Aho, Weinberger, and Kernighan
   - `awk '{print $1}' <file_name>` (pulls out the content of 1st column from the file)
   - echo "HELLO WORLD" | awk '{print $1}'  (Output: "HELLO")
 
