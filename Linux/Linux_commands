@@ -229,7 +229,7 @@
   - echo "HELLO WORLD" | awk '{print $1}'  (Output: "HELLO")
 
 * `cut` (-c, -d, -f)
-  - View a specific content in a file
+  - View a specific content (word/character) in a file
   - echo "apple" | cut -c 1  (Output: a)
   - echo "apple,banana,cherry" | cut -d ',' -f3  (Output: cherrty, d: delimeter or separator)
 
