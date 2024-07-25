@@ -266,7 +266,7 @@
 ## =============================
 ## RAM / CPU / DRIVE/ DISK SPACE
 ## =============================
-* 'free -h'
+* `free -h`
   - RAM information
   - Here 'h' means human readable size in KB, MB, GB, etc.
 
@@ -275,6 +275,11 @@
   - This is similar to Task Manager --> Performance in Windows
   - 'htop' is more advanced version of 'top', but it must be installed separately
   - sudo apt install htop -y (OR) - sudo yum install htop -y
+
+* `ps` (-ef)
+  - Running processes (ef: all processes in a list format)
+  - ps -a  (shows all running processes)
+  - ps aux | grep jenkins  (filters out processes with name 'jenkins'  ('ps -ef' can also be used instead)
 
 * `df`
   - Disk free (drives)
@@ -285,21 +290,6 @@
 * `du`
   - Disk utilization (directories/files)
   - du -h <dir/file>  (Check the size of dir/file; h: human-readable size in KB, MB, etc)
-
-
-## ==========================
-## RUNNING PROCESSES
-## ==========================
-* `top`
-  - Running performance
-
-* `ps` (-ef)
-  - Running processes (ef: all processes in a list format)
-  - ps -a  (shows all running processes)
-  - ps aux | grep jenkins  (filters out processes with name 'jenkins'  ('ps -ef' can also be used instead)
-
-* `free -h`
-  - Check the free & used RAM
 
 ## ==========================
 ## NETWORKING
