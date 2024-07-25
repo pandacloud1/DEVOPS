@@ -199,7 +199,6 @@
 ## ==========================
 ## FIND CONTENT/FILE/FOLDER
 ## ==========================
-* `file`
 * `find`
   - Find `<path> -name <file/dir>` (e.g., `find / -type d -name 'my-dir'` to find only directories named 'my-dir')
   - find / -type d -name 'my-dir'  (finds only directory with name 'my-dir' in '/' location)
