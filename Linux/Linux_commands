@@ -178,7 +178,7 @@
 
 * `sort` (-r, -u, -n)
   - Arranges the file lines in sorted way (eg. arranging lines of code in alphabetical order)
-  - echo -e "banana\ncherry\napple" > file2
+  - echo -e "banana\ncherry\napple" > file1
   - sort file1  (Output "apple banana cherry")
   - sort -r file1  (Output "cherry banana apple"; r: reverse)
   - sort -u file1  (Arranges only the unique words, ignores duplicate words)
@@ -214,13 +214,14 @@
   - Global regular expression print
   - Used to find content from a file
   - grep "apple" file1  (Will only search for the word "apple" in the file)
+  - grep -i 'apple' file1  (Will search the word irrespective of its case)
 
 * `egrep`
   - Extended global regular expression print
   - More advanced version of grep
   - We can search multiple words, case-insensitive search, etc.
-  - egrep 'error | fail' file1
-  - egrep -i error file1 (Will search word error even if it is upper case)
+  - egrep 'apple | cherry' file1
+  - egrep -i 'apple' file1 (Will search word even if it is in different case)
 
 * `cut` (-f)
   - View a specific content in a file
