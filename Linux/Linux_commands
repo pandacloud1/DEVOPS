@@ -270,7 +270,7 @@
   - Check the free & used RAM
 
 ## ==========================
-## CONNECTIVITY
+## NETWORKING
 ## ==========================
 * `ping`
   - Ping `www.google.com`
