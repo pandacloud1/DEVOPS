@@ -246,15 +246,16 @@
   - tar preserves the directory structure and file metadata (permissions/ownership/timestamps) within the archive.
   - tar is more commonly used in Unix/Linux environments.
   - tar will combine multiple file into a single file, but won't perform compression
-  - tar -cvf name.tar <dir-name> (Will create tar file from directory; c: create; v: verbose; f: file-name)
-  - tar -xvf name.tar  (Extract directory from tar; x: extract)
+  - tar -cvf archive.tar <dir-name> (Will create tar file from directory; c: create; v: verbose; f: file-name)
+  - tar -xvf archive.tar  (Extract directory from tar; x: extract)
 
 * `gzip`
-  - 
-  - gzip `name.tar`
+  - GNU Zip
+  - Used to compress tar file
+  - gzip archive.tar  (Output: archive.tar.gz)
 
 * `gunzip`
-  - gunzip `name.tar.gz`
+  - gunzip `archive.tar.gz`
 
 ## =============================
 ## DISK FREE / DISK UTILIZATION
