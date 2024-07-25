@@ -243,7 +243,9 @@
 ## ==========================
 * `tar`
   - Tape archive
-  - `vf`: verbose forcefully (e.g., `tar -cvf name.tar <dir-name>` or `tar -xvf name.tar`)
+  - `vf`: verbose forcefully 
+  - tar -cvf name.tar <dir-name> (Will create tar file from directory; c: create; v: verbose; f: file-name)
+  - tar -xvf name.tar  (Extract directory from tar; x: extract)
 
 * `gzip`
   - Gzip `name.tar`
