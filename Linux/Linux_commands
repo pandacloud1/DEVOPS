@@ -264,8 +264,18 @@
   - unzip archive.zip  (to unzip zipped file)
 
 ## =============================
-## DISK FREE / DISK UTILIZATION
+## RAM / CPU / DRIVE/ DISK SPACE
 ## =============================
+* 'free -h'
+  - RAM information
+  - Here 'h' means human readable size in KB, MB, GB, etc.
+
+* `top`
+  - Information of running processes along with RAM & CPU
+  - This is similar to Task Manager --> Performance in Windows
+  - 'htop' is more advanced version of 'top', but it must be installed separately
+  - sudo apt install htop -y (OR) - sudo yum install htop -y
+
 * `df`
   - Disk free (drives)
   - Used to check size of file systems (i.e., Disks)
@@ -275,6 +285,7 @@
 * `du`
   - Disk utilization (directories/files)
   - du -h <dir/file>  (Check the size of dir/file; h: human-readable size in KB, MB, etc)
+
 
 ## ==========================
 ## RUNNING PROCESSES
