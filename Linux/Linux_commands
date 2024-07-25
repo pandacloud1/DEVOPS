@@ -269,6 +269,7 @@
 * `df`
   - Disk free (drives)
   - Used to check size of file systems (i.e., Disks)
+  - The 'tmpfs' are used to store temporary files for RAM like cache files, runtime data, etc
   - df -h  (Output will display size of drives in KB, MB format)
 
 * `du`
