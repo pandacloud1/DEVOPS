@@ -226,7 +226,8 @@
   - View a specific content in a file
 
 * `awk`
-  - `awk {print $1} <file_name>` (Aho, Weinberger, and Kernighan)
+  - (Aho, Weinberger, and Kernighan)
+  - `awk '{print $1}' <file_name>` (pulls out the content of 1st column from the file)
 
 * `sed`
   - Stream editor (e.g., `sed -e 's/oldtext/newtext/g' file-name`, where `s` means substitute and `g` means global)
