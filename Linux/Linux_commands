@@ -239,7 +239,7 @@
   - sed -e 's/apple/banana/g' file1  (Here the word 'apple' will get replaced by 'banana' in 'file1')
 
 ## ==========================
-## ZIP/TAR
+## TAR, GZIP & ZIP
 ## ==========================
 * `tar`
   - Tape archive
@@ -247,20 +247,21 @@
   - But it won't perform compression (i.e., it won't reduce size), so it is combined with 'gzip'
   - tar preserves the directory structure and file metadata (permissions/ownership/timestamps) within the archive.
   - tar is more commonly used in Unix/Linux environments.
-
   - tar -cvf archive.tar <dir-name> (Will create tar file from directory; c: create; v: verbose; f: file-name)
   - tar -xvf archive.tar  (Extract directory from tar; x: extract)
 
-* `gzip`
+* `gzip` / 'gunzip'
   - GNU Zip
   - Used to compress tar files, tar doesn't performs compression hence 'gzip' is used to serve the purpose
   - gzip archive.tar  (Output: archive.tar.gz)
-
-* `gunzip`
   - gunzip `archive.tar.gz`  (To unzip the compressed files to .tar format)
 
-* 'zip'
-  - 
+* 'zip' / 'unzip'
+  - zip is used to compress & archive files
+  - Thus, it is a combination of 'tar + gzip' command
+  - zip is more commonly used across Unix/Linux, Windows, and macOS environments.
+  - zip -r archive.zip <dir-name>  (r: recursive to include sub-directories & files)
+  - unzip archive.zip  (to unzip zipped file)
 
 ## =============================
 ## DISK FREE / DISK UTILIZATION
