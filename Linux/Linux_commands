@@ -236,6 +236,8 @@
 * `sed`
   - Stream editor 
   - sed -e 's/oldtext/newtext/g' file-name (`s` means substitute and `g` means global)
+  - sed -i 's/oldtext/newtext/g' file1  (i: in-place editing; s: substitute; g: global)
+  - sed -e 's/apple/banana/g' file1  (Here the word 'apple' will get replaced by 'banana' in 'file1')
 
 ## ==========================
 ## ZIP/TAR
