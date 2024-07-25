@@ -262,9 +262,12 @@
 ## =============================
 * `df`
   - Disk free (drives)
+  - Used to check size of file systems (i.e., Disks)
+  - df -h  (Output will display size of drives in KB, MB format)
 
 * `du`
   - Disk utilization (directories/files)
+  - du -h <dir/file>  (Check the size of dir/file; h: human-readable size in KB, MB, etc)
 
 ## ==========================
 ## RUNNING PROCESSES
