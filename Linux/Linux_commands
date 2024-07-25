@@ -248,10 +248,10 @@
   - tar -xvf name.tar  (Extract directory from tar; x: extract)
 
 * `gzip`
-  - Gzip `name.tar`
+  - gzip `name.tar`
 
 * `gunzip`
-  - Gunzip `name.tar.gz`
+  - gunzip `name.tar.gz`
 
 ## =============================
 ## DISK FREE / DISK UTILIZATION
