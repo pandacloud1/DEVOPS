@@ -245,17 +245,17 @@
   - Tape archive
   - tar preserves the directory structure and file metadata (permissions/ownership/timestamps) within the archive.
   - tar is more commonly used in Unix/Linux environments.
-  - tar will combine multiple file into a single file, but won't perform compression
+  - tar will combine multiple file into a single file, but won't perform compression (i.e., it won't reduce size)
   - tar -cvf archive.tar <dir-name> (Will create tar file from directory; c: create; v: verbose; f: file-name)
   - tar -xvf archive.tar  (Extract directory from tar; x: extract)
 
 * `gzip`
   - GNU Zip
-  - Used to compress tar file
+  - Used to compress tar files, tar doesn't performs compression hence 'gzip' is used to serve the purpose
   - gzip archive.tar  (Output: archive.tar.gz)
 
 * `gunzip`
-  - gunzip `archive.tar.gz`
+  - gunzip `archive.tar.gz`  (To unzip the compressed files to .tar format)
 
 ## =============================
 ## DISK FREE / DISK UTILIZATION
