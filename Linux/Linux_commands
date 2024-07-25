@@ -229,6 +229,7 @@
 * `awk`
   - (Aho, Weinberger, and Kernighan)
   - `awk '{print $1}' <file_name>` (pulls out the content of 1st column from the file)
+  - echo "HELLO WORLD" | awk '{print $1}'  (Output: "HELLO")
 
 * `sed`
   - Stream editor (e.g., `sed -e 's/oldtext/newtext/g' file-name`, where `s` means substitute and `g` means global)
