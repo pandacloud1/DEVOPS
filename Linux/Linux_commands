@@ -346,17 +346,19 @@
 ## ==========================
 ## OTHER COMMANDS
 ## ==========================
-* `alias`
-  - Replace an existing command with a user-defined one (e.g., `alias list='ls -la'`)
-
-* `nohup`
-  - No hangup
-
 * `date`
   - Shows current date
 
 * `cal`
+  - Calender
   - (e.g., `apt install ncal -y`)
+
+* `alias`
+  - Name your own commands
+  - Replace an existing command with a user-defined one (e.g., `alias list='ls -la'`)
+
+* `nohup`
+  - No hangup, Runs processes/ applications in the background
 
 * `history`
   - Check the history of all the commands run in the server
