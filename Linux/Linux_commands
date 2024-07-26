@@ -333,8 +333,15 @@
 ## ==========================
 * `crontab` (-e)
   - Schedule a task in a specific period
-  - `Min Hour Day Month Week-day number` (starts from Monday)
+  - `Min Hour Date Month Day` (starts from Monday)
   - `* * * * *`
+  - Let's create scheduler to automatically create new file every minute
+  - vi script
+    - #!/bin/bash
+    - for i in {1..10}; do touch newfile$i; sleep 60; done
+  - chmod a+x script
+  - crontab -e
+    - * * * * * /home/ec2-user/script
 
 ## ==========================
 ## OTHER COMMANDS
