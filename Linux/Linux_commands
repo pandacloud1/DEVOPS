@@ -299,7 +299,10 @@
 
 * `netstat`
   - Shows a list of all active network connections & ports
-  - (e.g., `apt install net-tools -y` and `netstat -tunlp`, where `t`: tcp, `u`: udp, `n`: numerical address, `l`: listening sockets, `p`: processID)
+  - netstat maybe required to be installed in some Unix/Linux systems
+  - `apt install net-tools -y`
+  - netstat -tunlp  (`t`: tcp, `u`: udp, `n`: numerical address, `l`: listening ports, `p`: processID)
+  - Alternatively, we can also use 'ss' or 'lsof' commands
 
 * `ifconfig`
   - View private IP
