@@ -299,8 +299,7 @@
 
 * `netstat`
   - Shows a list of all active network connections & ports
-  - netstat maybe required to be installed in some Unix/Linux systems
-  - `apt install net-tools -y`
+  - netstat maybe required to be installed in some Unix/Linux systems (`apt install net-tools -y`)
   - netstat -tunlp  (`t`: tcp, `u`: udp, `n`: numerical address, `l`: listening ports, `p`: processID)
   - Alternatively, we can also use 'ss' or 'lsof' commands
 
@@ -314,10 +313,11 @@
 ## DOWNLOAD PACKAGES
 ## ==========================
 * `wget`
-  - `wget <url>`
+  - wget <url>
 
 * `curl`
   - Advanced version of wget
+  - curl <url>
 
 ## ==========================
 ## PACKAGE MANAGERS
@@ -347,7 +347,7 @@
     - * * * * * /home/ec2-user/script
 
 ## ==========================
-## OTHER COMMANDS
+## MISCELLANEOUS
 ## ==========================
 * `date`
   - Shows current date
