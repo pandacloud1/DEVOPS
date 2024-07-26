@@ -295,7 +295,7 @@
 ## NETWORKING
 ## ==========================
 * `ping`
-  - Ping `www.google.com`
+  - ping `www.google.com`
 
 * `netstat`
   - Shows a list of all active network connections & ports
