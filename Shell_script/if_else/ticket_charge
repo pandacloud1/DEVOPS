@@ -3,11 +3,11 @@
 # Date: 29-07-2024 | Modified Date: 29-07-2024
 # Description: To print ticket charges as per your gender
 
-echo "What is your gender? "
+echo "SELECT YOUR GENDER (M/F): "
 read a
-if [ $a == male ]
+if [ $a == M ]
 then
-echo The tickets are $50
+echo "The ticket charge is Rs. 50"
 else
-echo The tickets are $25
+echo "The ticket charge is Rs. 25"
 fi
