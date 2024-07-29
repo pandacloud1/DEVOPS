@@ -1,9 +1,13 @@
 #!/bin/bash
-echo What is your gender?
+# Author: Nasir
+# Date: 29-07-2024 | Modified Date: 29-07-2024
+# Description: To print ticket charges as per your gender
+
+echo "What is your gender? "
 read a
 if [ $a == male ]
 then
 echo The tickets are $50
 else
-echo The tickets are $40
+echo The tickets are $25
 fi
