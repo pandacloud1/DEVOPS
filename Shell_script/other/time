@@ -1,0 +1,7 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 29-07-2024 | Modified Date: 29-07-2024
+# Description: To print the time
+
+today=`date | awk '{print $4}'`
+head -n 1| grep '$today' 
