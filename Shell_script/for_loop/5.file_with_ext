@@ -5,10 +5,8 @@
   
 echo "Enter file start name: "
 read name
-
 echo "Enter the number of files to be created: "
 read n
-
 echo "Enter the file extension: "
 read e
 
@@ -17,6 +15,7 @@ do
         touch $name$i.$e
 done
 
+echo
 echo "Your files are as below: "
 ls $name*
 
