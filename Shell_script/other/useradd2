@@ -1,0 +1,18 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 29-07-2024 | Modified Date: 29-07-2024
+# Description: To check if user exists first & then add a user
+
+echo Please enter username
+read u
+grep -q $u /etc/passwd
+if [ $? -eq 0 ]
+then
+echo "The User exists"
+else
+sudo useradd $u
+echo "User $u has been added successfully"
+fi
+
+# Note:
+# "-q" is check quietly and not to display output
