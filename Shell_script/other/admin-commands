@@ -1,0 +1,13 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 01/01/2000 | # Modified: 01/01/2000
+# Description: To run admin commands
+
+date
+uptime
+df -h
+
+#chmod a+x admin-commands  (change file perm.)
+#./admin-commands
+#./admin-commands | awk '{print $1}'
+#'awk' is used to read, $1 means 1st column only
