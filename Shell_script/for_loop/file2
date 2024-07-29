@@ -1,0 +1,9 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 29-07-2024 | Modified Date: 29-07-2024
+# Description: To print 'Favourite fruits' using 'for' loop
+
+for i in apple banana cherry date
+do
+echo "I love $i"
+done
