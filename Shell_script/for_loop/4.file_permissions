@@ -3,8 +3,12 @@
 # Date: 29-07-2024 | Modified Date: 29-07-2024
 # Description: To give execute permissions to files w/ names Server1 - 10
 
-for i in Server*
+echo "The current file permissions are:"
+ls -la
+for i in File*
   do
     chmod a+x $i 
     sleep 1
 done
+echo "The permissions have been changed as below:"
+ls -la
