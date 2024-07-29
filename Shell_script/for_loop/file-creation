@@ -1,0 +1,9 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 29-07-2024 | Modified Date: 29-07-2024
+#Description: To create files w/ names Server1 - Server10
+
+for i in {1..10}
+do
+touch Server$i 
+done
