@@ -1,12 +1,14 @@
 #!/bin/bash
 # Author: Nasir
 # Date: 29-07-2024 | Modified Date: 29-07-2024
-# Description: To check if a file exists
+# Description: To check if a file exists using 'find' command
   
-ls /home/user/testfile.txt
-if [ echo $? -eq 0 ]
-then
-echo File Exists
+echo "Enter the filename:"
+read filename
+
+# Check if the file exists in /home/ubuntu using find and suppress output
+if find /home/ubuntu -type f -name "$filename" > /dev/null 2>&1; then
+  echo "File exists"
 else
-echo File does not exists
+  echo "File doesn't exist"
 fi
