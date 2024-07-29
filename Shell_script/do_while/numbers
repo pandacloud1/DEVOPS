@@ -1,0 +1,12 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 29-07-2024 | Modified Date: 29-07-2024
+# Description: To print numbers 1-5 using 'do while' loop
+  
+#!/bin/bash
+i=1                      #(initial value)
+while [ $i -le 5 ]       #(condition)
+do
+echo Welcome $i times   #(argument)
+((i++))                 #(increment)
+done
