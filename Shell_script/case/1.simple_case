@@ -1,0 +1,13 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 29-07-2024 | Modified_Date: 29-07-2024
+#Description: Simple case statement to print output as per user's input
+
+echo "Enter a number (1 to 3):"
+read n
+case $n in
+1) echo “You entered one” ;;
+2) echo “You entered two” ;;
+3) echo “You entered three” ;;
+*) echo "Invalid choice"
+esac
