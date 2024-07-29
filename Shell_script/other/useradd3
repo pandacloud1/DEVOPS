@@ -1,0 +1,46 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 29-07-2024 | Modified Date: 29-07-2024
+# Description: To check if user exists, then add a user, also add the userID
+
+echo Please enter username: 
+read u
+
+grep -q $u /etc/passwd
+if [ $? -eq 0 ]
+then
+    echo "The User exists"
+    echo "Please choose another username"
+    exit 0
+fi
+
+echo "Please enter user description: "
+read d
+
+echo "Do you want to add UserID(y/n)?: "
+read input
+if [ $input == y ]
+then
+    echo "Please enter UserID: " 
+    read uid
+    grep -q $uid /etc/passwd
+    if [ $? -eq 0 ]
+    then
+        echo "$uid exists"
+        exit 0
+    else
+        sudo useradd $u -c "$d" -u $uid
+        echo "$u has been added w/ description & UID"
+        echo
+        echo "Check the user using command [grep $u /etc/passwd]"
+    fi
+
+    elif [ $input == n ]
+    then
+        sudo useradd $u -c "$d"
+        echo $u has been added w/ description 
+        echo
+        echo "Check the user using command [grep $u /etc/passwd]"
+    fi
+
+#"-u" is used to add "user ID" in "useradd" command
