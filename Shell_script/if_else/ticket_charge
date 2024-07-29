@@ -1,0 +1,9 @@
+#!/bin/bash
+echo What is your gender?
+read a
+if [ $a == male ]
+then
+echo The tickets are $50
+else
+echo The tickets are $40
+fi
