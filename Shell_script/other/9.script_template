@@ -1,0 +1,26 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 29-07-2024 | Modified Date: 29-07-2024
+# Description: To perform below tasks in a single shell script file
+  # 1. Input filename
+  # 2. Author's name
+  # 3. File description
+  # 4. Change file mode to 'executable'
+  # 5. Open the file in editing mode
+
+
+echo "Please enter the file name: " 
+read name
+echo "Please enter the Author's name: "
+read a
+echo "Please enter the file's description: " 
+read d
+
+echo "#!/bin/bash" >> /home/ec2-user/$name
+echo "#Author: " $a >> /home/ec2-user/$name
+echo "#Date: " $(date) >> /home/ec2-user/$name
+echo "#Description: " $d >> /home/ec2-user/$name
+echo "#Modified Date: " $(date) >> /home/ec2-user/$name
+echo
+chmod a+x $name
+vi $name
