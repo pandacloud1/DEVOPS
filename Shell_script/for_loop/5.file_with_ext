@@ -22,5 +22,5 @@ ls $name*
 
 
 # Note:
-# {1..10} works only in case of integers & not for variables)
+# {1..10} works only in case of integers & not for variables
 # Hence we have used "$(seq 1 $n)"
