@@ -1,0 +1,17 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 29-07-2024 | Modified Date: 29-07-2024
+# Description: Check internet connectivity
+
+ping -c1 www.google.com
+    if [ $? -eq 0]
+    then
+    echo " Internet is Working"
+    else
+    echo "Please check your internet connection"
+    fi
+
+# Note: here '-c1' means to check the connection only once
+
+#chmod a+x check_internet  (to change file perm.)
+#./check_internet          (to execute file)
