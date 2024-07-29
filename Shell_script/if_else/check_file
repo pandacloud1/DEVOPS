@@ -1,0 +1,12 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 29-07-2024 | Modified Date: 29-07-2024
+# Description: To check if a file exists
+  
+ls /home/user/testfile.txt
+if [ echo $? -eq 0 ]
+then
+echo File Exists
+else
+echo File does not exists
+fi
