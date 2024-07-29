@@ -1,4 +1,7 @@
 #!/bin/bash
+# Author: Nasir
+# Date: 29-07-2024 | Modified Date: 29-07-2024
+# Description: To print 'Welcome msg' with numbers 1-5 using 'for' loop
 for i in {1..5}
 do
 echo "Welcome $i times"
