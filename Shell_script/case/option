@@ -1,0 +1,20 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 29-07-2024 | Modified Date: 29-07-2024
+# Description: To run command based on user's input using 'case' statement
+  
+echo Please select your choice
+echo 'a = Display Date & Time'
+echo 'b = List directories'
+echo 'c = List users logged in'
+echo 'd = Show system uptime'
+
+read choice
+
+case $choice in
+a) date;;
+b) ls;;
+c) who;;
+d) uptime;;
+*) invalid choice.
+esac
