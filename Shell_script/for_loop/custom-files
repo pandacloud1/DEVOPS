@@ -1,0 +1,19 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 29-07-2024 | Modified Date: 29-07-2024
+# Description: To create user defined files w/ any no
+  
+echo Enter the file start name
+read name
+echo Enter the no of files to be created
+read n
+echo Enter file extension
+read e
+  for i in $(seq 1 $n)
+  do
+    touch $name$i.$e
+  done
+
+# Note:
+# {1..10} works only in case of integers & not for variables)
+# Hence we have used "$(seq 1 $n)"
