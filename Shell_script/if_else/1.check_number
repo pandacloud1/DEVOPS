@@ -1,9 +1,11 @@
-#!/bin/
-bash
-#Description: if else statement
-number=5
-if [ $number
-gt 0 ]; then
+#!/bin/bash
+# Author: Nasir
+# Date: 29-07-2024 | Modified: 29-07-2024
+#Description: Check if a number is positive or negative
+
+echo "Please enter a number: "
+read number
+if [ $number -gt 0 ]; then
 echo "The number is positive"
 else echo "The number is negative"
 fi
