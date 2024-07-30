@@ -16,6 +16,6 @@ do
         echo "You can check the user list by running"
         echo "cat /etc/passwd"
         echo
-        break
+        break  #(you can ignore this line if you want to keep on checking & adding users continuously)
     fi
 done
