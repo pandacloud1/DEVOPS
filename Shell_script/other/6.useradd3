@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Nasir
 # Date: 29-07-2024 | Modified Date: 29-07-2024
-# Description: To check if user exists, then add a user, also add the userID
+# Description: To check if user exists, then add a user, also add the comment & userID
 
 echo Please enter username: 
 read u
@@ -14,8 +14,8 @@ then
     exit 0
 fi
 
-echo "Please enter user description: "
-read d
+echo "Please enter user comments: "
+read c
 
 echo "Do you want to add UserID(y/n)?: "
 read input
@@ -29,7 +29,7 @@ then
         echo "$uid exists"
         exit 0
     else
-        sudo useradd $u -c "$d" -u $uid
+        sudo useradd $u -c "$c" -u $uid
         echo "$u has been added w/ description & UID"
         echo
         echo "Check the user using command [grep $u /etc/passwd]"
@@ -37,8 +37,8 @@ then
 
     elif [ $input == n ]
     then
-        sudo useradd $u -c "$d"
-        echo $u has been added w/ description 
+        sudo useradd $u -c "$c"
+        echo $u has been added w/ comments
         echo
         echo "Check the user using command [grep $u /etc/passwd]"
     fi
