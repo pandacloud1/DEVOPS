@@ -1,0 +1,21 @@
+#!/bin/bash
+# Description: To check if user exists & then add user
+while true
+do
+    echo "PLEASE ENTER USERNAME: "
+    read u
+    if
+        grep -q $u /etc/passwd
+        then
+        echo "The User $u already exists, please enter a different name"
+    else
+        sudo useradd $u
+        echo
+        echo "The User $u has been added successfully"
+        echo
+        echo "You can check the user list by running"
+        echo "cat /etc/passwd"
+        echo
+        break
+    fi
+done
