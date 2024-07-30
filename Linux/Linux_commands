@@ -1,4 +1,47 @@
 ## ==========================
+## BASIC COMMANDS
+## ==========================
+* 'cp' 
+  - Copy command, used to copy files/directories
+  - cp dir1 /home/ubuntu
+  - Above command will copy 'dir1' in '/home/ubuntu' location
+
+* 'mv'
+  - Move/ Rename command, used to move or rename files/directories
+  - mv file1 /home/ubuntu  (moves file 'file1' inside '/home/ubuntu' location)
+  - mv file1 file2  (renames 'file1' to 'file2')
+
+* 'rm'
+  - Remove/Delete files/directories
+  - Used to remove files/directories
+  - rm -rf file1  (this command is commonly used for files/directories; -rf: remove forcefully)
+
+* 'ls'
+  - List command, used to list files/directories
+  - ls -a  (will list files/directories along with hidden files/directories; a: all)
+  - ls -la  (will list files/directories along with hidden files/directories with details)
+  - Output looks like below:
+    drw-rw-rw-- 1 alexa alexa 398 Jan 01 10:10 my-file
+    Details: File type*, Permissions**, no of hardlink, owner, group, file size in bytes, last modified date/time, file_name
+  - File type*: 
+    d: directory; -: file; l: softlink  
+  - Permissions** looks like rwxrw-r--; 
+    Here, 
+    rwx   = owner permissions (read, write & execute)
+    rw-   = group permissions (read & write)
+    r--   = other users permisisons (read only)
+
+* 'cd'
+  - Change directory
+  - cd <file/dir path>
+  - cd /home/ubuntu  (to go to 'ubuntu' directory inside '/home' directory)
+  - cd ..  (to go back by one directory)
+
+* 'pwd'
+  - Print work directory
+  - To display the directory you are working in
+
+## ==========================
 ## OS INFORMATION
 ## ==========================
 * `hostnamectl`
@@ -109,7 +152,7 @@
   - Switch user
 
 ## ==============================================
-## FILE/DIRECTORY CHANGE OWNER/GROUP/PERMISSIONS
+## CHANGE OWNER/GROUP/PERMISSIONS OF FILE/DIRECTORY
 ## ==============================================
 * `chown`
   - Change owner of file/directory
