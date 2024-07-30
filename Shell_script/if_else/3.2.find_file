@@ -1,9 +1,10 @@
 #!/bin/bash
-# Description: To find a file/dir in the '/' directory and check if it is a file or directory using 'ls -la'
+# Description: To find a file/dir in the '/' directory and specify if it is a file or directory using 'ls -la'
 
 echo "Enter the dir/filename:"
 read name
 
+# Find the file/dir and save results to 'output'
 sudo find / -name "$name" -print > output
 
 if grep -q "$name" output; then
@@ -11,13 +12,13 @@ if grep -q "$name" output; then
  echo "File/dir exists in the below path(s):"
   cat output
   echo
-  while IFS= read -r path
-  do
-    if ls -la | grep -q "d"
+  while IFS= read -r path; do
+    # Use 'ls -la' to determine if it's a file or directory
+    if ls -la "$path" | grep -q "d"
     then
-      echo "$name is a directory"
+      echo "$name in $path is a directory"
     else
-      echo "$name is a file"
+      echo "$name in $path is a file"
     fi
   done < output
 else
