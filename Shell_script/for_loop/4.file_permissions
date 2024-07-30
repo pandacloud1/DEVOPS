@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Nasir
 # Date: 29-07-2024 | Modified Date: 29-07-2024
-# Description: To give execute permissions to files w/ names Server1 - 10
+# Description: To give execute permissions to files w/ names File1 - 10
 
 echo "The current file permissions are:"
 ls -la
