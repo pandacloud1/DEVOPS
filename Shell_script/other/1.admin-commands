@@ -3,11 +3,12 @@
 # Date: 01/01/2000 | # Modified: 01/01/2000
 # Description: To run admin commands
 
-date
-uptime
-df -h
+echo "Today is"
+date | awk '{print $1}'
+echo "The Date is"
+date | awk '{print $2 $3 $6}'
+echo "The time is"
+date | awk '{print $4}'
 
-#chmod a+x admin-commands  (change file perm.)
-#./admin-commands
-#./admin-commands | awk '{print $1}'
-#'awk' is used to read, $1 means 1st column only
+# Note:
+# 'awk' is used to read, $1 means 1st column only
