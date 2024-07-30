@@ -5,10 +5,16 @@
 
 echo "Today is"
 date | awk '{print $1}'
+echo
 echo "The Date is"
 date | awk '{print $2, $3, $6}'
-echo "The time is"
+echo
+echo "The UTC time is:"
 date | awk '{print $4}'
+echo
+ist=$$(date -d "+5 hours 30 minutes" +"%H:%M:%S")
+echo "The Indian time is:"
+echo "$ist"
 
 # Note:
 # 'awk' is used to read, $1 means 1st column only
