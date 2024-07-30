@@ -18,3 +18,4 @@ echo "$ist"
 
 # Note:
 # 'awk' is used to read, $1 means 1st column only
+# We can use 'date +"%A"' alternatively to display the complete day of the week
