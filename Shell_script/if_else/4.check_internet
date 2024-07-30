@@ -14,5 +14,5 @@ ping -c1 www.google.com
 # Note: 
 # Here '-c1' means to check the connection only once
 # $? is used to check the exit code status
-# Exit codes: 0 : Successful; 1 : Minor issue; 2 : Serious issue; 3 - 255 : Other issues
+# Exit codes: 0 : Successful; 1 : Minor issue; 2 : Major issue; 3 - 255 : Other issues
 # eg: Run 'ls -la' ; then run echo $? ; Output must be '0' which means previous command ran successfully
