@@ -1,0 +1,25 @@
+#!/bin/bash
+# Description: To find a file/dir in the '/' directory and check if it is a file or directory using 'ls -la'
+
+echo "Enter the dir/filename:"
+read name
+
+sudo find / -name "$name" -print > output
+
+if grep -q "$name" output; then
+ echo
+ echo "File/dir exists in the below path(s):"
+  cat output
+  echo
+  while IFS= read -r path
+  do
+    if ls -la | grep -q "d"
+    then
+      echo "$name is a directory"
+    else
+      echo "$name is a file"
+    fi
+  done < output
+else
+  echo "File/dir doesn't exist"
+fi
