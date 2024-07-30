@@ -1,21 +1,22 @@
 #!/bin/bash
 # Author: Nasir
 # Date: 29-07-2024 | Modified Date: 29-07-2024
-# Description: To check if a file exists using 'find' command
+# Description: To check if a file/dir exists using 'find' command
   
-echo "Enter the filename:"
-read filename
+echo "Enter the dir/filename:"
+read name
 
-# Check if the file exists in /home/ubuntu using find and suppress output
-if find /home/ubuntu -type f -name "$filename" > output
+sudo find / -name "$name" > output
+
+if grep -q "$name" output
 then
-  echo "File exists"
+echo "File/dir exists in the below path(s):"
+cat output
 else
-  echo "File doesn't exist"
+echo "File/dir doesn't exist"
 fi
 
 # Note:
-
 # Alternatively, we can also redirect the output to --> /dev/null 2>&1
 # '/dev/null' is a special file in that discards all data written to it
 # Writing to /dev/null means ignoring the output.
