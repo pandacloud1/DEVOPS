@@ -5,9 +5,3 @@
 
 echo "The UTC time is:"
 date | awk '{print $4}'
-
-echo
-
-ist=$(date -d "+5 hours 30 minutes" +"%H:%M:%S")
-echo "The Indian time is:"
-echo "$ist"
