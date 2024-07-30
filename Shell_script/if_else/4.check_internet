@@ -1,0 +1,18 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 29-07-2024 | Modified Date: 29-07-2024
+# Description: Check internet connectivity
+
+ping -c1 www.google.com
+    if [ $? -eq 0]
+    then
+    echo " Internet is Working"
+    else
+    echo "Please check your internet connection"
+    fi
+
+# Note: 
+# Here '-c1' means to check the connection only once
+# $? is used to check the exit code status
+# Exit codes: 0 : Successful; 1 : Minor issue; 2 : Serious issue; 3 - 255 : Other issues
+# eg: Run 'ls -la' ; then run echo $? ; Output must be '0' which means previous command ran successfully
