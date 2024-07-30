@@ -7,11 +7,16 @@ echo "Enter the filename:"
 read filename
 
 # Check if the file exists in /home/ubuntu using find and suppress output
-if find /home/ubuntu -type f -name "$filename" > /dev/null 2>&1; then
+if find /home/ubuntu -type f -name "$filename" > output
+then
   echo "File exists"
 else
   echo "File doesn't exist"
 fi
 
 # Note:
+
+# Alternatively, we can also redirect the output to --> /dev/null 2>&1
+# '/dev/null' is a special file in that discards all data written to it
 # Writing to /dev/null means ignoring the output.
+# 0: standard input (stdin); 1: standard output (stdout); 2: standard error (stderr)
