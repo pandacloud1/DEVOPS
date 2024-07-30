@@ -3,7 +3,5 @@
 # Date: 29-07-2024 | Modified Date: 29-07-2024
 # Description: To print today's date
   
-today=`date | awk '{print $1, $2, $3, $6}'`
-head -n 1 | grep '$today'    
-  
-# Note: write $today in ' ', as it will pull multiple values
+echo "The Date is"
+date | awk '{print $2, $3, $6}'
