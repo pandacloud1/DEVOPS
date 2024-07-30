@@ -6,9 +6,8 @@
 echo "The current file permissions are:"
 ls -la
 for i in File*
-  do
-    chmod a+x $i 
-    sleep 1
+do
+chmod a+x $i 
 done
 echo "The permissions have been changed as below:"
 ls -la
