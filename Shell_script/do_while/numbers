@@ -7,6 +7,6 @@
 i=1                      #(initial value)
 while [ $i -le 5 ]       #(condition)
 do
-echo Welcome $i times   #(argument)
-((i++))                 #(increment)
+echo Welcome $i times    #(argument)
+((i++))                  #(increment)
 done
