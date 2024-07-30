@@ -12,3 +12,6 @@ if find /home/ubuntu -type f -name "$filename" > /dev/null 2>&1; then
 else
   echo "File doesn't exist"
 fi
+
+# Note:
+# Writing to /dev/null means ignoring the output.
