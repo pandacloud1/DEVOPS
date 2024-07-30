@@ -1,0 +1,16 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 29-07-2024 | Modified: 29-07-2024
+#Description: Check if a number is positive/ negative/ zero
+
+echo "ENTER YOUR NUMBER: "
+read num
+if [ $num -gt 0 ]
+then
+echo "The number is positive"
+elif [ $num -eq 0 ]
+then
+echo "You have entered 0, which is neither positive nor negative"
+else
+echo "The number is negative"
+fi
