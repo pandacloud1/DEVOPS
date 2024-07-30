@@ -3,14 +3,16 @@
 # Date: 29-07-2024 | Modified Date: 29-07-2024
 # Description: To add a new user
 
-echo "Please enter username: "
+echo "PLEASE ENTER USERNAME: "
 read u
 sudo useradd $u
-echo "User $u has been added successfully"
-echo "You can check the list of users by running:"
+echo
+echo "The User $u has been added successfully"
+echo
+echo "You can check the list of users by running below command:"
 echo "cat /etc/passwd"
+echo
 
 # Note: 
-# verify if user is added in /etc/passwd using grep
 # eg: Let's say you have added a user with name 'alexa', then run below
 # cat /etc/passwd | grep alexa
