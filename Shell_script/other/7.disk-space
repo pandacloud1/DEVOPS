@@ -3,7 +3,7 @@
 # Date: 29-07-2024 | Modified Date: 29-07-2024
 # Description: To check disk space
   
-a=`df -h | awk '{print $5}' | cut -d '%' -f1
+a=`df -h | awk '{print $5}' | cut -d '%' -f "1"
 for i in $a
 do
 if [ $i -ge 20 ]
