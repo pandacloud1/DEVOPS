@@ -6,7 +6,7 @@
 echo "Today is"
 date | awk '{print $1}'
 echo "The Date is"
-date | awk '{print $2 $3 $6}'
+date | awk '{print $2, $3, $6}'
 echo "The time is"
 date | awk '{print $4}'
 
