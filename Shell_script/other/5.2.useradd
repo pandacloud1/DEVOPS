@@ -10,12 +10,9 @@ do
         echo "The User $u already exists, please enter a different name"
     else
         sudo useradd $u
-        echo
         echo "The User $u has been added successfully"
-        echo
         echo "You can check the user list by running"
         echo "cat /etc/passwd"
-        echo
         break  #(you can ignore this line if you want to keep on checking & adding users continuously)
     fi
 done
