@@ -17,7 +17,8 @@ do
         echo "Do you want to add more users? (Y/N):"
         read input
         if [ $input == N ]
-        then
-        break  
+            then
+            break  
+        fi
     fi
 done
