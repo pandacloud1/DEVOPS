@@ -20,7 +20,7 @@ do
       echo
       echo "Warning"
       echo "The disk space is more than 10% for below for systems:"
-      echo $(df -h | grep $i)
+      echo $(df -h | grep $i | awk '{print $1}')
       echo
       fi
 done
