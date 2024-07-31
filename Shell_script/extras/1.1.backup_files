@@ -1,0 +1,32 @@
+#!/bin/bash
+# Description:
+        # 1. To archive files
+        # 2. To compress files using gzip (optional)
+echo
+echo "THIS SCRIPT WILL ARCHIVE & ZIP FILES"
+echo "Please enter the dir name"
+echo "(Mention the complete path):"
+read p
+echo
+echo "Please enter archive name:"
+read a
+a="$a.tar"
+echo
+echo "Do you want to compress the file? (Y/N):"
+read input
+
+if [ $input == N ]
+then
+        tar cvf $a $p &> /dev/null
+        echo
+        echo "Success: Archive created"
+        echo "'File:'   -->" "$(pwd)"/"$a"
+
+else
+        tar cvf $a $p &> /dev/null
+        gzip $a
+        g="$a.gz"
+        echo
+        echo "Success: Archive created & compressed"
+        echo "'File:'   -->" "$(pwd)"/"$g"
+fi
