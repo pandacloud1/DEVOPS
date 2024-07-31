@@ -1,5 +1,5 @@
 #!/bin/bash
-# Description: To check if user exists & then add user
+# Description: To check if user exists & then add user using a loop
 while true
 do
     echo "PLEASE ENTER USERNAME: "
