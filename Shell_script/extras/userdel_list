@@ -1,0 +1,21 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 31-07-2024 | Modified Date: 31-07-2024
+# Description: The below script is delete users from a file containing list of users
+# Eg: list.txt
+
+mapfile -t users < list.txt
+
+# Loop through the array and add users
+for name in "${users[@]}"
+do
+    if
+grep -q "$name" /etc/passwd
+then
+        sudo userdel "$name"
+        echo "User '$name' has been removed from the system."
+else
+        echo "User '$name' doesn't  exists."
+        cat /etc/passwd | grep "$name"
+     fi
+done
