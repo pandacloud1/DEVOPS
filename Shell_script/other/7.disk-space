@@ -3,24 +3,27 @@
 # Date: 29-07-2024 | Modified Date: 29-07-2024
 # Description: To check disk space
 
-echo "Do you want to check disk space? (Y/N):"
-read input
-if [ $input == Y ]
-  then
-    df -h
-    echo
-    a=$(df -h | awk '{print $5}' | cut -d '%' -f "1")
-    for i in $a
+echo "# ---------------- #"
+echo "# CHECK DISK SPACE #"
+echo "# ---------------- #"
+echo
+echo "The disk space is below:"
+df -h
+echo
+
+# Check if space exceeds a defined limit
+a=$(df -h | awk '{print $5}' | cut -d '%' -f "1")
+for i in $a
     do
       if [ $i -ge 10 ]
       then
+      echo
       echo "Warning: The disk space is more than 10% for below for systems"
       echo $(df -h | grep $i)
       fi
     done
   else
-  echo "Thank You"
-fi
+echo "Thank You"
 
 # Note:
 # cut -d'%' -f1: This will discard "%" & filter only the 1st value 
