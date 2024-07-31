@@ -1,4 +1,5 @@
 #!/bin/bash
+# Description: To find & replace words from a file
 
 echo "Enter file name:"
 read f
