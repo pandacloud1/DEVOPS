@@ -2,7 +2,7 @@
 # Author: Nasir
 # Date: 31-07-2024 | Modified Date: 31-07-2024 
 # Description: The below script is used to add users from a file containing list of users
-# File name of list: list.txt
+# File_name: list.txt
 
 mapfile -t users < list.txt
 
