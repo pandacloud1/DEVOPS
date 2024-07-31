@@ -14,7 +14,7 @@ read old
 echo "Enter word to replace:"
 read new
 sed -i "s/$old/$new/g" "$path"
-echo "The word $old was replaced with $new"
+echo "The word '$old' was replaced with '$new'"
 echo
 echo "FILE OUTPUT:"
 cat $path
