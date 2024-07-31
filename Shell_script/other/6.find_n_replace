@@ -1,22 +1,33 @@
 #!/bin/bash
 # Description: To find & replace words from a file
 
+echo "# -------------- #"
+echo "# FIND & REPLACE #"
+echo "# -------------- #"
+echo
 echo "Enter file name:"
 read f
+echo
 echo "Enter complete file path:"
 read p
 path=$(find $p -type f -name $f)
 if [ $? -eq 0 ]
 then
+echo
 echo "File found at $path"
+echo
 echo "Enter word to find:"
 read old
+echo
 echo "Enter word to replace:"
 read new
 sed -i "s/$old/$new/g" "$path"
+echo
 echo "The word '$old' was replaced with '$new'"
 echo
-echo "FILE OUTPUT:"
+echo "# ----------- #"
+echo "# FILE OUTPUT #"
+echo "# ----------- #"
 cat $path
 else
 echo "File not found"
