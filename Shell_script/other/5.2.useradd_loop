@@ -13,6 +13,11 @@ do
         echo "The User $u has been added successfully"
         echo "You can check the user list by running"
         echo "cat /etc/passwd"
-        break  #(you can ignore this line if you want to keep on checking & adding users continuously)
+        echo
+        echo "Do you want to add more users? (Y/N):"
+        read input
+        if [ $input == N ]
+        then
+        break  
     fi
 done
