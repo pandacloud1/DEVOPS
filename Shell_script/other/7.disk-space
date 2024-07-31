@@ -9,13 +9,13 @@ if [ $input == Y ]
   then
     df -h
     echo
-    a=`df -h | awk '{print $5}' | cut -d '%' -f "1"`
+    a=$(df -h | awk '{print $5}' | cut -d '%' -f "1")
     for i in $a
     do
-      if [ $i -ge 20 ]
+      if [ $i -ge 10 ]
       then
-      echo "Warning: The disk space is more than 20% for below for systems"
-      echo `df -h | grep $i`
+      echo "Warning: The disk space is more than 10% for below for systems"
+      echo $(df -h | grep $i)
       fi
     done
   else
