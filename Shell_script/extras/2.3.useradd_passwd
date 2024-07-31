@@ -1,0 +1,38 @@
+#!/bin/bash
+# Author: Nasir
+# Date: 31-07-2024 | Modified Date: 31-07-2024
+# Description: This is a script to check:
+  # 1. if user exists
+  # 2. add the users
+  # 3. add the password
+
+while true
+do
+echo "PLEASE ENTER USERNAME:"
+read u
+if
+grep -q $u /etc/passwd
+then
+echo "Oops: The user $u already exists, please choose different user"
+else
+
+echo
+sudo useradd $u
+echo "Please set password:"
+sudo passwd $u
+echo
+echo "# ------------------ #"
+echo "#     Success        #"
+echo "# ------------------ #"
+echo "The user $u has been added successfully"
+echo "Please check the below list"
+cat /etc/passwd | grep $u
+echo
+echo "Do you want to add more users? (Y/N):"
+read input
+        if [ $input == N ]
+        then
+        break
+        fi
+fi
+done
