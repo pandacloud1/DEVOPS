@@ -8,6 +8,7 @@ echo "# CHECK DISK SPACE #"
 echo "# ---------------- #"
 echo
 echo "The disk space is below:"
+echo
 df -h
 echo
 
