@@ -1,16 +1,19 @@
 #!/bin/bash
 # Author: Nasir
-# Date: 01/01/2000 | # Modified: 01/01/2000
-# Description: To run admin commands
+# Date: 29-07-2024 | # Modified: 31-07-2024
+# Description: To display day, date, UTC Time, IST Time
 
 echo "Today is"
 date | awk '{print $1}'
+
 echo
 echo "The Date is"
 date | awk '{print $2, $3, $6}'
+
 echo
 echo "The UTC time is:"
 date | awk '{print $4}'
+
 echo
 ist=$(date -d "+5 hours 30 minutes" +"%H:%M:%S")
 echo "The Indian time is:"
