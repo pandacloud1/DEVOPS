@@ -2,8 +2,12 @@
 # Description:
         # 1. To copy files from one virtual server to another virtual server
 
+# Note:
+        # 1. Ensure your pem file is present in your current location
+        # 2. The pem key must have executable permissions
+
 echo "# ------------------------------------------------ #"
-echo "# THIS SCRIPT WILL COPY FILES ACROSS EC2 INSTANCES #"
+echo "# THIS SCRIPT WILL COPY FILES ACROSS VIRTUAL M/C's #"
 echo "# ------------------------------------------------ #"
 echo
 echo "Please enter the file name"
