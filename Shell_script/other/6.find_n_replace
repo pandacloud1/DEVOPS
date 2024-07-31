@@ -23,12 +23,13 @@ echo "Enter word to replace:"
 read new
 sed -i "s/$old/$new/g" "$path"
 echo
-echo "The word '$old' was replaced with '$new'"
+echo "Success: The word '$old' was replaced with '$new'"
 echo
 echo "# ----------- #"
 echo "# FILE OUTPUT #"
 echo "# ----------- #"
 cat $path
+echo
 else
 echo "File not found"
 fi
