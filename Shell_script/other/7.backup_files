@@ -3,7 +3,10 @@
         # 1. To archive files
         # 2. To compress files using gzip (optional)
 echo
-echo "THIS SCRIPT WILL ARCHIVE & ZIP FILES"
+echo "# ---------------- #"
+echo "#   BACKUP FILES   #"
+echo "# ---------------- #"
+echo
 echo "Please enter the dir name"
 echo "(Mention the complete path):"
 read p
