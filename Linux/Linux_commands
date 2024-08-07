@@ -47,9 +47,9 @@
 * `hostnamectl`
   - Displays OS info with kernel version, hostname, architecture
   - To change hostname
-  - sudo vi /etc/hostname  #(add your new hostname)
-  - sudo hostname <your-new-name>
-  - Switch the user to reflect the changes
+    - sudo su
+    - echo "<your-new-hostname>" > /etc/hostname  
+    - hostname <your-new-hostname>  # (Switch the user to reflect the changes)
 
 * `uname -a`
   - Displays system information, kernel version, hostname and architecture
