@@ -45,18 +45,18 @@
   
 *  `git push origin main`
   - To push files from local repo --> central repo
-  
-## --------------------------
-## PULL FILES FROM GITHUB --> NEW GIT REPO
-## --------------------------  
-*  `git clone <github-url>`
-  - To pull files from central repo --> new local repo 
-  
+
 ## --------------------------
 ## PULL FILES FROM GITHUB --> EXISTING GIT REPO
 ## --------------------------  
 *  `git pull origin main`
   - To pull files from central repo --> existing local repo 
+
+## --------------------------
+## PULL FILES FROM GITHUB --> NEW GIT REPO
+## --------------------------  
+*  `git clone <github-url>`
+  - To pull files from central repo --> new local repo 
   
 ## --------------------------
 ## MOVE FILES ACROSS GIT STAGES
@@ -95,18 +95,28 @@
   - Shows the list of branches along with the default one (*)
   - `git branch test`          # (creates a new branch 'test')
 
-*  `git checkout test`
-  - To change the branch from current --> test (branch)
-  - `git checkout -b test`     # (creates new branch 'test' & switches branch 'test')
+*  `git branch -m <old-name> <new-name>`
+  - To rename the branch
 
-*  `git branch origin test`
-  - Push code from 'test' branch of local repo --> 'main' branch of central repo
-  
-*  `git checkout main`
-  - To switch back to main branch
+*  `git checkout <branch-name>`
+  - To switch branch
+  - `git checkout test`
+  - To change the branch from current branch --> 'test' branch
+
+*  `git checkout -b test`     
+  - creates new branch 'test' & switches branch 'test'
+
+*  `git push origin test`
+  - Push code from git 'test' branch (local repo) --> github 'main' branch (central repo)
+
+*  `git push origin test:dev`
+  - To push from git 'test' branch --> github 'dev' branch
+
+*  `git pull origin dev:test`
+  - To pull from github 'dev' branch --> git 'test' branch
   
 *  `git merge test`
-  - To merge test branch into current branch (i.e., main)
+  - To merge content from test branch --> current branch (i.e., main)
   - `git log`  # (will also show merged content as a commit)
   - This command will only work if you have committed the changes
   - If there is a code overlap, then merge conflict will occur
