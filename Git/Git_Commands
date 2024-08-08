@@ -174,7 +174,7 @@
   - `git remote set-url origin <new-url>`    # (change the remote URL)
 
 ## --------------------------
-## SSH access
+## SSH ACCESS
 ## --------------------------
   - `ssh-keygen`
   - `cat .ssh/id_rsa.pub`  # Copy the key 
