@@ -5,175 +5,178 @@
 ## --------------------------
 ## PUSH FILES FROM GIT --> GITHUB
 ## --------------------------
-* 	`git config`
-	- To configure git in new systems
-	- `git config --global user.name "user1"` # (to configure user in new system)
-	- `git config --global user.email "user1@example.com"` # (to configure user-email in new system)
+*  `git config`
+  - To configure git in new systems
+  - `git config --global user.name "user1"` # (to configure user in new system)
+  - `git config --global user.email "user1@example.com"` # (to configure user-email in new system)
 
-* 	`git init`
-	- To initialize git in your system
-	- This will create work directory, staging area & local repo
-	- It will also create `.git` directory
+*  `git init`
+  - To initialize git in your system
+  - This will create work directory, staging area & local repo
+  - It will also create `.git` directory
 
-* 	`git add`
-	- To add files from work directory --> staging
-	
-* 	`git status`
-	- To check current branch & files to be staged
-	
-* 	`git commit -m "<msg>"`
-	- To add files from staging --> local repo
-	
-* 	`git log`
-	- To see the list of commits
-	- `git log --oneline` 				# (to see commits in single line)
-	- `git log --stat`					# (to see the commit status with file name)
-	- `git log --stat --oneline`		# (to see the commit status with file name with brief)
-	- `git show --name-only <commit-id>`  # (to see the file details of specific commit)
+*  `git add`
+  - To add files from work directory --> staging
+  
+*  `git status`
+  - To check current branch & files to be staged
+  
+*  `git commit -m "<msg>"`
+  - To add files from staging --> local repo
+  
+*  `git log`
+  - To see the list of commits
+  - `git log --oneline`        # (to see commits in single line)
+  - `git log --stat`           # (to see the commit status with file name)
+  - `git log --stat --oneline` # (to see the commit status with file name with brief)
+  - `git show --name-only <commit-id>`  # (to see the file details of specific commit)
 
-*	  `git annotate <file-name>`			
-	- Shows details of all commits from all the users
+*  `git annotate <file-name>`      
+  - Shows details of all commits from all the users
+  
+*  `git branch`
+  - Shows the default branch (e.g., master)
 
-* 	`git branch`
-	- Shows the default branch (e.g., master)
-
-* 	`git branch -M main`
-	- To change the branch from old used 'master' to main
-	
-* 	`git remote add origin <url>`
-	- To establish connection between local & central repo
-	
-* 	`git push origin main`
-	- To push files from local repo --> central repo
-	
+*  `git branch -M main`
+  - To change the branch from old used 'master' to main
+  
+*  `git remote add origin <url>`
+  - To establish connection between local & central repo
+  
+*  `git push origin main`
+  - To push files from local repo --> central repo
+  
 ## --------------------------
 ## PULL FILES FROM GITHUB --> NEW GIT REPO
-## --------------------------	
-* 	`git clone <github-url>`
-	- To pull files from central repo --> new local repo 
-	
+## --------------------------  
+*  `git clone <github-url>`
+  - To pull files from central repo --> new local repo 
+  
 ## --------------------------
 ## PULL FILES FROM GITHUB --> EXISTING GIT REPO
-## --------------------------	
-* 	`git pull origin main`
-	- To pull files from central repo --> existing local repo 
-	
+## --------------------------  
+*  `git pull origin main`
+  - To pull files from central repo --> existing local repo 
+  
 ## --------------------------
 ## MOVE FILES ACROSS GIT STAGES
 ## --------------------------
-* 	`git reset --soft HEAD~1`
-	- To move files from Local Repo --> Staging
-	
-* 	`git restore --staged <file-name>`	
-	- To move files from staging --> Work dir
+*  `git reset --soft HEAD~1`
+  - To move files from Local Repo --> Staging
+  
+*  `git restore --staged <file-name>`  
+  - To move files from staging --> Work dir
 
 ## --------------------------
 ## DELETE FILES FROM GIT STAGES
 ## --------------------------
-*	`git clean -f`						
-	- To delete untracked files from work dir
+*  `git clean -f`            
+  - To delete untracked files from work dir
 
-*	`git revert <commit-id>`			
-	- To delete files from local repo
+*  `git revert <commit-id>`      
+  - To delete files from local repo
 
-# -------------
-# Compare code in Git
-# -------------
-* 	`git diff`
-	- Compare work dir | staging area
+## --------------------------
+## COMPARE CODE IN GIT
+## --------------------------
+*  `git diff`
+  - Compare work dir | staging area
 
-* 	`git diff --staged`
-	- Compare staging area | local repo
+*  `git diff --staged`
+  - Compare staging area | local repo
 
-* 	`git diff HEAD`
-	- Compare work dir | local repo
-	
-# -------------
-# Git branches
-# -------------
-* 	`git branch`
-	- Shows the list of branches along with the default one (*)
-	- `git branch test`   		# (creates a new branch 'test')
+*  `git diff HEAD`
+  - Compare work dir | local repo
+  
+## --------------------------
+## GIT BRANCHES
+## --------------------------
+*  `git branch`
+  - Shows the list of branches along with the default one (*)
+  - `git branch test`        # (creates a new branch 'test')
 
-* 	`git checkout test`
-	- To change the branch from current --> test (branch)
-	- `git checkout -b test`  	# (creates new branch 'test' & switches branch 'test')
+*  `git checkout test`
+  - To change the branch from current --> test (branch)
+  - `git checkout -b test`    # (creates new branch 'test' & switches branch 'test')
 
-* 	`git branch origin test`
-	- Push code from 'test' branch of local repo --> 'main' branch of central repo
-	
-* 	`git checkout main`
-	- To switch back to main branch
-	
-* 	`git merge test`
-	- To merge test branch into current branch (i.e., main)
-	- `git log`  # (will also show merged content as a commit)
-	- This command will only work if you have committed the changes
-	- If there is a code overlap, then merge conflict will occur
-	- The new content will be placed at the top of old one, we need to manually resolve them & commit
+*  `git branch origin test`
+  - Push code from 'test' branch of local repo --> 'main' branch of central repo
+  
+*  `git checkout main`
+  - To switch back to main branch
+  
+*  `git merge test`
+  - To merge test branch into current branch (i.e., main)
+  - `git log`  # (will also show merged content as a commit)
+  - This command will only work if you have committed the changes
+  - If there is a code overlap, then merge conflict will occur
+  - The new content will be placed at the top of old one, we need to manually resolve them & commit
 
-# -------------
-# Git fetch, git merge, git pull
-# -------------
-*	`git fetch`			
-	- Used to pull files & commits from your Central repo to Local repo (GitHub)
-	- `git fetch`
-	- `git log origin/main --stat`	# (this will show the files & commits in local repo)
-	- `git log`						# (this will only show the commits in git)
+## --------------------------
+## GIT FETCH, GIT MERGE & GIT PULL
+## --------------------------
+*  `git fetch`      
+  - Used to pull files & commits from your Central repo to Local repo (GitHub)
+  - `git fetch`
+  - `git log origin/main --stat`  # (this will show the files & commits in local repo)
+  - `git log`           # (this will only show the commits in git)
 
-*	`git merge`			
-	- Used to pull the files from Local repo to Work Directory
-	- `git merge origin/main`		# (this will pull files from local repo to work directory)
-	- `cat <file>`					# (check the file content & see if the changes are same both in central repo & work dir)
+*  `git merge`      
+  - Used to pull the files from Local repo to Work Directory
+  - `git merge origin/main`    # (this will pull files from local repo to work directory)
+  - `cat <file>`         # (check the file content & see if the changes are same both in central repo & work dir)
 
-*	`git pull`			
-	- Used to pull the files from Central repo to Local repo + Work Directory
+*  `git pull`      
+  - Used to pull the files from Central repo to Local repo + Work Directory
 
-# -------------
-# Git rebase
-# -------------
-*	`git rebase`
-	- Rebase will allow us to combine multiple commits into single commit. 
-	- But we can lose the commit history
-	- `vi file1`  #(add line1)
-	- `git add .`
-	- `git commit -m "added line1"`
-	- (Repeat the same process up till line5)
+## --------------------------
+## GIT REBASE
+## --------------------------
+*  `git rebase`
+  - Rebase will allow us to combine multiple commits into single commit. 
+  - But we can lose the commit history
+  - `vi file1`  #(add line1)
+  - `git add .`
+  - `git commit -m "added line1"`
+  - (Repeat the same process up till line5)
 
-	- `git log`  #(this will display several commits, now we will discard the unnecessary and keep only the required)
+- `git log`  #(this will display several commits, now we will discard the unnecessary and keep only the required)
 
-	- `git rebase -i HEAD~4`
-	- # (select commits to pick, select commits to squash, i.e., combine)
+  - `git rebase -i HEAD~4`
+  - # (select commits to pick, select commits to squash/combine)
+  - # (comment out the commits which are not required)
 
-	- `git log`  #(this will now display a single line commit)
+  - `git log`  #(this will now display a single line commit)
 
-# -------------
-# Commit Tags
-# -------------
-*	`git tag`
-	- To give a tag to the commits
-	- `git tag` # (To check all tags)
-	- `git tag -a v1.1 <commit-id> -m "msg"` #(here v1.1 is the tag)
-	- `git push origin v1.1` #(simply push the tag)
-	- The tags will appear in GitHub repo, next to the branch name
+## --------------------------
+## ADD TAGS TO COMMITS
+## --------------------------
+*  `git tag`
+  - To give a tag to the commits
+  - `git tag` # (To check all tags)
+  - `git tag -a v1.1 <commit-id> -m "msg"` #(here v1.1 is the tag)
+  - `git push origin v1.1` #(simply push the tag)
+  - The tags will appear in GitHub repo, next to the branch name
 
-# -------------
-# Git Remote
-# -------------
-*	`git remote`	
-	- Used to add or modify the GitHub URL
-	- `git remote add origin <branch>`		  # (to add GitHub repo)
-	- `git remote -v`  					            # (check the current remote URL)
-	- `git remote set-url origin <new-url>` # (change the remote URL)
+## --------------------------
+## GIT REMOTE
+## --------------------------
+*  `git rebase`      
+  - Create a file with two commits
+  - Check logs using `git log`
+  - Run below which will combine multiple commits into single commit
+  - `git rebase -i HEAD~1`          # (select squash, it will suppress multiple commits into single)
+  
+*  `git remote`  
+  - Used to add or modify the GitHub URL
+  - `git remote add origin <branch>`   # (to add GitHub repo)
+  - `git remote -v`            # (check the current remote URL)
+  - `git remote set-url origin <new-url>` # (change the remote URL)
 
 # -------------
 # SSH access
 # -------------
-*  SSH access allows more secure integration between Git & Github
-  - It allows you to configure the key once, and avoids frequent prompts of username & password
-  - This a user can push/pull files seamlessly without the need to enter credentials.
-
-	`ssh-keygen`          #(Generate public & private key)
-	`cat .ssh/id_rsa.pub`	#(Copy the public key)
-	# GitHub -->  Settings --> SSH & GPG keys --> New SSH key --> Give any title and paste the copied key
-	`git clone <SSH url>` #(Now you can clone repos, push/pull files without the need to enter credentials)
+  - `ssh-keygen`
+  - `cat .ssh/id_rsa.pub`  # Copy the key 
+  - # GitHub -->  Settings --> SSH & GPG keys --> New SSH key --> Give any title and paste the copied key
+  - `git clone <SSH url>`
