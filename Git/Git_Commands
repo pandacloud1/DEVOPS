@@ -51,12 +51,14 @@
 ## --------------------------  
 *  `git pull origin main`
   - To pull files from central repo --> existing local repo 
+  - This is used to pull small changes
 
 ## --------------------------
 ## PULL FILES FROM GITHUB --> NEW GIT REPO
 ## --------------------------  
 *  `git clone <github-url>`
   - To pull files from central repo --> new local repo 
+  - This will create new git (local) repo
   
 ## --------------------------
 ## MOVE FILES ACROSS GIT STAGES
