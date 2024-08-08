@@ -131,7 +131,6 @@
   - Used to pull files & commits from your Central repo to Local repo
   - `git fetch`
   - `git log origin/main --stat`  # (this will show the files & commits in local repo)
-  - `git log`                     # (this will only show the commits in git)
 
 *  `git merge`      
   - Used to pull the files from Local repo to Work Directory
