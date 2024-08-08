@@ -26,10 +26,10 @@
   
 *  `git log`
   - To see the list of commits
-  - `git log --oneline`        # (to see commits in single line)
-  - `git log --stat`           # (to see the commit status with file name)
-  - `git log --stat --oneline` # (to see the commit status with file name with brief)
-  - `git show --name-only <commit-id>`  # (to see the file details of specific commit)
+  - `git log --oneline`                  # (to see commits in single line)
+  - `git log --stat`                     # (to see the commit status with file name)
+  - `git log --stat --oneline`           # (to see the commit status with file name with brief)
+  - `git show --name-only <commit-id>`   # (to see the file details of specific commit)
 
 *  `git annotate <file-name>`      
   - Shows details of all commits from all the users
