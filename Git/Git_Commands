@@ -172,12 +172,6 @@
 ## --------------------------
 ## GIT REMOTE
 ## --------------------------
-*  `git rebase`      
-  - Create a file with two commits
-  - Check logs using `git log`
-  - Run below which will combine multiple commits into single commit
-  - `git rebase -i HEAD~1`                   # (select squash, it will suppress multiple commits into single)
-  
 *  `git remote`  
   - Used to add or modify the GitHub URL
   - `git remote add origin <branch>`         # (to add GitHub repo)
