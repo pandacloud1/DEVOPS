@@ -197,7 +197,8 @@
 *  `git remote`  
   - Used to add, change or delete the GitHub URL
 
-  - `git remote add origin <branch>`         # (to add GitHub repo)
+  - `git remote add origin <url>`            # (to add GitHub repo)
+
   - `git remote -v`                          # (check the current remote URL)
   - `git remote set-url origin <new-url>`    # (to change the remote URL)
   - `git remote rm origin                    # (removes the central repo url)
