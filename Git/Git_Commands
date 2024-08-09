@@ -59,7 +59,17 @@
 *  `git clone <github-url>`
   - To pull files from central repo --> new local repo 
   - This will create new git (local) repo
-  
+
+## --------------------------
+## ADD TAGS TO COMMITS
+## --------------------------
+*  `git tag`
+  - To give a tag to the commits
+  - `git tag` # (To check all tags)
+  - `git tag -a v1.1 <commit-id> -m "msg"`   #(here v1.1 is the tag)
+  - `git push origin v1.1`                   #(simply push the tag)
+  - The tags will appear in GitHub repo, next to the branch name
+
 ## --------------------------
 ## MOVE FILES ACROSS GIT STAGES
 ## --------------------------
@@ -182,23 +192,15 @@
   - `git log`     #(this will now display a single line commit)
 
 ## --------------------------
-## ADD TAGS TO COMMITS
-## --------------------------
-*  `git tag`
-  - To give a tag to the commits
-  - `git tag` # (To check all tags)
-  - `git tag -a v1.1 <commit-id> -m "msg"`   #(here v1.1 is the tag)
-  - `git push origin v1.1`                   #(simply push the tag)
-  - The tags will appear in GitHub repo, next to the branch name
-
-## --------------------------
 ## GIT REMOTE
 ## --------------------------
 *  `git remote`  
-  - Used to add or modify the GitHub URL
+  - Used to add, change or delete the GitHub URL
+
   - `git remote add origin <branch>`         # (to add GitHub repo)
   - `git remote -v`                          # (check the current remote URL)
-  - `git remote set-url origin <new-url>`    # (change the remote URL)
+  - `git remote set-url origin <new-url>`    # (to change the remote URL)
+  - `git remote rm origin                    # (removes the central repo url)
 
 ## --------------------------
 ## SSH ACCESS
