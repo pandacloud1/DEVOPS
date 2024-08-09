@@ -160,6 +160,35 @@
   - `git log`     #(this will now display a single line commit)
 
 ## --------------------------
+## GIT CHERRY-PICK
+## --------------------------
+1. Create a Few Commits on main Branch
+echo "First line" > file.txt
+git add file.txt
+git commit -m "Add first line"
+
+echo "Second line" >> file.txt
+git add file.txt
+git commit -m "Add second line"
+
+echo "Third line" >> file.txt
+git add file.txt
+git commit -m "Add third line"
+git log --oneline   #(you will see three commits)
+
+2. Create a New Branch and Switch to It
+git checkout -b feature
+
+3. Cherry-Pick a Commit from main branch
+git log --oneline
+git cherry-pick <2nd-line-commit-id>
+
+4. Verify the changes
+cat file.txt
+git log --oneline
+
+
+## --------------------------
 ## ADD TAGS TO COMMITS
 ## --------------------------
 *  `git tag`
