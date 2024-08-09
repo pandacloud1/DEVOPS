@@ -141,7 +141,7 @@
   - Used to pull the files from Central repo to Local repo + Work Directory
 
 ## --------------------------
-## GIT REBASE
+## GIT REBASE & SQUASH
 ## --------------------------
 *  `git rebase`
   - Rebase will allow us to combine multiple commits into single commit. 
@@ -154,8 +154,8 @@
 - `git log`       #(this will display several commits, now we will discard the unnecessary and keep only the required)
 
   - `git rebase -i HEAD~4`
-  - # (select commits to pick, select commits to squash/combine)
-  - # (comment out the commits which are not required)
+  - # (select commits to pick, select commits to squash)
+  - # here squash is used to combine multiple commits into a single commit
 
   - `git log`     #(this will now display a single line commit)
 
