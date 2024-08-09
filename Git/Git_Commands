@@ -141,6 +141,28 @@
   - Used to pull the files from Central repo to Local repo + Work Directory
 
 ## --------------------------
+## GIT CHERRY-PICK
+## --------------------------
+*  `git cherry-pick`
+  - git cherry-pick is used to pick & apply specific commit from one branch to current
+  - Note: git merge is used to apply all commits from one branch to current
+
+  - echo “this is line1” > file1
+  - git add file1
+  - git commit -m “line1”   
+
+  - git checkout -b dev		            #(this will create ‘dev’ branch & switch to it)
+  - echo “this is line2” >> file1	    #(this add another line in file1)
+  - git add file1
+  - git commit -m “line2” 
+  - git log --oneline              		#(shows the list of commits)
+
+  - git checkout main		              #(switch back to main branch)
+  - cat file1			                    #(you will still see Line1)
+  - git cherry-pick <commit-id-dev>	  #(enter the dev commit id)
+  - cat file1			                    #(the file is now modified with Line1 & Line2)
+
+## --------------------------
 ## GIT REBASE & SQUASH
 ## --------------------------
 *  `git rebase`
@@ -158,35 +180,6 @@
   - # here squash is used to combine multiple commits into a single commit
 
   - `git log`     #(this will now display a single line commit)
-
-## --------------------------
-## GIT CHERRY-PICK
-## --------------------------
-1. Create a Few Commits on main Branch
-echo "First line" > file.txt
-git add file.txt
-git commit -m "Add first line"
-
-echo "Second line" >> file.txt
-git add file.txt
-git commit -m "Add second line"
-
-echo "Third line" >> file.txt
-git add file.txt
-git commit -m "Add third line"
-git log --oneline   #(you will see three commits)
-
-2. Create a New Branch and Switch to It
-git checkout -b feature
-
-3. Cherry-Pick a Commit from main branch
-git log --oneline
-git cherry-pick <2nd-line-commit-id>
-
-4. Verify the changes
-cat file.txt
-git log --oneline
-
 
 ## --------------------------
 ## ADD TAGS TO COMMITS
