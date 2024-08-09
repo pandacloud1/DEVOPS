@@ -2,9 +2,9 @@
 ## GIT COMMANDS
 ## ==========================
 
-## --------------------------
+## ------------------------------
 ## PUSH FILES FROM GIT --> GITHUB
-## --------------------------
+## ------------------------------
 *  `git config`
   - To configure git in new systems
   - `git config --global user.name "user1"` # (to configure user in new system)
@@ -46,16 +46,16 @@
 *  `git push origin main`
   - To push files from local repo --> central repo
 
-## --------------------------
+## ---------------------------------------------
 ## PULL FILES FROM GITHUB --> EXISTING GIT REPO
-## --------------------------  
+## ---------------------------------------------
 *  `git pull origin main`
   - To pull files from central repo --> existing local repo 
   - This is used to pull small changes
 
-## --------------------------
+## ---------------------------------------------
 ## PULL FILES FROM GITHUB --> NEW GIT REPO
-## --------------------------  
+## ---------------------------------------------
 *  `git clone <github-url>`
   - To pull files from central repo --> new local repo 
   - This will create new git (local) repo
@@ -71,24 +71,6 @@
   - The tags will appear in GitHub repo, next to the branch name
 
 ## --------------------------
-## MOVE FILES ACROSS GIT STAGES
-## --------------------------
-*  `git reset --soft HEAD~1`
-  - To move files from Local Repo --> Staging
-  
-*  `git restore --staged <file-name>`  
-  - To move files from staging --> Work dir
-
-## --------------------------
-## DELETE FILES FROM GIT STAGES
-## --------------------------
-*  `git clean -f`            
-  - To delete untracked files from work dir
-
-*  `git revert <commit-id>`      
-  - To delete files from local repo
-
-## --------------------------
 ## COMPARE CODE IN GIT
 ## --------------------------
 *  `git diff`
@@ -100,6 +82,24 @@
 *  `git diff HEAD`
   - Compare work dir | local repo
   
+## -----------------------------
+## MOVE FILES ACROSS GIT STAGES
+## -----------------------------
+*  `git reset --soft HEAD~1`
+  - To move files from Local Repo --> Staging
+  
+*  `git restore --staged <file-name>`  
+  - To move files from staging --> Work dir
+
+## -----------------------------
+## DELETE FILES FROM GIT STAGES
+## -----------------------------
+*  `git clean -f`            
+  - To delete untracked files from work dir
+
+*  `git revert <commit-id>`      
+  - To delete files from local repo
+
 ## --------------------------
 ## GIT BRANCHES
 ## --------------------------
@@ -134,9 +134,9 @@
   - If there is a code overlap, then merge conflict will occur
   - The new content will be placed at the top of old one, we need to manually resolve them & commit
 
-## --------------------------
+## -------------------------------
 ## GIT FETCH, GIT MERGE & GIT PULL
-## --------------------------
+## -------------------------------
 *  `git fetch`      
   - Used to pull files & commits from your Central repo to Local repo
   - `git fetch`
