@@ -1,0 +1,5 @@
+# Installing Docker in Ubuntu 22.04
+sudo apt-get update -y
+sudo apt  install docker.io -y
+sudo service docker start
+docker --version
