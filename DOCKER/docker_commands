@@ -1,0 +1,12 @@
+# DOCKER COMMANDS
+
+docker run –it <image-name>		               #(create container from image)
+docker ps –a			                           #(shows list of all containers)
+docker rename <old-name> <new-name>	         #(to rename container)
+docker start/stop <container-name>           #(start or stop container)
+docker restart <container-name>              #(restart a container)
+docker attach <container-name>		           #(to enter inside container)
+OR
+docker exec –it <container-name> /bin/bash	 #(alternate command to go inside container; it: interactive terminal)
+docker rm <container-name>      	        	 #(remove/delete a container)
+docker container prune -f		                 #(to delete stopped containers)
