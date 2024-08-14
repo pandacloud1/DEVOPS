@@ -9,9 +9,6 @@ RUN git clone https://github.com/pandacloud1/webapp1.git
 # Add content inside html directory
 RUN cd webapp1/ && cp -R * /var/www/html/
 
-# Delete the Project directory after copying the files
-RUN rm -rf webapp1
-
 # Start Apache
 CMD ["apache2ctl", "-D", "FOREGROUND"]
 
