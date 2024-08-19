@@ -24,7 +24,6 @@ docker start/stop <container-name>            #(start or stop container)
 docker restart <container-name>               #(restart a container)
 docker stop $(docker ps -a -q)                #(to stop all the running containers)
 
-
 docker attach <container-name>                #(to enter inside container)
 OR
 docker exec –it <container-name> /bin/bash    #(alternate command to go inside container; it: interactive terminal)
@@ -36,3 +35,25 @@ docker rm -f $(docker ps -a)                  #(remove all containers running/st
 docker container prune -f                     #(to delete stopped containers)
 docker inspect <container-name>               #(to get details of particular container)
 docker diff <container-name>                  #(shows container logs; A=added; D=deleted; C=changed)
+
+# ---------------------------------
+# Create image from your container
+# ---------------------------------
+docker pull ubuntu:22.04                              # pull ubuntu base image
+docker run –it –name my-container ubuntu:22.04        # create container from image
+apt update && apt install -y apache2 git     		      # install git & apache
+git clone https://github.com/pandacloud1/webapp4.git  # clone webapp files from Github
+cp -R webapp4/* /var/www/html/			                  # copy files to html folder
+exit					
+docker ps –a				                                  # see list of containers
+docker commit my-container my-webapp4		              # create image from container
+docker images				                                  # see list of images
+docker run –it –p 80:80 my-webapp4			              # create container from custom image
+service apache2 start				                          # start the apache service
+
+# ---------------------------------
+# Push image to Dockerhub
+# ---------------------------------
+docker login				                                    # enter Dockerhub username & password
+docker tag my-webapp4:latest pandacloud/my-repo:latest  # rename the image to standard format
+docker push pandacloud/my-repo:latest	                  # push the image to Dockerhub; login to Dockerhub & see your image
