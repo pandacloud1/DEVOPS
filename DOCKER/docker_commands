@@ -31,6 +31,7 @@ docker exec –it <container-name> /bin/bash    #(alternate command to go inside
 
 docker rm <container-name>                    #(remove/delete a stopped container)
 docker kill <container_name>                  #(remove/delete stopped or running container forcefully)
+docker rm -f $(docker ps -a)                  #(remove all containers running/stopped forcefully)
 
 docker container prune -f                     #(to delete stopped containers)
 docker inspect <container-name>               #(to get details of particular container)
