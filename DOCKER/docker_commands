@@ -22,6 +22,8 @@ docker ps –a                                  #(shows list of all containers)
 docker rename <old-name> <new-name>           #(to rename container)
 docker start/stop <container-name>            #(start or stop container)
 docker restart <container-name>               #(restart a container)
+docker stop $(docker ps -a -q)                #(to stop all the running containers)
+
 
 docker attach <container-name>                #(to enter inside container)
 OR
