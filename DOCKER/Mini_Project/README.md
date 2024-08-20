@@ -1,8 +1,7 @@
 ---
 # **DOCKER MINI PROJECT**
 ---
-
-![Uploading image.png…]()
+![Docker_Mini_project](https://github.com/user-attachments/assets/4d1e0133-cec0-46cf-b92b-07cd3e8bfd44)
 
 ## Objective:
 Pulling content from Github & exposing through container
@@ -20,6 +19,4 @@ Pulling content from Github & exposing through container
 5. Create Container from Docker image exposing required port of the container with the local machine
 6. Access the content from the browser using <ec2_public_IP>
 
-- *Dockerfile:* *(https://github.com/pandacloud1/DEVOPS/blob/main/DOCKER/Mini_Project/Dockerfile)*
 - *Docker_Commands:* *(https://github.com/pandacloud1/DEVOPS/blob/main/DOCKER/Mini_Project/Docker_commands)*
-
