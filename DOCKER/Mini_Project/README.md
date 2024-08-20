@@ -4,7 +4,6 @@
 
 ![Uploading image.png…]()
 
-
 ## Objective:
 Pulling content from Github & exposing through container
 
