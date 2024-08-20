@@ -1,50 +1,50 @@
 =====================
-# Build image (from Dockerfile)
+# MINI PROJECT
 =====================
-docker build -t project/myapp:v1 .
-# 'project/myapp' is user-defined name
+# Here we are creating 3 containers & accessing them through 3 different ports from the web browser
+# Create EC2 instance & open ports 3001, 3002 & 3003 from the Security Group
 
-=====================
-# Create container (from Image)
-=====================
-docker run -dt --name container1 -p 80:80 project/myapp
-# here 80:80 means <local_machine_port>:<container_port>
-# 'container1' is user-defined name
+# ----------------------
+# Container 1
+# ----------------------
+mkdir cont1 && cd cont1
+vi Dockerfile
 
-=====================
-# Access the content
-=====================
+# Enter Dockerfile1 content
+# URL: https://github.com/pandacloud1/DEVOPS/blob/main/DOCKER/Mini_Project/Dockerfile1
+
+docker build -t webapp1 .
+docker run -dt --name container1 -p 3001:80 webapp1
+# here 3001:80 means <EC2_server_port>:<container_port>
+
+# ----------------------
+# Container 2
+# ----------------------
+cd ..
+mkdir cont2 && cd cont2
+vi Dockerfile
+
+# Enter Dockerfile1 content
+# URL: https://github.com/pandacloud1/DEVOPS/blob/main/DOCKER/Mini_Project/Dockerfile2
+
+docker build -t webapp2 .
+docker run -dt --name container2 -p 3002:80 webapp2
+
+# ----------------------
+# Container 3
+# ----------------------
+cd ..
+mkdir cont3 && cd cont3
+vi Dockerfile
+
+# Enter Dockerfile1 content
+# URL: https://github.com/pandacloud1/DEVOPS/blob/main/DOCKER/Mini_Project/Dockerfile3
+
+docker build -t webapp3 .
+docker run -dt --name container3 -p 3003:80 webapp3
+
+# ----------------------
 # Open browser & use <ec2_publicIP> to access the content
-
-------------------------------------------------------------
---- END ---
-------------------------------------------------------------
-=====================
-# OTHER COMMANDS
-=====================
-
-=====================
-# Go inside container
-=====================
-docker exec -it /bin/bash
-
-=====================
-# Stop & remove all containers
-=====================
-docker stop $(docker ps -aq)
-docker rm $(docker ps -aq)
-
-=====================
-# Delete all docker images
-=====================
-docker image prune -af
-
-=====================
-# To delete all content from text file using 'vi'
-# use 'Esc:%d'
-=====================
-
-=====================
-# To check which directories are consuming space in Linux
-=====================
-du -h /usr | sort -rh | head -n 10
+# EC2_PublicIP:3001
+# EC2_PublicIP:3002
+# EC2_PublicIP:3003
