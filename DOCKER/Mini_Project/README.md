@@ -4,7 +4,7 @@
 ![Docker_Mini_project](https://github.com/user-attachments/assets/4d1e0133-cec0-46cf-b92b-07cd3e8bfd44)
 
 ## Objective:
-Pulling content from Github & exposing through container
+Pulling content from Github & exposing through container.
 Tools used: Apache, Git, Docker
 
 ## Instructions:
