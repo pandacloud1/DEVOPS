@@ -2,7 +2,8 @@
 # **DOCKER MINI PROJECT**
 ---
 
-![image](https://github.com/user-attachments/assets/d9a28e64-7881-4873-ac00-36a25a41732c)
+![Uploading image.png…]()
+
 
 ## Objective:
 Pulling content from Github & exposing through container
