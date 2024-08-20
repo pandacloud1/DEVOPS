@@ -10,8 +10,17 @@
 mkdir cont1 && cd cont1
 vi Dockerfile
 
-# Enter Dockerfile1 content
-# URL: https://github.com/pandacloud1/DEVOPS/blob/main/DOCKER/Mini_Project/Dockerfile1
+FROM ubuntu:22.04
+# Install Apache & Git
+RUN apt update && apt install -y apache2 git     
+# Pull content from Github
+RUN git clone https://github.com/pandacloud1/webapp1.git 
+# Add content inside html directory
+RUN cp -R webapp1/* /var/www/html/
+# Start Apache
+CMD ["apache2ctl", "-D", "FOREGROUND"]
+# Expose port 80 of container, map it with 3001
+EXPOSE 3001
 
 docker build -t webapp1 .
 docker run -dt --name container1 -p 3001:80 webapp1
@@ -24,8 +33,12 @@ cd ..
 mkdir cont2 && cd cont2
 vi Dockerfile
 
-# Enter Dockerfile1 content
-# URL: https://github.com/pandacloud1/DEVOPS/blob/main/DOCKER/Mini_Project/Dockerfile2
+FROM ubuntu:22.04
+RUN apt update && apt install -y apache2 git     
+RUN git clone https://github.com/pandacloud1/webapp2.git 
+RUN cp -R webapp2/* /var/www/html/
+CMD ["apache2ctl", "-D", "FOREGROUND"]
+EXPOSE 3002
 
 docker build -t webapp2 .
 docker run -dt --name container2 -p 3002:80 webapp2
@@ -37,14 +50,19 @@ cd ..
 mkdir cont3 && cd cont3
 vi Dockerfile
 
-# Enter Dockerfile1 content
-# URL: https://github.com/pandacloud1/DEVOPS/blob/main/DOCKER/Mini_Project/Dockerfile3
+FROM ubuntu:22.04
+RUN apt update && apt install -y apache2 git     
+RUN git clone https://github.com/pandacloud1/webapp3.git 
+RUN cp -R webapp3/* /var/www/html/
+CMD ["apache2ctl", "-D", "FOREGROUND"]
+EXPOSE 3003
 
 docker build -t webapp3 .
 docker run -dt --name container3 -p 3003:80 webapp3
 
 # ----------------------
 # Open browser & use <ec2_publicIP> to access the content
+# ----------------------
 # EC2_PublicIP:3001
 # EC2_PublicIP:3002
 # EC2_PublicIP:3003
