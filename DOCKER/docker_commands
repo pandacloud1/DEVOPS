@@ -57,3 +57,20 @@ service apache2 start                                 # start the apache service
 docker login                                            # enter Dockerhub username & password
 docker tag my-webapp4:latest pandacloud/my-repo:latest  # rename the image to standard format
 docker push pandacloud/my-repo:latest                   # push the image to Dockerhub; login to Dockerhub & see your image
+
+# --------------------------------------
+# Use host machine volume for container
+# --------------------------------------
+docker pull ubuntu                                      # pull image
+docker run –d –name container1 ubuntu                   # create a container
+docker volume create myvolume                           # creates a volume
+docker volume ls                                        # lists the volumes
+docker run -it -v myvolume:/data container1             # use host machine volume  container
+cd data				                                          # go to the ‘data’ directory
+touch file{1..10}			                                  # create files in the container
+exit				                                            # exit from container
+docker volume inspect myvolume                          # see path in base machine
+cd /var/lib/docker/volumes/myvolume/_data               # go to the path in above command
+ls				                                              # the container files will be found here 
+docker volume rm my volume		# to delete the volume	
+
