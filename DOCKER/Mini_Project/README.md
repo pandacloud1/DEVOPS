@@ -2,13 +2,13 @@
 # **DOCKER MINI PROJECT**
 ---
 
-![image](https://github.com/pandacloud1/DEVOPS/assets/134182273/e7a14622-fc73-4036-b64c-e41f0f175b07)
+![image](https://github.com/user-attachments/assets/d9a28e64-7881-4873-ac00-36a25a41732c)
 
 ## Objective:
 Pulling content from Github & exposing through container
 
 ## Instructions:
-1. Create EC2 instance & enable required ports (eg. 22, 80, 8080) in the security group
+1. Create EC2 instance & enable required ports (eg. 22, 80, 3001, 3002, 3003) in the security group
 2. Install Docker
    * *(https://github.com/pandacloud1/DEVOPS/tree/main/Installation_Scripts/Docker)*
 3. Create Dockerfile as below: 
