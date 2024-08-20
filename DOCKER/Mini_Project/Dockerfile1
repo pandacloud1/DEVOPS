@@ -12,5 +12,5 @@ RUN cd webapp1/ && cp -R * /var/www/html/
 # Start Apache
 CMD ["apache2ctl", "-D", "FOREGROUND"]
 
-# Expose port 80 of container
-EXPOSE 80
+# Expose port 80 of container, map it with 3001
+EXPOSE 3001
