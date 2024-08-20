@@ -5,6 +5,7 @@
 
 ## Objective:
 Pulling content from Github & exposing through container
+Tools used: Apache, Git, Docker
 
 ## Instructions:
 1. Create EC2 instance & enable required ports (eg. 22, 80, 3001, 3002, 3003) in the security group
