@@ -50,6 +50,9 @@
     - sudo su
     - echo "<your-new-hostname>" > /etc/hostname  
     - hostname <your-new-hostname>  # (Switch the user to reflect the changes)
+    OR
+    - sudo hostnamectl set-hostname <new-name>
+    - bash
 
 * `uname -a`
   - Displays system information, kernel version, hostname and architecture
