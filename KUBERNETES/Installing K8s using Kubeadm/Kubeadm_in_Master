@@ -48,8 +48,8 @@ mkdir -p $HOME/.kube
 sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-kubectl apply -f https://docs.projectcalico.org/v3.18/manifests/calico.yaml
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/tigera-operator.yaml
+kubectl apply -f https://docs.projectcalico.org/v3.18/manifests/calico.yaml --validate=false
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/tigera-operator.yaml --validate=false
 kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 
 kubectl get pods -A
