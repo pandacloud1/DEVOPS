@@ -1,7 +1,9 @@
+# ------------------------
+# DEPLOYMENT MANIFEST
+# ------------------------
 # TIP: 
 # 1. Replace 'kind: ReplicaSet' --> 'kind: Deployment'
 # 2. Change the name under 'metadata' & create replicas as required
-
 
 ---
 apiVersion: apps/v1
@@ -20,9 +22,28 @@ spec:
     spec:
       containers:
       - name: container1
-        image: httpd:latest
+        image: nginx:1.19.0  # Old version
+        ports:
+        - containerPort: 80
 ...
+
+# ------------
+# COMMANDS
+# ------------
+kubectl apply -f deploy.yaml                                      #(to create deployment from the above manifest)
+kubectl get deploy                                                #(to see list of pods, we can run 'deploy', 'deployment', 'deployments')
+
+# Try changing the image to 1.20.0 & run below:
+kubectl rollout restart deploy my-deployment                      #(to restart the pods in the deployment)
+kubectl rollout status deploy my-deployment                       #(to check the new rollout status)
+kubectl rollout history deployment/my-deployment                  #(shows the history of version numbers)
+kubectl rollout undo deployment/my-deployment                     #(to rollback to previous version)
+kubectl rollout undo deployment/my-deployment --to-revision=2     #(to rollback to specific version from history)
 
 
 # NOTE:
-# Deployment itself cannot expose pods to outside world, we need to combine it with 'Service'
+1. There is no need to maintain separate yaml files for rollout/rollback, deployment maintains a history of deployments
+2. Deployment itself cannot expose pods to outside world, we need to combine it with 'Service'
+3. We need to combine it with 'PV/PVC' to integrate it with external storages.
+4. Deployment is ideal for stateless applications like webservers.
+   For stateful applications like Database servers, we use 'StatefulSet' object.
