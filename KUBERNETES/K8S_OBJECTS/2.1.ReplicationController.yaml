@@ -29,3 +29,7 @@ spec:
 # ------------
 kubectl apply -f rc.yaml                #(to create replication-controller from the above manifest)
 kubectl get rc                          #(to see list of pods)
+kubectl describe rc nginx               #(to get details of rc)
+
+pods=$(kubectl get pods --selector=app=nginx --output=jsonpath={.items..metadata.name})
+echo $pods                              #(to get the list of pods)
