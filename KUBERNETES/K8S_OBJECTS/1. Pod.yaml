@@ -34,3 +34,6 @@ kubectl delete -f pod.yaml                                        #(to delete th
    kubectl delete pod <pod-name>
 2. To avoid losing pod, use 'ReplicationController' or 'ReplicaSet' or 'Deployment')
 3. 'ReplicationController' is old form of K8s & not used anymore
+
+# ReplicaSet Link:
+https://github.com/pandacloud1/DEVOPS/blob/main/KUBERNETES/K8S_OBJECTS/2.%20ReplicaSet.yaml
