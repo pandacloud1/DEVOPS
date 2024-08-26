@@ -6,14 +6,15 @@
 # Setup two EC2 instances
 # ---------------------------------
 Create master & node server with 4GB RAM & 2 vCPU
-Ports to be opened in Security Group: 22, 80, 443, 6443, 10250, 10256, 10257, 10258, 30000-32767
 
+Ports to be opened in Security Group: 22, 80, 443, 6443, 10250, 10256, 10257, 10258, 30000-32767
 # Ref: https://kubernetes.io/docs/reference/networking/ports-and-protocols/
 
 # ---------------------------------
 # Install Docker
 # ---------------------------------
 # Ref: https://docs.docker.com/engine/install/rhel/#install-using-the-repository
+
 sudo yum update -y
 sudo yum install docker -y
 sudo systemctl start docker
@@ -24,6 +25,7 @@ sudo chmod 777 /var/run/docker.sock
 # Install kubeadm, kubectl, kubelet
 # ---------------------------------
 # Ref: https://v1-29.docs.kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
+
 # Set SELinux in permissive mode (effectively disabling it)
 sudo setenforce 0
 sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
