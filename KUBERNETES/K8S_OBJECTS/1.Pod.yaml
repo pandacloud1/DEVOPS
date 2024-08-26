@@ -15,7 +15,7 @@ spec:
 
 
 # ------------
-# POD COMMANDS
+# COMMANDS
 # ------------
 kubectl apply -f pod.yaml                                         #(to create pod from the above manifest)
 kubectl get pods                                                  #(to see list of pods)
