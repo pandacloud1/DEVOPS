@@ -52,10 +52,3 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl apply -f https://docs.projectcalico.org/v3.18/manifests/calico.yaml
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/tigera-operator.yaml
 kubectl taint nodes --all node-role.kubernetes.io/control-plane-
-
-# ---------------------------------
-# Run only in node
-# ---------------------------------
-# Paste the kubeadm join command from master here:
-# For eg:
-# sudo kubeadm join 172.31.81.228:6443 --token <token> --discovery-token-ca-cert-hash <certificate-id>
