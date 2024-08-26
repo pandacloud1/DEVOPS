@@ -28,8 +28,9 @@ exit                                                              #(to exit from
 kubectl delete pod my-pod1                                        #(to delete the pod)
 kubectl delete -f pod.yaml                                        #(to delete the manifest)
 
-
+# -------
 # NOTE:
+# -------
 1. Pod can be easily deleted by running below
    kubectl delete pod <pod-name>
 2. To avoid losing pod, use 'ReplicationController' or 'ReplicaSet' or 'Deployment')
