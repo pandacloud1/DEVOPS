@@ -41,6 +41,3 @@ spec:
 # ReplicationController is an old form of K8s, hence we are not learning it practically
 # Since 'ReplicaSet' cannot Rollback/ Update, hence we can use 'Deployment' object.
 # In real-time, we use 'Deployment' only & not 'ReplicaSet'
-
-
-
