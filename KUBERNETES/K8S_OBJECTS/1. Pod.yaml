@@ -26,7 +26,7 @@ kubectl exec -it my-pod1 -c container1 -- /bin/bash               #(to go inside
 httpd -version                                                    #(to see the apache version)
 exit                                                              #(to exit from the pod)
 kubectl delete pod my-pod1                                        #(to delete the pod)
-kubectl delete -f pod.yaml                                        #(to delete the manifest & all the pods related to it)
+kubectl delete -f pod.yaml                                        #(to delete the manifest)
 
 
 # NOTE:
