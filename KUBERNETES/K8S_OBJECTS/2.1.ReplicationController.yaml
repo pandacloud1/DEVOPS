@@ -32,4 +32,13 @@ kubectl get rc                          #(to see list of pods)
 kubectl describe rc nginx               #(to get details of rc)
 
 pods=$(kubectl get pods --selector=app=nginx --output=jsonpath={.items..metadata.name})
-echo $pods                              #(to get the list of pods)
+echo $pods                              #(to get the name of pods)
+
+kubectl get pods                        #(to get the list of pods, eg: nginx1, nginx2, nginx3)
+kubectl delete pod nginx1               #(trying deleting a pod & see if another pod is created in its place)
+
+# -------
+# NOTE:
+# -------
+1. ReplicationController is an old form of K8s & is no more used now, it supports only equality-based selector.
+2. It is now replaced with 'ReplicaSet' which has advanced features & supports both equality & set-based selectors.
