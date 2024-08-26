@@ -1,0 +1,61 @@
+# --------------------------------------------------
+# INSTALL KUBENETES USING KUBEADM IN AMAZON LINUX 2
+# --------------------------------------------------
+
+# ---------------------------------
+# Setup two EC2 instances
+# ---------------------------------
+Create master & node server with 4GB RAM & 2 vCPU
+Ports to be opened in Security Group: 22, 80, 443, 6443, 10250, 10256, 10257, 10258, 30000-32767
+
+# Ref: https://kubernetes.io/docs/reference/networking/ports-and-protocols/
+
+# ---------------------------------
+# Install Docker
+# ---------------------------------
+# Ref: https://docs.docker.com/engine/install/rhel/#install-using-the-repository
+sudo yum update -y
+sudo yum install docker -y
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo chmod 777 /var/run/docker.sock
+
+# ---------------------------------
+# Install kubeadm, kubectl, kubelet
+# ---------------------------------
+# Ref: https://v1-29.docs.kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
+# Set SELinux in permissive mode (effectively disabling it)
+sudo setenforce 0
+sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+
+# This overwrites any existing configuration in /etc/yum.repos.d/kubernetes.repo
+cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://pkgs.k8s.io/core:/stable:/v1.29/rpm/
+enabled=1
+gpgcheck=1
+gpgkey=https://pkgs.k8s.io/core:/stable:/v1.29/rpm/repodata/repomd.xml.key
+exclude=kubelet kubeadm kubectl cri-tools kubernetes-cni
+EOF
+
+sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+sudo systemctl enable --now kubelet
+
+# ---------------------------------
+# Run only in Master
+# ---------------------------------
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16  --ignore-preflight-errors=NumCPU --ignore-preflight-errors=Mem
+sudo mkdir -p $HOME/.kube
+sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+kubectl apply -f https://docs.projectcalico.org/v3.18/manifests/calico.yaml
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/tigera-operator.yaml
+kubectl taint nodes --all node-role.kubernetes.io/control-plane-
+
+# ---------------------------------
+# Run only in node
+# ---------------------------------
+# Paste the kubeadm join command from master here:
+# For eg:
+# sudo kubeadm join 172.31.81.228:6443 --token <token> --discovery-token-ca-cert-hash <certificate-id>
