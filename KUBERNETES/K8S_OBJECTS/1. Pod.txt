@@ -9,7 +9,10 @@ spec:
     image: httpd:latest
 ...
 
+
+# ------------
 # COMMANDS:
+# ------------
 # kubectl apply -f pod.yaml
 # kubectl get pods                        #(to see list of pods)
 # kubectl exec <pod-name> -- /bin/bash    #(to go inside the pod/container)
