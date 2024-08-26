@@ -1,3 +1,8 @@
+# ---------------------------------
+# REPLICATION-CONTROLLER MANIFEST
+# ---------------------------------
+
+---
 apiVersion: v1
 kind: ReplicationController
 metadata:
@@ -17,3 +22,10 @@ spec:
         image: nginx
         ports:
         - containerPort: 80
+...
+
+# ------------
+# COMMANDS
+# ------------
+kubectl apply -f rc.yaml                #(to create replication-controller from the above manifest)
+kubectl get rc                          #(to see list of pods)
