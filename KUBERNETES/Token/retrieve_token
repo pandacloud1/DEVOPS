@@ -2,9 +2,12 @@
 # Ref: https://v1-29.docs.kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#join-nodes
 
 # Your token looks something like this:
-sudo kubeadm join 172.31.86.108:6443 --token <token> --discovery-token-ca-cert-hash sha256:<certificate-hash>
+sudo kubeadm join <server-private-ip>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<certificate-hash>
 
 # If you were unable to save it, then run following commands:
+# Server-Private-IP
+hostname -I
+
 # Run below command to retrieve token 
 kubeadm token list
 
@@ -12,3 +15,4 @@ kubeadm token list
 openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | \
    openssl dgst -sha256 -hex | sed 's/^.* //'
 
+# Now combine all the outputs to get the entire token
