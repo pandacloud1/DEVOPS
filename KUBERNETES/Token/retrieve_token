@@ -1,0 +1,13 @@
+# Lost my kubeadm token, how to retrieve it?
+
+# Your token looks something like this:
+sudo kubeadm join 172.31.86.108:6443 --token <token> --discovery-token-ca-cert-hash sha256:<certificate-hash>
+
+# If you were unable to save it, then run following commands:
+# Run below command to retrieve token 
+kubeadm token list
+
+# Run below command to retrieve certificate hash (--discovery-token-ca-cert-hash)
+openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | \
+   openssl dgst -sha256 -hex | sed 's/^.* //'
+
