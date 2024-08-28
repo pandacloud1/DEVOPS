@@ -14,3 +14,9 @@ CMD ["apache2ctl", "-D", "FOREGROUND"]
 
 # Expose port 80 (default Apache port)
 EXPOSE 80
+
+
+# Docker-Commands
+# sudo docker build -t pandacloud/webapp .       #(build image from Dockerfile)
+# sudo docker login                              #(Login to Dockerhub, enter your username & password)
+# sudo docker push pandacloud/webapp:latest      #(Push image to Dockerhub, use this image in your deployment.yaml file)
