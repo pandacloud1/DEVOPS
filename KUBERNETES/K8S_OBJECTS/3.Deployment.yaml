@@ -33,8 +33,9 @@ spec:
 kubectl apply -f deploy.yaml                                      #(to create deployment from the above manifest)
 kubectl get deploy                                                #(to see list of pods, we can run 'deploy', 'deployment', 'deployments')
 
-# Try changing the image to 1.20.0 & run below:
-kubectl rollout restart deploy my-deployment                      #(to restart the pods in the deployment)
+# Rollout/Rollback Commands
+# Try changing the image in above manifest to 1.20.0 & run below:
+kubectl rollout restart deploy my-deployment                      #(to rollout the deployment to new version)
 kubectl rollout status deploy my-deployment                       #(to check the new rollout status)
 kubectl rollout history deployment/my-deployment                  #(shows the history of version numbers)
 kubectl rollout undo deployment/my-deployment                     #(to rollback to previous version)
