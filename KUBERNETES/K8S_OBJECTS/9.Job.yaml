@@ -1,0 +1,17 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hello-job
+spec:
+  template:
+    metadata:
+      name: hello-job
+    spec:
+      containers:
+      - name: hello-container
+        image: busybox
+        command: ["sh", "-c", "echo Hello, Good Morning! && sleep 10"]
+      restartPolicy: Never                        # Ensures that the pod will not be restarted after it completes its task
+  backoffLimit: 4                                 # Defines the number of retries before considering the Job as failed
+  ...
