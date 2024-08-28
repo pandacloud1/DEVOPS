@@ -1,7 +1,7 @@
 ---
 # **K8S MINI PROJECT**
 ---
-![K8s_Mini_project]()
+https://github.com/pandacloud1/DEVOPS/blob/main/KUBERNETES/Mini_Project/K8s_mini_project.drawio.png
 
 ## Objective:
 Pulling custom docker image in Kubernetes pods & exposing it outside.
