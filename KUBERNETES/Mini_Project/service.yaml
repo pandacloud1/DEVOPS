@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  type: LoadBalancer
+  selector:
+    name: my-pod1
+  ports:
+    - protocol: TCP
+      port: 3001            # Port exposed to the outside world (Load Balancer)
+      targetPort: 80        # Port inside the container
