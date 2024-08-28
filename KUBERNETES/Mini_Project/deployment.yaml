@@ -1,3 +1,8 @@
+# ----------------
+# DEPLOYMENT FILE
+# ----------------
+# File name: deploy.yaml
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,3 +22,9 @@ spec:
         image: pandacloud/webapp3:latest
         ports:
         - containerPort: 80   # This should match the EXPOSE in Dockerfile
+...
+
+# Commands
+# kubectl apply -f deploy.yaml
+# kubectl get deploy
+# kubectl get pods                #(ensure all the pods are in running state)
