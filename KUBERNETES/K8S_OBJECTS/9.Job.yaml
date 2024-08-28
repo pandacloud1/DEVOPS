@@ -15,3 +15,9 @@ spec:
       restartPolicy: Never                        # Ensures that the pod will not be restarted after it completes its task
   backoffLimit: 4                                 # Defines the number of retries before considering the Job as failed
 ...
+
+
+# Commands
+# kubectl apply -f job.yaml
+# kubectl get jobs
+# kubectl logs job hello-job
