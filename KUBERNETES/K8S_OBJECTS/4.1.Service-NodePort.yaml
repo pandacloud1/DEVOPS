@@ -20,6 +20,11 @@ spec:
 ...
 
 # NOTE:
-# ClusterIP gets automatically created along with 'NodePort', which is default behaviour & meant is for cluster internal communication
+1. ClusterIP gets automatically created along with 'NodePort’, 
+   This is default behaviour & meant is for cluster internal communication
+2. Check curl localhost:nodeport must work in your terminal
+3. Now open browser & enter EC2-Node-PublicIP:<nodeport-no> & the content must load.
+
+# For Minikube
 # To allow networking, open SSH terminal in separate tab & run 'minikube tunnel'
 # Then check curl <NodePort-IP> must work in SSH terminal
