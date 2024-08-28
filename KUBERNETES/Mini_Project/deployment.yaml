@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: my-pod1
+  template:
+    metadata:
+      labels:
+        name: my-pod1
+    spec:
+      containers:
+      - name: container1
+        image: pandacloud/webapp3:latest
+        ports:
+        - containerPort: 80   # This should match the EXPOSE in Dockerfile
