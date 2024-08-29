@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: mycontainer
-      image: myimage
+      image: httpd:latest
       volumeMounts:
         - name: config-volume
           mountPath: /etc/config
