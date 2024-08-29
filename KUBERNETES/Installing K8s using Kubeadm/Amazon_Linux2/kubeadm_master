@@ -65,3 +65,16 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl apply -f https://docs.projectcalico.org/v3.18/manifests/calico.yaml
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/tigera-operator.yaml
 kubectl taint nodes --all node-role.kubernetes.io/control-plane-
+
+# ---------------------------------
+# Installing the EBS CSI driver
+# ---------------------------------
+# Ref: https://github.com/kubernetes-sigs/aws-ebs-csi-driver.git
+# Note: EBS CSI driver is responsible for managing Amazon EBS volumes in Kubernetes. This will be used for PV & PVC.
+
+sudo yum install git -y
+git clone https://github.com/kubernetes-sigs/aws-ebs-csi-driver.git
+cd aws-ebs-csi-driver/deploy/kubernetes/overlays/stable
+kubectl apply -k .
+kubectl get pods -n kube-system -l app.kubernetes.io/name=aws-ebs-csi-driver
+
