@@ -13,8 +13,9 @@ spec:
     name: my-pod1
   ports:
     - protocol: TCP
-      port: 3001            # Port exposed to the outside world (Load Balancer)
-      targetPort: 80        # Port inside the container
+      port: 3001            # Service Port
+      targetPort: 80        # Container Port
+      NodePort: 31000       # Node Port
 ...
 
 # Commands
