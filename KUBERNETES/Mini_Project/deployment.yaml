@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: container1
-        image: pandacloud/webapp3:latest
+        image: pandacloud/webapp3:latest    # Enter your Image Name here
         ports:
         - containerPort: 80   # This should match the EXPOSE in Dockerfile
 ...
