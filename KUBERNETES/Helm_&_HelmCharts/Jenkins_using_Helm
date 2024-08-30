@@ -1,5 +1,6 @@
-
+# ------------------------------------------
 # Installing Jenkins application using Helm
+# ------------------------------------------
 # Reference: https://github.com/jenkinsci/helm-charts
 
 kubectl create namespace jenkins
