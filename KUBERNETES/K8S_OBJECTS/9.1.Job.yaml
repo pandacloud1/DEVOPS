@@ -20,4 +20,5 @@ spec:
 # Commands
 # kubectl apply -f job.yaml
 # kubectl get jobs
-# kubectl logs job hello-job
+# kubectl get pods
+# kubectl logs <pod-name>
