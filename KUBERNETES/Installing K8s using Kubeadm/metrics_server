@@ -1,0 +1,5 @@
+# Install Metrics Server for HPA
+# Ref: https://github.com/kubernetes-sigs/metrics-server
+
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+kubectl top nodes
