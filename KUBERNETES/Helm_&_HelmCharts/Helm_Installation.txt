@@ -1,3 +1,6 @@
+# INSTALL HELM FROM SCRIPT
+# Ref: https://helm.sh/docs/intro/install/#from-script
+
 # Download Helm
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 
