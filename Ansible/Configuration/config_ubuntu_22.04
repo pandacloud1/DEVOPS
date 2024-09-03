@@ -1,6 +1,7 @@
 # ------------------------------------------
 # Ansible Configuration for Ubuntu_22.04
 # ------------------------------------------
+# NOTE: The below configuration needs to be done in the master & all the nodes.
 
 # --------------------------------------
 # Step 1: Create a user & set a password
