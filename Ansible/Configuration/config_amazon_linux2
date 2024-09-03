@@ -1,6 +1,7 @@
 # ------------------------------------------
 # Ansible Configuration for Amazon Linux 2
 # ------------------------------------------
+# NOTE: The below configuration needs to be done in the master & all the nodes.
 
 # --------------------------------------
 # Step1: Create a user & set password.
