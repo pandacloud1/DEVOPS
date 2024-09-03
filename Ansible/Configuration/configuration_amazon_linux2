@@ -1,0 +1,29 @@
+# ------------------------------------------
+# Ansible Configuration for Amazon Linux 2
+# ------------------------------------------
+
+# --------------------------------------
+# Step1: Create a user & set password.
+# --------------------------------------
+sudo su -
+yum update -y
+adduser ansadmin             #(create a normal user)
+passwd ansadmin              #(set password)
+
+# --------------------------------------
+# Step2: Give sudo priviledges to the user
+# --------------------------------------
+visudo                       #(to give sudo privilege to a normal user)
+# (Add the below line):
+ansadmin ALL=(ALL) NOPASSWD: ALL
+
+# --------------------------------------
+# Step3: Enable 'Password Authentication' in the SSH server's configuration file 
+# --------------------------------------
+vi /etc/ssh/sshd_config      #(edit SSH server configuration file)
+# (Set parameter PasswordAuthentication to yes)
+
+# --------------------------------------
+# Step4: Restart the SSH service.
+# --------------------------------------
+service sshd restart         #(restart the sshd service)
