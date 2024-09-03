@@ -1,0 +1,8 @@
+# ----------------------------------
+# INSTALL ANSIBLE IN AMAZON_LINUX_2
+# ----------------------------------
+# Ref: https://www.ansiblepilot.com/articles/how-to-install-ansible-in-amazon-linux-2/
+
+sudo yum update -y
+sudo amazon-linux-extras install ansible2 -y
+ansible --version
