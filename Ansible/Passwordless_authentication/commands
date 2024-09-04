@@ -1,0 +1,12 @@
+# ----------------------------
+# PASSWORDLESS AUTHENTICATION
+# ----------------------------
+# Note: Run below commands in the Master to connect Master with the nodes.
+# Please ensure that you have added 'ansadmin' user in the sudoers file (refer initial config file)
+
+su ansadmin                                      # switch to the normal user
+ssh-keygen                                       # generate ssh keys
+ssh-copy-id ansadmin@<node1-private-ip>          # copy the ssh key from master to node
+ssh-copy-id ansadmin@<node2-private-ip>
+ssh ansadmin@<node1-private-ip>                  # connect master with the node
+ssh ansadmin@<node2-private-ip>
