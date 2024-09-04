@@ -14,7 +14,7 @@ ssh-keygen                                       # generate ssh keys
 # Once the ssh keys are copied, you have setup passwordless authentication between master & node
 # You can then disable password authentication from ssh configuration file if required
 # ----------------------------
-ssh-copy-id ansadmin@<node1-private-ip>          
+ssh-copy-id ansadmin@<node1-private-ip>          # copy ssh keys from master to node  
 ssh-copy-id ansadmin@<node2-private-ip>
 ssh ansadmin@<node1-private-ip>                  # connect master with the node
 ssh ansadmin@<node2-private-ip>
