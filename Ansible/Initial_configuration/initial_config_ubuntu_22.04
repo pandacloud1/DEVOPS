@@ -27,6 +27,8 @@ ansadmin ALL=(ALL) NOPASSWD: ALL
 vi /etc/ssh/sshd_config       # Use 'nano' to edit SSH server configuration
 # (Find the line: "PasswordAuthentication no" & change it to below)
 PasswordAuthentication yes
+# Note: Password authentication is enabled so that we can copy the ssh keys from master to node using a password
+#       Once the keys are copied, we can disable password authentication for added security
 
 # --------------------------------------
 # Step4: Restart the SSH service.
