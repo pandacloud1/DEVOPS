@@ -16,8 +16,9 @@ ssh-keygen                                       # generate ssh keys
 # ----------------------------
 ssh-copy-id ansadmin@<node1-private-ip>          # copy ssh keys from master to node  
 ssh-copy-id ansadmin@<node2-private-ip>
-ssh ansadmin@<node1-private-ip>                  # connect master with the node
-ssh ansadmin@<node2-private-ip>
+ssh ansadmin@<node1-private-ip>                  # connect master with the node1
+exit                                             # to exit from node1
+ssh ansadmin@<node2-private-ip>                  # connect master with the node2
 
 # ----------------------------
 # COMMENTS:
