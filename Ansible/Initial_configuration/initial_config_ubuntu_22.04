@@ -3,6 +3,17 @@
 # ------------------------------------------
 # NOTE: The below configuration needs to be done in the master & all the nodes.
 
+# Set hostname for master & nodes (OPTIONAL)
+# Run in Master
+sudo su
+hostnamectl set-hostname master
+bash
+
+# Run in Nodes
+sudo su
+hostnamectl set-hostname node1
+bash
+
 # --------------------------------------
 # Step 1: Create a user & set a password
 # --------------------------------------
