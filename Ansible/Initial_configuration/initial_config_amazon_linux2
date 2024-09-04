@@ -2,9 +2,7 @@
 # Ansible Configuration for Amazon Linux 2
 # ------------------------------------------
 # NOTE: The below configuration needs to be done in the master & all the nodes.
-# 1. You cannot install or update packages being a normal user (eg. ansadmin)
-# 2. Try running 'sudo apt update -y' & it will show permission error.
-# 3. Try running 'sudo apt update -y' after adding normal user (eg. ansadmin) to sudoers file & it will work!
+
 
 # --------------------------------------
 # Step1: Create a user & set password.
@@ -20,6 +18,10 @@ passwd ansadmin              #(set password)
 visudo                       #(to give sudo privilege to a normal user)
 # (Add the below line):
 ansadmin ALL=(ALL) NOPASSWD: ALL
+# NOTE:
+# 1. You cannot install or update packages being a normal user (eg. ansadmin)
+# 2. Try running 'sudo apt update -y' & it will show permission error.
+# 3. Try running 'sudo apt update -y' after adding normal user (eg. ansadmin) to sudoers file & it will work!
 
 # --------------------------------------
 # Step3: Enable 'Password Authentication' in the SSH server's configuration file 
