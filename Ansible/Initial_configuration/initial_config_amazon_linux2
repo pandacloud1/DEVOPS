@@ -2,6 +2,9 @@
 # Ansible Configuration for Amazon Linux 2
 # ------------------------------------------
 # NOTE: The below configuration needs to be done in the master & all the nodes.
+# 1. You cannot install or update packages being a normal user (eg. ansadmin)
+# 2. Try running 'sudo apt update -y' & it will show permission error.
+# 3. Try running 'sudo apt update -y' after adding normal user (eg. ansadmin) to sudoers file & it will work!
 
 # --------------------------------------
 # Step1: Create a user & set password.
