@@ -10,3 +10,8 @@ ssh-copy-id ansadmin@<node1-private-ip>          # copy the ssh key from master 
 ssh-copy-id ansadmin@<node2-private-ip>
 ssh ansadmin@<node1-private-ip>                  # connect master with the node
 ssh ansadmin@<node2-private-ip>
+
+# COMMENTS:
+# SSH Key-Based Authentication is more secure and is recommended
+# Password-Based Authentication may be used temporarily or as a fallback & is less secure
+# Best Practice: Once SSH keys are set up, it’s advisable to disable password authentication to enhance security (optional)
