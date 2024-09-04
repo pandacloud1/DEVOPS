@@ -2,9 +2,6 @@
 # Ansible Configuration for Ubuntu_22.04
 # ------------------------------------------
 # NOTE: The below configuration needs to be done in the master & all the nodes.
-# 1. You cannot install or update packages being a normal user (eg. ansadmin)
-# 2. Try running 'sudo apt update -y' & it will show permission error.
-# 3. Try running 'sudo apt update -y' after adding normal user (eg. ansadmin) to sudoers file & it will work!
 
 # --------------------------------------
 # Step 1: Create a user & set a password
@@ -17,6 +14,13 @@ passwd ansadmin                # Set the password for the user
 # --------------------------------------
 # Step2: Give sudo priviledges to the user
 # --------------------------------------
+# NOTE:
+# 1. You cannot install or update packages being a normal user (eg. ansadmin)
+# 2. Try running 'sudo apt update -y' & it will show permission error.
+# 3. Try running 'sudo apt update -y' after adding normal user (eg. ansadmin) to sudoers file & it will work!
+# 4. The sudoers file should be edited with care. Using a regular text editor like nano or vi can lead to syntax errors. "vi /etc/sudoers"
+# 5. To safely edit the sudoers file, use the "visudo" command, which checks the file for syntax errors before saving
+
 visudo                         # Edit the sudoers file
 # (Add the below line):
 ansadmin ALL=(ALL) NOPASSWD: ALL
@@ -27,8 +31,9 @@ ansadmin ALL=(ALL) NOPASSWD: ALL
 vi /etc/ssh/sshd_config       # Use 'nano' to edit SSH server configuration
 # (Find the line: "PasswordAuthentication no" & change it to below)
 PasswordAuthentication yes
-# Note: Password authentication is enabled so that we can copy the ssh keys from master to node using a password
-#       Once the keys are copied, we can disable password authentication for added security
+# NOTE: 
+# 1. Password authentication is enabled so that we can copy the ssh keys from master to node using a password
+# 2. Once the keys are copied, we can disable password authentication for added security, if required
 
 # --------------------------------------
 # Step4: Restart the SSH service.
