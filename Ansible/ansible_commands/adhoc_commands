@@ -2,6 +2,20 @@
 # ANSIBLE ADHOC COMMANDS
 # -----------------------
 
-ansible -m ping all                   # (to check connectivity of the Nodes)
-ansible all -a "hostname"             # (to check hostnames of the Nodes)
-ansible all -a "ls -a"                # (to list all files & directories in Nodes)
+# Check connectivity of the Nodes
+ansible -m ping all             
+
+# Check hostnames of the Nodes
+ansible all -a "hostname"            
+
+# List all files & directories in Nodes
+ansible all -a "ls -a"               
+
+# Create a directory /tmp/testdir on all hosts
+ansible all -m file -a "path=/tmp/testdir state=directory"
+
+# Copy a local file to /tmp/ on the target machines.
+su ansadmin
+cd ~
+echo "This is Master File" > master-file
+ansible all -m copy -a "src=/home/ansadmin/master-file dest=/tmp/"
