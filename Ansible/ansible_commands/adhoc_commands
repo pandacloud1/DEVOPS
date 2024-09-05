@@ -1,0 +1,7 @@
+# -----------------------
+# ANSIBLE ADHOC COMMANDS
+# -----------------------
+
+ansible -m ping all                   # (to check connectivity of the Nodes)
+ansible all -a "hostname"             # (to check hostnames of the Nodes)
+ansible all -a "ls -a"                # (to list all files & directories in Nodes)
