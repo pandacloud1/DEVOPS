@@ -1,0 +1,16 @@
+# Create a file playbook
+
+# vi file.yaml
+---
+- name: create a file
+  hosts: all
+  become: true
+  tasks:
+   - name: create file module
+     file:
+        path: /tmp/file1
+        state: touch
+...
+
+# ansible-playbook file.yaml
+# verify if the files are created in the nodes using “ls /tmp”
