@@ -1,6 +1,6 @@
 # Create a user playbook
 
-vi user.yaml
+# vi user.yaml
 ---
 - name: create a user
   hosts: all
@@ -10,5 +10,6 @@ vi user.yaml
      user:
         name: alexa
 ...
-ansible-playbook user.yaml
+
+# ansible-playbook user.yaml
 # verify if users are created in the nodes using “cat /etc/passwd”
