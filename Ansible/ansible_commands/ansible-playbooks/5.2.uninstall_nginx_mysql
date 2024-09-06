@@ -1,0 +1,38 @@
+# UNINSTALL NGINX & MYSQL
+
+# vi uninstall-nginx-mysql.yaml
+---
+- name: Uninstall Nginx on webservers
+  hosts: webservers
+  become: true
+  tasks:
+    - name: Stop Nginx service
+      service:
+        name: nginx
+        state: stopped
+        enabled: false
+
+    - name: Remove Nginx package
+      yum:
+        name: nginx
+        state: absent
+        # For other Linux distributions, use 'apt' or appropriate package manager.
+
+- name: Uninstall MySQL on dbservers
+  hosts: dbservers
+  become: true
+  tasks:
+    - name: Stop MySQL service
+      service:
+        name: mysqld
+        state: stopped
+        enabled: false
+
+    - name: Remove MySQL package
+      yum:
+        name: mysql-server
+        state: absent
+        # For other Linux distributions, use 'apt' or appropriate package manager.
+...
+
+# ansible-playbook uninstall-nginx-mysql.yaml
