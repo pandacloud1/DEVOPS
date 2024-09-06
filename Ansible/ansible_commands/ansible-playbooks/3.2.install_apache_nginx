@@ -1,5 +1,7 @@
 # INSTALL APACHE IN "WEBSERVERS" GROUP
 # INSTALL NGINX IN "DBSERVERS" GROUP
+# Ref: https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#installing-prebuilt-rhel-centos-oracle-linux-almalinux-rocky-linux-packages
+# Ref: https://stackoverflow.com/questions/57784287/how-to-install-nginx-on-aws-ec2-linux-2
 
 # vi install-apache-nginx.yaml
 ---
