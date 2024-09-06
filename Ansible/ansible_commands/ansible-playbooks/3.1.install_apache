@@ -8,13 +8,13 @@
   tasks: 
   - name: Install Apache package
     yum:
-      name: httpd
-      state: installed
+      name: httpd                      # package name
+      state: installed                 # desired state
 
   - name: Start Apache service
     service:
-      name: httpd
-      state: started
+      name: httpd                      # service name
+      state: started                   # desired state
 ...
 
 # ansible-playbook install-apache.yaml
