@@ -1,0 +1,21 @@
+# INSTALL GIT & UPDATE THE OS
+
+# vi git.yaml
+---
+- name: git.yml
+  become: true
+  hosts: all
+  tasks:
+  - name: install-git
+    yum:
+     name: git
+     state: installed
+    notify: os-update
+
+  handlers:
+  - name: os-update
+    yum:
+     state: latest
+...
+
+# ansible-playbook git.yaml
