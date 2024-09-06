@@ -10,7 +10,7 @@
   - name: Install Apache package
     yum:
       name: httpd
-      state: installed
+      state: installed                # we can also use 'state: present'
 
   - name: Start Apache service
     service:
@@ -21,6 +21,9 @@
   hosts: dbservers
   become: true
   tasks:
+  - name: Enable Nginx repository
+    command: amazon-linux-extras enable nginx1
+
   - name: Install Nginx package
     yum:
       name: nginx
