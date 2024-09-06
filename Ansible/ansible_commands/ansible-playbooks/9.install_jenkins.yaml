@@ -1,0 +1,42 @@
+# INSTALL JENKINS ON SPECIFIC NODE 
+
+# vi jenkins.yaml
+---
+- name: Install Jenkins on specific node
+  hosts: all
+  become: true
+  vars:
+    jenkins_node_ip: "172.31.89.17"
+
+  tasks:
+    - name: Install Java (Jenkins dependency)
+      yum:
+        name: java-11-openjdk
+        state: present
+      when: ansible_host == jenkins_node_ip
+
+    - name: Add Jenkins repository
+      yum_repository:
+        name: jenkins
+        description: Jenkins-stable repo
+        baseurl: https://pkg.jenkins.io/redhat-stable/
+        gpgcheck: 1
+        gpgkey: https://pkg.jenkins.io/redhat/jenkins.io.key
+        enabled: 1
+      when: ansible_host == jenkins_node_ip
+
+    - name: Install Jenkins
+      yum:
+        name: jenkins
+        state: present
+      when: ansible_host == jenkins_node_ip
+
+    - name: Start Jenkins service
+      service:
+        name: jenkins
+        state: started
+        enabled: true
+      when: ansible_host == jenkins_node_ip
+...
+
+# ansible-playbook jenkins.yaml
