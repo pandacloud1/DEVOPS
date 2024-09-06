@@ -1,0 +1,5 @@
+---
+- hosts: jenkins_nodes
+  become: true
+  roles:
+    - jenkins_installation
