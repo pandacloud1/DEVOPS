@@ -4,21 +4,38 @@
 
 # vi install-apache-linux-flavors.yaml
 ---
-- name: Install Apache for different Linux flavors
-  hosts: all
+- name: install & start apache
+  hosts: webservers
   become: true
   tasks:
-    - name: Install httpd on RedHat-based systems
-      yum:
-        name: httpd
-        state: installed
-      when: ansible_os_family == "RedHat"
+  - name: install apache in RedHat distros
+    yum:
+      name: httpd
+      state: installed
+    when: ansible_os_family == "RedHat"
+	
+  - name: start apache service in Redhat distros
+    service:
+      name: httpd
+      state: started
+    when: ansible_os_family == "RedHat"
 
-    - name: Install apache2 on Debian-based systems
-      apt:
-        name: apache2
-        state: installed
-      when: ansible_os_family == "Debian"
+  - name: update ubuntu in Debian distros
+    apt:
+	  state: latest
+    when: ansible_os_family == "Debian"
+	
+  - name: install apache in Debian distros
+    apt:
+      name: apache2
+      state: present
+    when: ansible_os_family == "Debian"
+
+  - name: start apache service in Debian distros
+    service:
+      name: apache2
+      state: started
+    when: ansible_os_family == "Debian"
 ...
 
 # ansible-playbook install-apache-linux-flavors.yaml
