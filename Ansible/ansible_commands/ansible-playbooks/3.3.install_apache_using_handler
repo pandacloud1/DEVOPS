@@ -1,4 +1,8 @@
 # Install Apache Playbook using handlers
+# Note:
+# 1. Handlers are tasks that are triggered only when notified by other tasks.
+# 2. They are used for tasks that need to run only if something changes.
+# 3. Eg: Restarting a service after a certain task, or starting a service after the service is installed, etc.
 
 # vi handlers.yaml
 ---
