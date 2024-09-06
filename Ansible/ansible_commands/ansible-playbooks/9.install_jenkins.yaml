@@ -1,4 +1,5 @@
 # INSTALL JENKINS ON SPECIFIC NODE 
+# Ref: https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/#downloading-and-installing-jenkins
 
 # vi jenkins.yaml
 ---
@@ -6,23 +7,38 @@
   hosts: all
   become: true
   vars:
-    jenkins_node_ip: "172.31.89.17"
+    jenkins_node_ip: "172.31.14.245"
 
   tasks:
-    - name: Install Java (Jenkins dependency)
+    - name: Update all packages
       yum:
-        name: java-11-openjdk
-        state: present
+        name: '*'
+        state: latest
       when: ansible_host == jenkins_node_ip
 
     - name: Add Jenkins repository
-      yum_repository:
-        name: jenkins
-        description: Jenkins-stable repo
-        baseurl: https://pkg.jenkins.io/redhat-stable/
-        gpgcheck: 1
-        gpgkey: https://pkg.jenkins.io/redhat/jenkins.io.key
-        enabled: 1
+      get_url:
+        url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+        dest: /etc/yum.repos.d/jenkins.repo
+        mode: '0644'
+      when: ansible_host == jenkins_node_ip
+
+    - name: Import Jenkins GPG key
+      rpm_key:
+        state: present
+        key: https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+      when: ansible_host == jenkins_node_ip
+
+    - name: Upgrade all packages
+      yum:
+        name: '*'
+        state: latest
+      when: ansible_host == jenkins_node_ip
+
+    - name: Install Java 17 (Amazon Corretto)
+      yum:
+        name: java-17-amazon-corretto
+        state: present
       when: ansible_host == jenkins_node_ip
 
     - name: Install Jenkins
@@ -31,12 +47,19 @@
         state: present
       when: ansible_host == jenkins_node_ip
 
+    - name: Enable Jenkins service to start at boot
+      systemd:
+        name: jenkins
+        enabled: true
+      when: ansible_host == jenkins_node_ip
+
     - name: Start Jenkins service
-      service:
+      systemd:
         name: jenkins
         state: started
-        enabled: true
       when: ansible_host == jenkins_node_ip
 ...
 
 # ansible-playbook jenkins.yaml
+# Enable Port 8080 in the security group of your node
+# Once Jenkins installation is completed, access the application using <Node-Public-IP>:8080 from the browser
