@@ -22,4 +22,4 @@
 ...
 
 # ansible-playbook install-apache-linux-flavors.yaml
-# To verify, you must add a 'Node3' which has 'Debian' kind of Linux flavor, as 'Node1' & 'Node2' will have httpd installed.
+# To verify, you must add a 'Node3' which has 'Debian/Ubuntu'flavor.
