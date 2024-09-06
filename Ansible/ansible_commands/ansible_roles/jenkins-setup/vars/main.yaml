@@ -1,0 +1,6 @@
+# Variables for Jenkins
+
+---
+# vars/main.yml
+jenkins_repo_url: "https://pkg.jenkins.io/redhat-stable/jenkins.repo"
+jenkins_gpg_key_url: "https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key"
