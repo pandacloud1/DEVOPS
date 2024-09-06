@@ -1,0 +1,8 @@
+---
+- hosts: jenkins_nodes
+  become: true
+  roles:
+    - jenkins_installation
+
+# Place the role in your "roles" directory, and run the playbook with:
+# ansible-playbook -i inventory jenkins-playbook.yml
