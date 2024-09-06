@@ -1,0 +1,8 @@
+# Restart Jenkins if needed
+
+---
+# handlers/main.yml
+- name: Restart Jenkins
+  systemd:
+    name: jenkins
+    state: restarted
