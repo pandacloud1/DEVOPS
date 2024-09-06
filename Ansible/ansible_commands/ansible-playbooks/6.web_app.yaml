@@ -1,0 +1,49 @@
+# SETUP WEB APP ONLY IN THE WEBSERVERS
+
+# vi webapp.yaml
+---
+- name: Setup Web Application
+  hosts: webservers
+  become: true
+  tasks:
+    - name: Install Git
+      package:
+        name: git
+        state: installed
+
+    - name: Install HTTPD or Apache2
+      package:
+        name: "{{ 'httpd' if ansible_distribution == 'Amazon' else 'apache2' }}"
+        state: installed
+
+    - name: Start HTTPD or Apache2 service
+      service:
+        name: "{{ 'httpd' if ansible_distribution == 'Amazon' else 'apache2' }}"
+        state: started
+        enabled: true
+
+    - name: Clone GitHub repository
+      git:
+        repo: https://github.com/pandacloud1/webapp2.git
+        dest: /tmp/webapp2
+        clone: yes
+        update: yes
+      register: git_clone_result
+
+    - name: Verify if /tmp/webapp2 directory exists
+      stat:
+        path: /tmp/webapp2
+      register: webapp2_dir
+
+    - name: Debug - Directory contents
+      command: ls -l /tmp/webapp2
+      when: webapp2_dir.stat.exists
+
+    - name: Copy files from webapp2 to /var/www/html using rsync
+      command: >
+        rsync -avz /tmp/webapp2/ /var/www/html/
+      when: webapp2_dir.stat.exists
+...
+
+# ansible-playbook webapp.yaml
+# Open the public IP of your webservers group (i.e., Node1) in the browser & check if the application is accessible
