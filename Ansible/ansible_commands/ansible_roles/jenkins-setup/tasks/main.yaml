@@ -1,0 +1,39 @@
+# Install Jenkins and Java using YUM
+
+---
+# tasks/main.yml
+- name: Update all packages
+  yum:
+    name: "*"
+    state: latest
+
+- name: Add Jenkins repo
+  get_url:
+    url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+    dest: /etc/yum.repos.d/jenkins.repo
+    mode: '0644'
+
+- name: Import Jenkins GPG key
+  rpm_key:
+    key: https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+    state: present
+
+- name: Install Java 17 (Amazon Corretto)
+  yum:
+    name: java-17-amazon-corretto
+    state: installed
+
+- name: Install Jenkins
+  yum:
+    name: jenkins
+    state: installed
+
+- name: Enable Jenkins service to start at boot
+  systemd:
+    name: jenkins
+    enabled: true
+
+- name: Start Jenkins service
+  systemd:
+    name: jenkins
+    state: started
