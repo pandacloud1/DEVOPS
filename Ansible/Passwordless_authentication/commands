@@ -20,6 +20,20 @@ ssh ansadmin@<node1-private-ip>                  # connect master with the node1
 exit                                             # to exit from node1
 ssh ansadmin@<node2-private-ip>                  # connect master with the node2
 
+# If you are getting an error 'Permission denied' while running command 'ssh-copy-id', then follow below steps
+# Run in Master
+su - ansadmin
+cat .ssh/id_rsa.pub                              # copy the key content
+
+# Go to your Node
+su - ansadmin
+mkdir -p .ssh && cd .ssh
+vi authorized_keys                               # paste the key content from master
+
+# Go to your Master & run below
+ssh ansadmin@Node-IP                             # Now you have established passwordless SSH connection with your Master & Node
+
+
 # ----------------------------
 # COMMENTS:
 # SSH Key-Based Authentication is more secure and is recommended
