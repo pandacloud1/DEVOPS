@@ -1,0 +1,47 @@
+# INSTALL NGINX IN WEBSERVERS
+# INSTALL MYSQL IN DBSERVERS
+
+# vi install-nginx-mysql.yaml
+---
+- name: Install Nginx on webservers
+  hosts: webservers
+  become: true
+  tasks:
+    - name: Enable Nginx repository
+      command: amazon-linux-extras enable nginx1
+      # For other Linux distributions, you may need different commands to enable the repo.
+
+    - name: Install Nginx package
+      yum:
+        name: nginx
+        state: installed
+
+    - name: Start Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: true
+
+- name: Install MySQL on dbservers
+  hosts: dbservers
+  become: true
+  tasks:
+    - name: Install MySQL repository
+      command: amazon-linux-extras install mysql8.0
+      # For other Linux distributions, you might need to configure the MySQL repo differently.
+
+    - name: Install MySQL package
+      yum:
+        name: mysql-server
+        state: installed
+
+    - name: Start MySQL service
+      service:
+        name: mysqld
+        state: started
+        enabled: true
+...
+
+# ansible-playbook install-nginx-mysql.yaml
+# verify nginx installation in Nodes using "service nginx status"
+# verify mysql installation in Nodes using "mysql --version"
