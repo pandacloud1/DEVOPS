@@ -1,0 +1,22 @@
+# INSTALL APACHE PLAYBOOK
+
+# vi install-apache.yaml
+---
+- name: Install Apache
+  hosts: all
+  become: true
+  tasks: 
+  - name: Install Apache package
+    yum:
+      name: httpd
+      state: installed
+
+  - name: Start Apache service
+    service:
+      name: httpd
+      state: started
+...
+
+# ansible-playbook install-apache.yaml
+# verify if apache is installed & running in the nodes using below command
+# service httpd status
