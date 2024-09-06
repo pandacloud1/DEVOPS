@@ -1,7 +1,11 @@
 # ANSIBLE ROLE
-# Save the roles in /etc/ansible/roles directory
+# Save the roles content (all the folders) in /etc/ansible/roles directory
 # Modify the ansible configuration file & add the roles_path in it
 # sudo echo "roles_path    = /etc/ansible/roles" >> /etc/ansible/ansible.cfg
+
+# Ansible roles directory can be setup manually or automatically
+# cd /etc/ansible/roles
+# use ansible-galaxy init <role-name> to setup the files & folders automatically (here '<role-name>' is 'jenkins-setup')
 
 # vi jenkins-role.yaml
 ---
