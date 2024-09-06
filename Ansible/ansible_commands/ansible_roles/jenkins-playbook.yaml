@@ -1,8 +1,9 @@
 ---
-- hosts: jenkins_nodes
+- name: Installing Jenkins using Ansible Roles
+  hosts: webservers
   become: true
   roles:
-    - jenkins_installation
+    - jenkins-setup
 
 # Place the role in your "roles" directory, and run the playbook with:
 # ansible-playbook -i inventory jenkins-playbook.yml
