@@ -1,0 +1,24 @@
+# Install Apache Playbook using handlers
+
+# vi handlers.yaml
+---
+- name: connecting tasks using handlers
+  hosts: all
+  become: true
+  tasks: 
+  - name: install-apache-task
+    yum:
+      name: httpd
+      state: installed
+    notify: start-apache-handler
+
+  handlers: 
+  - name: start-apache-handler
+    service:
+      name: httpd
+      state: started
+...
+
+# ansible-playbook handlers.yaml
+# verify if apache is installed & running in the nodes using command
+# service httpd status
