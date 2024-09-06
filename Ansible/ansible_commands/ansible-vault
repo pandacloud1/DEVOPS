@@ -1,0 +1,21 @@
+# ------------------
+# ANSIBLE VAULT
+# ------------------
+
+# Create a New Encrypted Playbook
+ansible-vault create playbook.yaml
+
+# Encrypt an existing Playbook 
+ansible-vault encrypt playbook.yaml
+
+# View the Encrypted Playbook
+ansible-vault view playbook.yaml
+
+# Edit the Encrypted Playbook
+ansible-vault edit playbook.yaml
+
+# Decrypt the Playbook
+ansible-vault decrypt playbook.yaml
+
+# Run the encrypted playbook
+ansible-playbook playbook.yaml --ask-vault-pass
