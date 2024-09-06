@@ -1,0 +1,25 @@
+# INSTALL APACHE WHEN THE NODES HAVE DIFFERENT LINUX FLAVORS
+# Apache package is called 'httpd' in 'RHEL' flavors & 'apache' or 'apache2' in 'Debian'
+# The playbook has been written accordingly
+
+# vi install-apache-linux-flavors.yaml
+---
+- name: Install Apache for different Linux flavors
+  hosts: all
+  become: true
+  tasks:
+    - name: Install httpd on RedHat-based systems
+      yum:
+        name: httpd
+        state: installed
+      when: ansible_os_family == "RedHat"
+
+    - name: Install apache2 on Debian-based systems
+      apt:
+        name: apache2
+        state: installed
+      when: ansible_os_family == "Debian"
+...
+
+# ansible-playbook install-apache-linux-flavors.yaml
+# To verify, you must add a 'Node3' which has 'Debian' kind of Linux flavor, as 'Node1' & 'Node2' will have httpd installed.
