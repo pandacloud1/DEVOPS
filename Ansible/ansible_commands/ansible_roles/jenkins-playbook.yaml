@@ -1,3 +1,7 @@
+# ANSIBLE ROLE
+# Save the roles in /etc/ansible/roles directory
+# Modify the ansible configuration file & add the roles_path in it
+# sudo echo "roles_path    = /etc/ansible/roles" >> /etc/ansible/ansible.cfg
 ---
 - name: Installing Jenkins using Ansible Roles
   hosts: webservers
@@ -7,3 +11,5 @@
 
 # Place the role in your "roles" directory, and run the playbook with:
 # ansible-playbook -i inventory jenkins-playbook.yml
+
+# Set the ansible roles path in ansible configuration file 
