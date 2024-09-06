@@ -1,0 +1,37 @@
+# INSTALL APACHE IN "WEBSERVERS" GROUP
+# INSTALL NGINX IN "DBSERVERS" GROUP
+
+# vi install-apache-nginx.yaml
+---
+- name: Install Apache on webservers
+  hosts: webservers
+  become: true
+  tasks:
+  - name: Install Apache package
+    yum:
+      name: httpd
+      state: installed
+
+  - name: Start Apache service
+    service:
+      name: httpd
+      state: started
+
+- name: Install Nginx on dbservers
+  hosts: dbservers
+  become: true
+  tasks:
+  - name: Install Nginx package
+    yum:
+      name: nginx
+      state: installed
+
+  - name: Start Nginx service
+    service:
+      name: nginx
+      state: started
+...
+
+# ansible-playbook install-apache-nginx.yaml
+# 1. verify if apache is installed in 'Node1' using command 'service httpd status'
+# 2. verify if nginx is installed in 'Node2' using command 'service nginx status'
