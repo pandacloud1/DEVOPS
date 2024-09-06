@@ -1,0 +1,22 @@
+# UNINSTALL APACHE
+
+# vi uninstall-apache.yaml
+---
+- name: Uninstall Apache
+  hosts: all
+  become: true
+  tasks: 
+  - name: Stop Apache service
+    service:
+      name: httpd
+      state: stopped
+
+  - name: Uninstall Apache package
+    yum:
+      name: httpd
+      state: absent
+...
+
+# ansible-playbook uninstall-apache.yaml
+# verify if apache is uninstalled in the nodes using command
+# service httpd status
