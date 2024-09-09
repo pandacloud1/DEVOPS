@@ -1,0 +1,13 @@
+# -----------
+# Error Msg
+# -----------
+# Error accessing repos: File contains no section headers.\nfile: file:///etc/yum.repos.d/mysql57-community.repo, line: 1\n'Not found\\n'"}" for this playbook 
+
+# Run below commands in your node
+# Remove the current mysql57-community.repo file and download the correct MySQL repository configuration file
+sudo rm -f /etc/yum.repos.d/mysql57-community.repo
+sudo yum install https://repo.mysql.com/mysql57-community-release-el7.rpm
+
+# Clear the Yum Cache
+sudo yum clean all
+sudo yum makecache
