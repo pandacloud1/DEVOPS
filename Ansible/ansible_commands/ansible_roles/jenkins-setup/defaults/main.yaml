@@ -1,0 +1,5 @@
+# Define the default variable
+# Enter your Node's Private IP below where you want to install Jenkins
+
+# defaults/main.yml
+jenkins_node_ip: "172.31.14.245"  # Enter your Node's Private IP here
