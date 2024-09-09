@@ -1,6 +1,7 @@
 # Install tree package in your Linux system
 # Eg: 
   # sudo yum install tree -y
+# Run 'tree' command in your 'jenkins-setup' directory, it will output below
 
 jenkins-setup/
 ├── defaults/
