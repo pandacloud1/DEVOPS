@@ -5,10 +5,10 @@
 
 jenkins-setup/
 ├── defaults/
-│   └── main.yml        # Default variables (jenkins_node_ip)
+│   └── main.yaml        # Default variables (jenkins_node_ip)
 ├── handlers/
-│   └── main.yml        # Handlers for starting/restarting services
+│   └── main.yaml        # Handlers for starting/restarting services
 ├── tasks/
-│   └── main.yml        # Tasks for installing Jenkins
+│   └── main.yaml        # Tasks for installing Jenkins
 └── vars/
-    └── main.yml        # Static or predefined variables (if needed)
+    └── main.yaml        # Predefined variables (if needed)
