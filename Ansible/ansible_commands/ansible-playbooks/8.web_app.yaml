@@ -41,7 +41,7 @@
 
     - name: Copy files from webapp2 to /var/www/html using rsync
       command: >
-        rsync -avz /tmp/webapp2/ /var/www/html/
+        rsync -avz /tmp/webapp2/ /var/www/html/                    # avz: archive verbose compress (used to transfer files by preserving its properties)
       when: webapp2_dir.stat.exists
 ...
 
