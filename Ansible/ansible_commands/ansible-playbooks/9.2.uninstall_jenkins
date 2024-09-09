@@ -1,0 +1,29 @@
+# vi uninstall_jenkins.yaml
+
+---
+- name: Uninstall Jenkins from specific node
+  hosts: all
+  become: true
+  vars:
+    node_private_ip: "172.31.14.245"   # Replace with the actual private IP
+
+  tasks:
+    - name: Uninstall Jenkins
+      yum:
+        name: jenkins
+        state: absent
+      when: ansible_host == node_private_ip
+
+    - name: Stop and disable Jenkins service
+      systemd:
+        name: jenkins
+        state: stopped
+        enabled: false
+      when: ansible_host == node_private_ip
+
+    - name: Remove Jenkins repository
+      file:
+        path: /etc/yum.repos.d/jenkins.repo
+        state: absent
+      when: ansible_host == node_private_ip
+...
