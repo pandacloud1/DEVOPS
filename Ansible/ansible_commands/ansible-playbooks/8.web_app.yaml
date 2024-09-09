@@ -9,12 +9,12 @@
     - name: Install Git
       package:
         name: git
-        state: installed
+        state: present
 
     - name: Install HTTPD or Apache2
       package:
         name: "{{ 'httpd' if ansible_distribution == 'Amazon' else 'apache2' }}"
-        state: installed
+        state: present
 
     - name: Start HTTPD or Apache2 service
       service:
