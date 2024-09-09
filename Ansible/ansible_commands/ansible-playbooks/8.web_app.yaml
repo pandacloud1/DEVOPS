@@ -28,21 +28,10 @@
         dest: /tmp/webapp2
         clone: yes
         update: yes
-      register: git_clone_result
-
-    - name: Verify if /tmp/webapp2 directory exists
-      stat:
-        path: /tmp/webapp2
-      register: webapp2_dir
-
-    - name: Debug - Directory contents
-      command: ls -l /tmp/webapp2
-      when: webapp2_dir.stat.exists
 
     - name: Copy files from webapp2 to /var/www/html using rsync
       command: >
-        rsync -avz /tmp/webapp2/ /var/www/html/                    # avz: archive verbose compress (used to transfer files by preserving its properties)
-      when: webapp2_dir.stat.exists
+        rsync -avz /tmp/webapp2/ /var/www/html/        # avz: archive verbose compress (used to transfer files by preserving its properties)
 ...
 
 # ansible-playbook webapp.yaml
