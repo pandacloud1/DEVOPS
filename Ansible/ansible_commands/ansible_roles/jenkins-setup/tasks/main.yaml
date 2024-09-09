@@ -1,39 +1,49 @@
 # Install Jenkins and Java using YUM
 
----
 # tasks/main.yml
+
+---
 - name: Update all packages
   yum:
-    name: "*"
+    name: '*'
     state: latest
+  when: ansible_host == jenkins_node_ip
 
-- name: Add Jenkins repo
+- name: Add Jenkins repository
   get_url:
-    url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+    url: "{{ jenkins_repo_url }}"
     dest: /etc/yum.repos.d/jenkins.repo
     mode: '0644'
+  when: ansible_host == jenkins_node_ip
 
 - name: Import Jenkins GPG key
   rpm_key:
-    key: https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
     state: present
+    key: "{{ jenkins_gpg_key_url }}"
+  when: ansible_host == jenkins_node_ip
+
+- name: Upgrade all packages
+  yum:
+    name: '*'
+    state: latest
+  when: ansible_host == jenkins_node_ip
 
 - name: Install Java 17 (Amazon Corretto)
   yum:
-    name: java-17-amazon-corretto
-    state: installed
+    name: "{{ java_package }}"
+    state: present
+  when: ansible_host == jenkins_node_ip
 
 - name: Install Jenkins
   yum:
     name: jenkins
-    state: installed
+    state: present
+  when: ansible_host == jenkins_node_ip
+  notify: Restart Jenkins service
 
 - name: Enable Jenkins service to start at boot
   systemd:
     name: jenkins
     enabled: true
-
-- name: Start Jenkins service
-  systemd:
-    name: jenkins
-    state: started
+  when: ansible_host == jenkins_node_ip
+...
