@@ -1,8 +1,9 @@
-# Restart Jenkins if needed
+# Restart Jenkins service when notified by the tasks
 
 ---
-# handlers/main.yml
-- name: Restart Jenkins
+# handlers/main.yaml
+- name: Restart Jenkins service
   systemd:
     name: jenkins
     state: restarted
+    enabled: true
