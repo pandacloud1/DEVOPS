@@ -1,4 +1,7 @@
 # ANSIBLE ROLE
+# By making roles, you can reuse them across multiple playbooks and projects, keeping your automation cleaner and more modular.
+# You create a role once (e.g., "Install Jenkins") and use it in many playbooks, saving time and effort.
+
 # Save the roles content (all the folders) in /etc/ansible/roles directory
 # Modify the ansible configuration file & add the roles_path in it
 # sudo echo "roles_path    = /etc/ansible/roles" >> /etc/ansible/ansible.cfg
