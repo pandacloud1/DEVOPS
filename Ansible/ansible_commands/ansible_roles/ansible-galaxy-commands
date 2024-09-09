@@ -1,7 +1,7 @@
 # ------------------------
 # Ansible Galaxy commands
 # ------------------------
-# Note: Ansible Galaxy is a portal where we can find the Ansible content like playbooks
+# Note: Ansible Galaxy is a portal where we can find the Ansible content (eg: playbooks)
 
 # Search for roles on Ansible Galaxy
 ansible-galaxy search mysql
