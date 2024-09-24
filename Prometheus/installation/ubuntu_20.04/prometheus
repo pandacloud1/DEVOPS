@@ -1,0 +1,15 @@
+# -----------------------------------
+# INSTALL PROMETHEUS IN UBUNTU 20.04
+# -----------------------------------
+# REF: https://prometheus.io/download/
+
+#!/bin/bash
+
+sudo su -
+wget https://github.com/prometheus/prometheus/releases/download/v3.0.0-beta.0/prometheus-3.0.0-beta.0.linux-amd64.tar.gz
+tar -xvf prometheus-3.0.0-beta.0.linux-amd64.tar.gz
+cd prometheus-3.0.0-beta.0.linux-amd64/
+nohup ./prometheus --config.file=prometheus.yml > /root/prometheus.log 2>&1 &
+
+# NOTE:
+# Open EC2_PubicIP:9090 in your browser to access Prometheus
