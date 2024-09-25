@@ -7,6 +7,7 @@
 # INSTALLING PROMETHEUS
 # ----------------------
 # Note: Ensure to keep port 9090 open in the SG of your EC2
+# Access your Prometheus server using <EC2_Public_IP>:9090
 
 #!/bin/bash
 
