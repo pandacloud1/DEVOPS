@@ -82,3 +82,12 @@ resource "aws_instance" "my-ec2" {
 output "Prometheus-Server-Access" {
   value = "ubuntu@${aws_instance.my-ec2.public_ip}"
 }
+
+# -----------------------
+# Commands
+# -----------------------
+# Create the EC2
+# terraform apply --auto-approve
+
+# Delete the EC2 after the practical
+# terraform destroy --auto-approve
