@@ -19,8 +19,8 @@ provider "aws" {
 
 # STEP1: CREATE SG
 resource "aws_security_group" "my-sg" {
-  name        = "My-Webserver-SG"
-  description = "Allow SSH, HTTP, HTTPS"
+  name        = "Prometheus-Grafana-SG"
+  description = "Allow SSH, HTTP, 3000, 9090 & 9100"
   
   # Define inbound rules for Port 22
   ingress {
