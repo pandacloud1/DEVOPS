@@ -5,6 +5,7 @@
 
 # Note: Ensure to keep port 3000 open in the SG of your EC2
 # Access your Grafana server using <EC2_Public_IP>:3000
+# Default username & password is 'admim'
 
 # !/bin/bash
 sudo su -
