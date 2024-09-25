@@ -3,6 +3,9 @@
 # -----------------------------------
 # REF: https://grafana.com/docs/grafana/latest/setup-grafana/installation/debian/#install-from-apt-repository
 
+# Note: Ensure to keep port 3000 open in the SG of your EC2
+# Access your Grafana server using <EC2_Public_IP>:3000
+
 # !/bin/bash
 sudo su -
 sudo apt-get install -y apt-transport-https software-properties-common wget
