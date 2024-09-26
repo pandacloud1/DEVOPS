@@ -1,8 +1,7 @@
 # ADD WINDOWS LAPTOP AS A NODE IN JENKINS
 
 ### Key Points:
-- **Image Display**: The line `![Jenkins Windows Node Setup](https://raw.githubusercontent.com/pandacloud1/DEVOPS/main/JENKINS/Add_Nodes/Jenkins-Windows.png)` uses the raw link to ensure the image is displayed correctly in the README.
-- **Markdown Structure**: Ensure you maintain the correct markdown syntax for headers, lists, code blocks, and links.
+`![Jenkins Windows Node Setup](https://raw.githubusercontent.com/pandacloud1/DEVOPS/main/JENKINS/Add_Nodes/Jenkins-Windows.png)` 
 
 ## 1. Create EC2 Instance
 - Allow ports: 22, 80, 8080, 50000.
