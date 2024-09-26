@@ -46,3 +46,5 @@ pipeline {
         }
     }
 }
+
+- Check if the file is created in C:\Jenkins\workspace\test-pipeline/test-file
