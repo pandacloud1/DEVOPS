@@ -1,0 +1,19 @@
+# ----------------------------------------
+# ADD WINDOWS LAPTOP AS A NODE IN JENKINS
+# ----------------------------------------
+
+# 1. Create EC2 Instance, allow ports 22, 80, 8080, 50000.
+# 2. Install & Start Jenkins
+# 3. Add Port 50000 in Jenkins Server
+#    Manage Jenkins --> Security --> Agents --> TCP port for inbound agents --> Fixed: 50000
+# 4. Add your Windows laptop as a Node
+#    Manage Jenkins --> Nodes --> New Node --> Give any name (eg. windows-agent), Type: Permanent Agent --> Create
+#    Remote Root Directory: C:\Jenkins
+#    Labels: Give any name (eg. windows-agent)
+#    Launch method: Launch agent by connecting it to the controller
+#    Save
+#    Open created Node --> Status --> Copy the command from "Run from agent command line: (Windows)"
+#    Open Command Prompt in your Windows laptop & run the above command. (The status must be shown as "Connected")
+#    Check the Jenkins Node console & see if the agent (windows-agent) is shown
+#    Run a pipeline to create a test file
+#    Ref: 
