@@ -1,6 +1,5 @@
 # ADD WINDOWS LAPTOP AS A NODE IN JENKINS
 
-### Key Points:
 `![Jenkins Windows Node Setup](https://raw.githubusercontent.com/pandacloud1/DEVOPS/main/JENKINS/Add_Nodes/Jenkins-Windows.png)` 
 
 ## 1. Create EC2 Instance
