@@ -23,6 +23,7 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" https://pkg.jenki
 sudo apt update                                      # to update package
 sudo apt install jenkins -y                          # to install jenkins
 
+sudo systemctl start jenkins                         # to start jenkins service
 sudo systemctl status jenkins                        # to check the status if jenkins is running or not
 
 # Get Jenkins_Public_IP
