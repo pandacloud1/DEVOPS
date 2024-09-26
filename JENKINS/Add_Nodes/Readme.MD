@@ -30,7 +30,8 @@
 
 ## 6. Run Pipeline in Jenkins Server to Create Test File on Your Windows Laptop
 - Check the Jenkins Node console to see if the agent (windows-agent) is shown.
-- Run a pipeline to create a test file on your Windows laptop:
+- Run a pipeline to create a test file on your Windows laptop
+- Check if the file is created in C:\Jenkins\workspace\test-pipeline/test-file
 
 ```groovy
 pipeline {
@@ -47,4 +48,4 @@ pipeline {
     }
 }
 
-- Check if the file is created in C:\Jenkins\workspace\test-pipeline/test-file
+
