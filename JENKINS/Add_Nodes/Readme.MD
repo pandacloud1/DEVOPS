@@ -1,6 +1,4 @@
-# ----------------------------------------
 # ADD WINDOWS LAPTOP AS A NODE IN JENKINS
-# ----------------------------------------
 
 ## 1. Create EC2 Instance
 - Allow ports: 22, 80, 8080, 50000.
