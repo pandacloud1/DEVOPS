@@ -24,3 +24,13 @@ sudo apt update                                      # to update package
 sudo apt install jenkins -y                          # to install jenkins
 
 sudo systemctl status jenkins                        # to check the status if jenkins is running or not
+
+# Get Jenkins_Public_IP
+ip=$(curl ifconfig.me)
+port=8080
+
+# Generate Jenkins initial login password
+pass=$(sudo cat /var/lib/jenkins/secrets/initialAdminPassword)
+
+echo "Access your Jenkins here --> http://$ip:$port"
+echo "Your Jenkins Initial Password: $pass"
