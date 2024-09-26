@@ -26,7 +26,8 @@
 
 ## 5. Configure Windows Laptop as an Agent
 - Ensure Java 17 or Java 21 is installed on your Windows machine.
-- Open Command Prompt on your Windows laptop and paste the command from Step 4. The output should indicate "Connected".
+- Open Command Prompt on your Windows laptop and paste the command from Step 4. 
+- The output should indicate "Connected".
 
 ## 6. Run Pipeline in Jenkins Server to Create Test File on Your Windows Laptop
 - Check the Jenkins Node console to see if the agent (windows-agent) is shown.
