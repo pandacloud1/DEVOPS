@@ -35,3 +35,7 @@ pass=$(sudo cat /var/lib/jenkins/secrets/initialAdminPassword)
 
 echo "Access your Jenkins here --> http://$ip:$port"
 echo "Your Jenkins Initial Password: $pass"
+
+# In case if Jenkins fails to starts, try to set Java version to 11,17,21 using below command
+# sudo update-alternatives --config java
+# (Select the relevant Java version)
