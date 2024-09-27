@@ -1,0 +1,13 @@
+pipeline {
+    agent { label 'macbook' }  // Specify the MacBook agent
+    stages {
+        stage('Create Test File') {
+            steps {
+                script {
+                    // Create a file named 'test-file.txt' on the MacBook
+                    sh 'echo "This is a test file" > test-file.txt'
+                }
+            }
+        }
+    }
+}
