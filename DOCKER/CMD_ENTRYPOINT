@@ -10,7 +10,7 @@ FROM ubuntu
 ENTRYPOINT [“echo”, “GOOD MORNING”]
 docker build –t img-entry –f Dockerfile-entry .
 docker run img-entry 			           # Output --> GOOD MORNING
-docker run img-entry “GOOD EVENING”		    # Output  GOOD MORNING GOOD EVENING
+docker run img-entry “GOOD EVENING”		    # Output --> GOOD MORNING GOOD EVENING
 
 vi Dockerfile-entry-cmd
 FROM ubuntu
