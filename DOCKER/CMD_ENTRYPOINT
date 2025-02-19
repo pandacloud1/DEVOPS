@@ -30,9 +30,10 @@ docker run img-entry-cmd “GOOD AFTERNOON”	  # Output --> GOOD AFTERNOON
 vi Dockerfile
 
 FROM ubuntu
+RUN apt update 
 ENTRYPOINT ["apt", "install", "-y"]
-CMD ["git"]
+CMD ["git"]  # Default package to install
 
 docker build -t my-image .
 docker run my-image                        # Output: Git will be installed
-docker run my image "apache2"              # Output: Apache2 will be installed (instead of git)
+docker run my image apache2 tree           # Output: Apache2 will be installed (instead of git)
