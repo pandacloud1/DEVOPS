@@ -19,8 +19,8 @@ RUN git clone https://github.com/pandacloud1/webapp1.git
 RUN cp -R webapp1/* /var/www/html/
 # Start Apache
 CMD ["apache2ctl", "-D", "FOREGROUND"]
-# Expose port 80 of container, map it with 3001
-EXPOSE 3001
+# Expose port 80 of container (as apache uses 80 as default port)
+EXPOSE 80
 
 docker build -t webapp1 .
 docker run -dt --name container1 -p 3001:80 webapp1
@@ -38,7 +38,7 @@ RUN apt update && apt install -y apache2 git
 RUN git clone https://github.com/pandacloud1/webapp2.git 
 RUN cp -R webapp2/* /var/www/html/
 CMD ["apache2ctl", "-D", "FOREGROUND"]
-EXPOSE 3002
+EXPOSE 80
 
 docker build -t webapp2 .
 docker run -dt --name container2 -p 3002:80 webapp2
