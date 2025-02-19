@@ -2,7 +2,7 @@ vi Dockerfile-cmd
 FROM ubuntu
 CMD [“echo”, “GOOD MORNING”]
 docker build –t img-cmd –f Dockerfile-cmd .
-docker run img-cmd			              # Output --> GOOD MORNING
+docker run img-cmd			            # Output --> GOOD MORNING
 docker run img-cmd echo “GOOD EVENING”	      # Output --> GOOD EVENING
 
 vi Dockerfile-entry
