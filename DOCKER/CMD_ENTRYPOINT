@@ -2,14 +2,14 @@ vi Dockerfile-cmd
 FROM ubuntu
 CMD [“echo”, “GOOD MORNING”]
 docker build –t img-cmd –f Dockerfile-cmd .
-docker run img-cmd			                # Output --> GOOD MORNING
+docker run img-cmd			              # Output --> GOOD MORNING
 docker run img-cmd echo “GOOD EVENING”	      # Output --> GOOD EVENING
 
 vi Dockerfile-entry
 FROM ubuntu
 ENTRYPOINT [“echo”, “GOOD MORNING”]
 docker build –t img-entry –f Dockerfile-entry .
-docker run img-entry 			            # Output --> GOOD MORNING
+docker run img-entry 			           # Output --> GOOD MORNING
 docker run img-entry “GOOD EVENING”		    # Output  GOOD MORNING GOOD EVENING
 
 vi Dockerfile-entry-cmd
