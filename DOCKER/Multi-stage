@@ -18,3 +18,19 @@ EXPOSE 80
 # Note
 # The git package & Github repo additional data is not copied in the final image
 # Hence, the image size will get reduced
+
+============================================
+# Use below for more reduced image
+# Alpine (~5MB) is much small as compared to Ubuntu (~30MB)
+
+# First stage: Cloning the repository (using Alpine)
+FROM alpine:latest AS builder
+RUN apk add --no-cache git
+RUN git clone https://github.com/pandacloud1/webapp3.git /app
+
+# Second stage: Apache server (Final lightweight image)
+FROM alpine:latest
+RUN apk add --no-cache apache2
+COPY --from=builder /app /var/www/html
+CMD ["httpd", "-D", "FOREGROUND"]
+EXPOSE 80
