@@ -1,3 +1,7 @@
+--------------------
+# EXAMPLE-1
+--------------------
+
 vi Dockerfile-cmd
 FROM ubuntu
 CMD [“echo”, “GOOD MORNING”]
@@ -19,3 +23,16 @@ CMD [“GOOD MORNING”, “GOOD EVENING”]
 docker build –t img-entry-cmd –f Dockerfile-entry-cmd .
 docker run img-entry-cmd 			            # Output --> GOOD MORNING
 docker run img-entry-cmd “GOOD AFTERNOON”	  # Output --> GOOD AFTERNOON
+
+--------------------
+# EXAMPLE-2
+--------------------
+vi Dockerfile
+
+FROM ubuntu
+ENTRYPOINT ["apt", "install", "-y"]
+CMD ["git"]
+
+docker build -t my-image .
+docker run my-image                        # Output: Git will be installed
+docker run my image "apache2"              # Output: Apache2 will be installed (instead of git)
