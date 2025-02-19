@@ -3,14 +3,14 @@ FROM ubuntu
 CMD [“echo”, “GOOD MORNING”]
 docker build –t img-cmd –f Dockerfile-cmd .
 docker run img-cmd			                # Output --> GOOD MORNING
-docker run img-cmd echo “GOOD EVENING”	# Output --> GOOD EVENING
+docker run img-cmd echo “GOOD EVENING”	  # Output --> GOOD EVENING
 
 vi Dockerfile-entry
 FROM ubuntu
 ENTRYPOINT [“echo”, “GOOD MORNING”]
 docker build –t img-entry –f Dockerfile-entry .
 docker run img-entry 			            # Output --> GOOD MORNING
-docker run img-entry “GOOD EVENING”		# Output  GOOD MORNING GOOD EVENING
+docker run img-entry “GOOD EVENING”		  # Output  GOOD MORNING GOOD EVENING
 
 vi Dockerfile-entry-cmd
 FROM ubuntu
@@ -18,4 +18,4 @@ ENTRYPOINT [“echo”]
 CMD [“GOOD MORNING”, “GOOD EVENING”]
 docker build –t img-entry-cmd –f Dockerfile-entry-cmd .
 docker run img-entry-cmd 			            # Output --> GOOD MORNING
-docker run img-entry-cmd “GOOD AFTERNOON”	# Output --> GOOD AFTERNOON
+docker run img-entry-cmd “GOOD AFTERNOON”	  # Output --> GOOD AFTERNOON
