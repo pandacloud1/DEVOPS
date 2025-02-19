@@ -1,0 +1,20 @@
+# Multi-stage build reduce the final image size.
+# It only keeps required files in the final image.
+
+# First stage: Cloning the repository (Not included in image)
+# --------------
+FROM ubuntu:22.04 AS builder
+RUN apt update && apt install -y git
+RUN git clone https://github.com/pandacloud1/webapp3.git /app
+
+# Second stage: Apache server (Final image)
+# --------------
+FROM ubuntu:22.04
+RUN apt update && apt install -y apache2
+COPY --from=builder /app /var/www/html
+CMD ["apache2ctl", "-D", "FOREGROUND"]
+EXPOSE 80
+
+# Note
+# The git package & Github repo additional data is not copied in the final image
+# Hence, the image size will get reduced
