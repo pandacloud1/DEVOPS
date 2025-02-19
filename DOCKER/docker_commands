@@ -6,6 +6,11 @@
 # Add normal user in the 'docker' group
 sudo usermod -aG docker ubuntu
 
+# Logout & login for the changes to reflect
+newgrp docker
+
+# Now run any commands without having to worry about the permissions
+
 # ----------------------
 # Docker image commands
 # ----------------------
