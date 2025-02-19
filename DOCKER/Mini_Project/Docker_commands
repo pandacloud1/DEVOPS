@@ -55,7 +55,7 @@ RUN apt update && apt install -y apache2 git
 RUN git clone https://github.com/pandacloud1/webapp3.git 
 RUN cp -R webapp3/* /var/www/html/
 CMD ["apache2ctl", "-D", "FOREGROUND"]
-EXPOSE 3003
+EXPOSE 80
 
 docker build -t webapp3 .
 docker run -dt --name container3 -p 3003:80 webapp3
