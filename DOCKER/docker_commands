@@ -2,6 +2,10 @@
 # DOCKER COMMANDS
 # ===================
 
+# Getting permission denied error for normal user?
+# Add normal user in the 'docker' group
+sudo usermod -aG docker ubuntu
+
 # ----------------------
 # Docker image commands
 # ----------------------
