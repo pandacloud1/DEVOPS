@@ -19,7 +19,7 @@ sudo apt install docker.io -y                   #(install docker)
 sudo service docker start    	                #(start docker service)
 # Add ec2-user to the docker group so that Docker commands can be run w/o using sudo.
 sudo usermod -aG docker $USER && newgrp docker  #(add normal user 'docker')
-sudo usermod -aG docker ec2-user
+sudo usermod -aG docker ubuntu
 sudo chmod 777 /var/run/docker.sock
 
 # ------------------------
