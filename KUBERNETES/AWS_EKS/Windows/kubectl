@@ -8,3 +8,6 @@ curl.exe -LO "https://dl.k8s.io/release/v1.32.0/bin/windows/amd64/kubectl.exe"
 # This will download executable file
 # Save the file to any location & copy the location (eg: C:\Kubernetes)
 # Paste the location in your Windows --> System env variables --> Path --> Edit & add the path (eg: C:\Kubernetes)
+
+# Ref below if facing error with 'Unhandled error'
+https://repost.aws/knowledge-center/eks-api-server-unauthorized-error
