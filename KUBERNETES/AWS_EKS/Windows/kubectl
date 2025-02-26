@@ -1,5 +1,8 @@
-# Open Command prompt & run below command
+# INSTALL KUBECTL IN WINDOWS
+--------------------------------
+# Ref: https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/#install-kubectl-binary-on-windows-via-direct-download-or-curl
 
+# Open Command prompt & run below command
 curl.exe -LO "https://dl.k8s.io/release/v1.32.0/bin/windows/amd64/kubectl.exe"
 
 # This will download executable file
