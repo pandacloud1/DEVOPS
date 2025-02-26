@@ -1,1 +1,10 @@
-1
+# INSTALL EKSCTL FOR WINDOWS
+-----------------------------
+# Ref: https://eksctl.io/installation/#for-windows
+
+# Download the AMD64/x86_64 zip file
+# Extract & save the zip file in any location (eg: C:\eksctl)
+# Set the system environment variables --> Environment variables --> Path --> Edit & add above path (eg: C:\eksctl)
+
+# Open Command prompt & run below (it must give an output)
+eksctl version
