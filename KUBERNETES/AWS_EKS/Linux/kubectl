@@ -11,3 +11,6 @@ chmod +x ./kubectl
 mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$HOME/bin:$PATH
 
 kubectl version --client
+
+# Ref below if facing error with 'Unhandled error'
+https://repost.aws/knowledge-center/eks-api-server-unauthorized-error
