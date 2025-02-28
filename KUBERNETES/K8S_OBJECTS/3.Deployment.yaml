@@ -35,11 +35,15 @@ kubectl get deploy                                                #(to see list 
 
 # Rollout/Rollback Commands
 # Try changing the image in above manifest to 1.20.0 & run below:
-kubectl rollout restart deploy my-deployment                      #(to rollout the deployment to new version)
-kubectl rollout status deploy my-deployment                       #(to check the new rollout status)
-kubectl rollout history deployment/my-deployment                  #(shows the history of version numbers)
-kubectl rollout undo deployment/my-deployment                     #(to rollback to previous version)
-kubectl rollout undo deployment/my-deployment --to-revision=2     #(to rollback to specific version from history)
+kubectl edit deployment my-deployment                             	#(change the version)
+# Add version commits under metadata: annotations: kubernetes.io/change-cause: v1.20
+kubectl get pods				#(check the pods with revised version)
+kubectl describe pod <pod-name>			#(verify the change of version 1.20.0)
+					#(follow the same process & add ‘latest’ version)
+kubectl rollout history deployment my-deployment            	#(shows the history of version numbers & commits)
+kubectl rollout undo deployment my-deployment --to-revision=1     	#(to rollback to specific version from history)
+kubectl rollout restart deployment my-deployment --to-revision=1   #(to restart deployment forcefully)(optional)
+
 
 
 # NOTE:
