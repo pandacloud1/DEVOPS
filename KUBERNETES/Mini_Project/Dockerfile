@@ -15,8 +15,18 @@ CMD ["apache2ctl", "-D", "FOREGROUND"]
 # Expose port 80 (default Apache port)
 EXPOSE 80
 
-
+# ------------------
 # Docker-Commands
-# sudo docker build -t pandacloud/webapp .       #(build image from Dockerfile)
-# sudo docker login -u <username>                #(Login to Dockerhub, enter password)
-# sudo docker push pandacloud/webapp:latest      #(Push image to Dockerhub, use this image in your deployment.yaml file)
+# ------------------
+sudo docker build -t pandacloud/webapp .       #(build image from Dockerfile)
+sudo docker login -u <username>                #(Login to Dockerhub, enter password)
+sudo docker push pandacloud/webapp:latest      #(Push image to Dockerhub, use this image in your deployment.yaml file)
+
+# Getting error "Error - requested access to the resource is denied"?
+# Ref: https://forums.docker.com/t/docker-push-error-requested-access-to-the-resource-is-denied/64468/5
+
+# Try to delete the config file & relogin again
+rm -rf ~/.docker/config.json
+
+# Re-login
+sudo docker login -u <username>                #(Login to Dockerhub, enter password)
