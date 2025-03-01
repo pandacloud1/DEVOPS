@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: my-statefulset
+spec:
+  replicas: 3
+  serviceName: "my-service"
+  selector:
+    matchLabels:
+      name: my-pod1
+  template:
+    metadata:
+      labels:
+        name: my-pod1
+    spec:
+      containers:
+      - name: container1
+        image: pandacloud/webapp3:latest    # Same image as Deployment
+        ports:
+        - containerPort: 80   # Same as Deployment
+        volumeMounts:
+        - name: data-storage
+          mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: data-storage
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
+...
