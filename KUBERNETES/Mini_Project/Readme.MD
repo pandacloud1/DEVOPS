@@ -20,5 +20,4 @@ Pulling custom docker image in Kubernetes pods & exposing it outside.
    * *(https://github.com/pandacloud1/DEVOPS/blob/main/KUBERNETES/Mini_Project/deployment.yaml)*
 6. Expose the pod using service.yaml file
 7. Run kubectl get svc in Master & get the NodePort number
-8. Access the content from the browser using <ec2_public_IP> & <NodePort>
-9. Access using EC2-Public-IP:NodePort
+8. Access the content from the browser using EC2_Public_IP:NodePort
