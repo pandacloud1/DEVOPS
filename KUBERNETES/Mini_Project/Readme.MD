@@ -21,4 +21,4 @@ Pulling custom docker image in Kubernetes pods & exposing it outside.
 6. Expose the pod using service.yaml file
 7. Run kubectl get svc in Master & get the NodePort number
 8. Access the content from the browser using <ec2_public_IP> & <NodePort>
-9. Access using <EC2-Public-IP>:<NodePort>
+9. Access using EC2-Public-IP:NodePort
