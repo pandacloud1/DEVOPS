@@ -18,5 +18,5 @@ EXPOSE 80
 
 # Docker-Commands
 # sudo docker build -t pandacloud/webapp .       #(build image from Dockerfile)
-# sudo docker login -u <username> docker.io      #(Login to Dockerhub, enter password)
+# sudo docker login -u <username>                #(Login to Dockerhub, enter password)
 # sudo docker push pandacloud/webapp:latest      #(Push image to Dockerhub, use this image in your deployment.yaml file)
