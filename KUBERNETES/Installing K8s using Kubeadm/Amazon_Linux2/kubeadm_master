@@ -10,6 +10,9 @@ Create master & node server with 4GB RAM & 2 vCPU
 Ports to be opened in Security Group: 22, 80, 443, 6443, 10250, 10256, 10257, 10258, 30000-32767
 # Ref: https://kubernetes.io/docs/reference/networking/ports-and-protocols/
 
+# =====================================
+# USERDATA COMMAND (BEGIN)
+# =====================================
 # ---------------------------------
 # Install Docker
 # ---------------------------------
@@ -43,6 +46,10 @@ EOF
 
 sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 sudo systemctl enable --now kubelet
+
+# =====================================
+# USERDATA COMMAND (END)
+# =====================================
 
 # ---------------------------------
 # Run only in Master
