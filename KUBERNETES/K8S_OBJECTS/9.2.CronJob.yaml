@@ -21,3 +21,4 @@ spec:
 # kubectl get cronjob -w                  # to watch the live cronjobs
 # kubectl get pods                        # to get the pods
 # kubectl logs <pod-name>                 # check the pod logs
+# Wait for 5 mins to check the cronjobs
