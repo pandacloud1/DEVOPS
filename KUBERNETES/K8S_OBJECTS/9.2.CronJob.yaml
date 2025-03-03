@@ -18,6 +18,6 @@ spec:
 
 # Commands
 # kubectl apply -f cronjob.yaml
-# kubectl get cronjob
-# kubectl get pods
-# kubectl logs <pod-name>
+# kubectl get cronjob -w                  # to watch the live cronjobs
+# kubectl get pods                        # to get the pods
+# kubectl logs <pod-name>                 # check the pod logs
