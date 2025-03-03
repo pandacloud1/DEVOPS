@@ -57,7 +57,3 @@ sudo systemctl enable --now kubelet
 # Paste the kubeadm join command from master here:
 # For eg:
 # sudo kubeadm join 172.31.81.228:6443 --token <token> --discovery-token-ca-cert-hash <certificate-id>
-
-Go back to Master server & run below
-kubectl get nodes
-kubectl get pods -A
