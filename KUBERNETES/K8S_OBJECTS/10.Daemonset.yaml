@@ -1,0 +1,29 @@
+# To test daemonset create atleast two nodes & one master
+# Create a yaml file
+# vi daemonset.yaml
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: my-daemonset
+spec:
+  selector:
+    matchLabels:
+      app: my-daemon
+  template:
+    metadata:
+      labels:
+        app: my-daemon
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+...
+
+# kubectl apply -f daemonset.yaml
+# Now, check if the daemonset pod is running in all the nodes using below command
+
+# kubectl get pods -o wide
+# This will give an output of my-daemonset-xyz pods in all the nodes
