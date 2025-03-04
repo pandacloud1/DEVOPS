@@ -1,7 +1,8 @@
 # ------------------------------------------
 # Installing Jenkins application using Helm
 # ------------------------------------------
-# Reference: https://github.com/jenkinsci/helm-charts
+# Ref: https://github.com/jenkinsci/helm-charts
+# Ref: https://www.jenkins.io/doc/book/installing/kubernetes/#install-jenkins-with-helm-v3
 
 kubectl create namespace jenkins
 helm repo add jenkins https://charts.jenkins.io   #(to add charts related to jenkins application)
