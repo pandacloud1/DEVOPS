@@ -20,7 +20,7 @@ service:
 # ------------------------
 # Modify deployment.yaml
 # ------------------------
-vi templates/deployment.yaml
+vi myapp/templates/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -44,7 +44,7 @@ spec:
 # ---------------------
 # Modify service.yaml
 # ---------------------
-vi templates/service.yaml
+vi myapp/templates/service.yaml
 apiVersion: v1
 kind: Service
 metadata:
