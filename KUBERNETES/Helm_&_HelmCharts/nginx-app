@@ -1,0 +1,72 @@
+# Deploy simple nginx app using helm & helm charts
+# ---------------------
+# Create a Helm Chart
+# ---------------------
+helm create myapp
+
+# -----------------------------------
+# Modify the image and port details
+# -----------------------------------
+vi myapp/values.yaml
+image:
+  repository: nginx
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 80
+
+# ------------------------
+# Modify deployment.yaml
+# ------------------------
+vi myapp/values.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 80
+
+# ---------------------
+# Modify service.yaml
+# ---------------------
+vi templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-nginx
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30080  # Change this if needed
+
+# --------------------------
+# Deploy the App Using Helm
+# --------------------------
+helm install my-nginx myapp/
+
+# --------------------------------------------
+# Access the application using below commands
+# --------------------------------------------
+export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services my-nginx-nginx)
+export IP=$(curl ifconfig.me)
+echo http://$IP:$NODE_PORT
