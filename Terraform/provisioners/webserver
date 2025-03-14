@@ -29,12 +29,13 @@ resource "aws_security_group" "my_security_group" {
 }
 
 # STEP2: CREATE AN EC2 INSTANCE USING SECURITY GROUP & USING AN EXISTING/NEW PEM KEY
-# CREATE EC2
+# CREATE EC2 ONLY AFTER SG IS CREATED USING DEPENDS_ON META-ARGUMENT
 resource "aws_instance" "my_ec2_instance" {
   ami = "ami-0a5c3558529277641"
   instance_type = "t2.micro"
+  depends_on = [aws_security_group.my_sg]       # Ensures security group is created first
   vpc_security_group_ids = [aws_security_group.my_security_group.id]
-  key_name = "My-key" 		# Enter your key-name here, do not use extension '.pem’
+  key_name = "My-key" 		                      # Enter your key-name here, do not use extension '.pem’
   tags = {
     Name = "WEBSERVER"
   }
