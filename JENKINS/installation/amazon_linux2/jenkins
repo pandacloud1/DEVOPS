@@ -7,6 +7,23 @@
 # INSTALL JAVA17
 # ------------------
 # Ref: https://stackoverflow.com/questions/69243384/how-do-i-install-jdk-17-on-my-aws-ami-ec2-instance
+# Ref: https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
+
+wget https://download.oracle.com/java/17/archive/jdk-17.0.12_linux-x64_bin.tar.gz
+sudo mkdir -p /usr/lib/jvm
+cd /usr/lib/jvm
+sudo tar -xvzf jdk-17.0.12_linux-x64_bin.tar.gz
+sudo ${EDITOR} /etc/environment
+# Add this to the $PATH variable
+/usr/lib/jvm/jdk-17/bin
+JAVA_HOME="/usr/lib/jvm/jdk-17"
+
+sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk-17/bin/java" 0
+sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk-17/bin/javac" 0
+sudo update-alternatives --set java /usr/lib/jvm/jdk-17/bin/java
+sudo update-alternatives --set javac /usr/lib/jvm/jdk-17/bin/javac
+
+java -version
 
 # ------------------
 # INSTALL DOCKER
