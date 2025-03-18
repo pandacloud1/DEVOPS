@@ -39,8 +39,8 @@ cd node_exporter-1.8.2.linux-amd64
 cd ../prometheus-3.0.0-beta.0.linux-amd64
 
 vi prometheus.yml
-# Add the below
----
+# Check/Add the below under "scrape_configs"
+
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
@@ -49,7 +49,7 @@ scrape_configs:
   - job_name: 'node-exporter'
     static_configs:
       - targets: ['localhost:9100']
-...
+
 # wq
 
 ps aux | grep prometheus
