@@ -1,9 +1,17 @@
 #!/bin/bash
-# REF: (https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/)
 # NOTE:
 # 1. Jenkins works on port 8080, so keep the port open while creating EC2 instance
 # 2. Jenkins also requires Java & supports versions 11,17 & 21
 
+# ------------------
+# INSTALL JAVA17
+# ------------------
+# Ref: https://stackoverflow.com/questions/69243384/how-do-i-install-jdk-17-on-my-aws-ami-ec2-instance
+
+# ------------------
+# INSTALL DOCKER
+# ------------------
+# REF: (https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/)
 sudo yum update -y
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
