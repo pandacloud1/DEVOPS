@@ -24,7 +24,7 @@ sudo apt update                                      # to update package
 sudo apt install jenkins -y                          # to install jenkins
 
 sudo systemctl start jenkins                         # to start jenkins service
-sudo systemctl status jenkins                        # to check the status if jenkins is running or not
+#sudo systemctl status jenkins                        # to check the status if jenkins is running or not
 
 # Get Jenkins_Public_IP
 ip=$(curl ifconfig.me)
