@@ -39,3 +39,6 @@ Grafana --> Add data source --> Prometheus
 Connection: <Prometheus-url>:9090 --> Save & test
 Home --> Create dashboard --> Add visualization --> Data source: Prometheus --> node_cpu_seconds_total (Last 5 mins)
 Add query: (To add additional queries)
+
+# Search 'node exporter' on web
+Home --> Import dashboard --> 1860 --> Data source: Prometheus
