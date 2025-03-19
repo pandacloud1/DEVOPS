@@ -64,3 +64,9 @@ ip=$(curl -s ifconfig.me)
 port=9090
 
 echo "Access Prometheus Server: http://$ip:$port"
+
+# Queries
+-------------
+up             # shows uptime
+node_cpu       # shows cpu %
+node_memory    # shows RAM
