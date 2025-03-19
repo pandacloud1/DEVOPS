@@ -67,6 +67,6 @@ echo "Access Prometheus Server: http://$ip:$port"
 
 # Queries
 -------------
-up             # shows uptime
-node_cpu       # shows cpu %
+up                         # shows uptime
+node_cpu_seconds_total      # shows cpu utilization
 node_memory    # shows RAM
