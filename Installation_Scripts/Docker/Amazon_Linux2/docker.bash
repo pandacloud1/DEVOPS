@@ -10,3 +10,5 @@ sudo usermod -aG docker $USER && newgrp docker  #(add normal user 'docker')
 # To avoid below permission error
 # Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock
 sudo chmod 777 /var/run/docker.sock
+
+
