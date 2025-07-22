@@ -276,10 +276,14 @@
   - Aho, Weinberger, and Kernighan
   - `awk '{print $1}' <file_name>` (pulls out the content of 1st column from the file)
   - echo "HELLO WORLD" | awk '{print $1}'  (Output: "HELLO")
+  - awk ‘NR ==2 {print $2}’ file1 (Output: Word from 2nd row and 2nd column)
+  - awk ‘/apple/ {print $0}’ file1 (Ouput: Displays lines consisting only of the word ‘apple’)
 
 * `cut` (-c, -d, -f)
   - View a specific content (word/character) in a file
   - echo "apple" | cut -c 1  (Output: a)
+  - echo "apple" | cut -c 1,5 (Output: ae)
+  - echo "apple" | cut -c 1-3 (Output: app)
   - echo "apple,banana,cherry" | cut -d ',' -f3  (Output: cherry; d: delimeter (separator); f: field)
 
 * `sed`
@@ -287,6 +291,9 @@
   - sed -e 's/oldtext/newtext/g' file-name (`s` means substitute and `g` means global)
   - sed -i 's/oldtext/newtext/g' file1  (i: in-place editing; s: substitute; g: global)
   - sed -e 's/apple/banana/g' file1  (Here the word 'apple' will get replaced by 'banana' in 'file1')
+  - sed ‘2d’ file1 (Ignores line no 2 & prints the output (d: delete))
+  - sed ‘1i\#Line1’ file1 (Adds “#Line1” in the output (i: insert))
+
 
 ## ==========================
 ## TAR, GZIP & ZIP
@@ -316,30 +323,48 @@
 ## =============================
 ## RAM / CPU / DRIVE/ DISK SPACE
 ## =============================
+* `ps -aux`
+  - Running processes (a: all, u: users, x: not attached to terminal)
+  - ps -a  (shows all running processes)
+  - ps aux | grep jenkins  (filters out processes with name 'jenkins'  ('ps -ef' can also be used instead)
+
+* `kill <PID>`
+  - The kill a running process based on its ID
+
+* `lsof`
+  - to list information about files that are currently opened by processes.
+  - lsof -i :22: List the processes using port 22
+
 * `free -h`
   - RAM information
   - Here 'h' means human readable size in KB, MB, GB, etc.
 
+* `vmstat -s`
+  - Shows the RAM statistics
+
+* `cat /proc/meminfo`
+  - Shows RAM information from the kernel
+
+* `cat /proc/cpuinfo`
+  - Shows CPU information from the kernel
+
 * `top`
   - Information of running processes along with RAM & CPU
   - This is similar to Task Manager --> Performance in Windows
+
+* `htop`
   - 'htop' is more advanced version of 'top', but it must be installed separately
   - sudo apt install htop -y (OR) - sudo yum install htop -y
 
-* `ps` (-ef)
-  - Running processes (ef: all processes in a list format)
-  - ps -a  (shows all running processes)
-  - ps aux | grep jenkins  (filters out processes with name 'jenkins'  ('ps -ef' can also be used instead)
-
-* `df`
+* `df -ah`
   - Disk free (drives)
   - Used to check size of file systems (i.e., Disks)
   - The 'tmpfs' are used to store temporary files for RAM like cache files, runtime data, etc
-  - df -h  (Output will display size of drives in KB, MB format)
+  - df -ah  (Output will display size of all drives in KB, MB format)
 
-* `du`
+* `du -ah`
   - Disk utilization (directories/files)
-  - du -h <dir/file>  (Check the size of dir/file; h: human-readable size in KB, MB, etc)
+  - du -ah <dir/file>  (Check the size of all dir/file; h: human-readable size in KB, MB, etc)
 
 ## ==========================
 ## NETWORKING
