@@ -1,0 +1,19 @@
+# The below only show the physical disks & partitions & will exclude loop devices
+sudo lsblk -e7
+
+# Let's assume our block name is "/dev/xvdf" from the list
+df -ah
+
+# Create filesystem 
+sudo mkfs -t ext4 /dev/xvdf
+
+# Create mount point & mount the volume to the mount point
+# Note: Adding the files in '/mnt' is standard practice, you can create mount points wherever you want
+sudo mkdir /mnt/data
+sudo mount /dev/xvdf /mnt/data
+
+# Make the volume persistent
+# Persistent volue will make the volume available even after server restart
+sudo vi /etc/fstab
+# Add below
+/dev/xvdf /data ext4 defaults,nofail 0 2
