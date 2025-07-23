@@ -24,7 +24,7 @@ sudo vi /etc/fstab
 /dev/xvdf /mnt/data ext4 defaults,nofail 0 2
 
 # Note:
-/dev/xvdf      /mnt/data	    ext4                    defaults,nofail                                              0                        2
+/dev/xvdf      /mnt/data      ext4                    defaults,nofail                                              0                        2
 device name    mount point    file system type        defaults = standard mount options (read/write, etc.)        back up file system       file system check order
                               (common for linux)      nofail = system won't fail to boot if this mount fails      (0: No)                   1 = root filesystem
                                                                                                                                             2 = others
