@@ -1,0 +1,33 @@
+#!/bin/bash
+echo "Script to get the exit codes"
+echo
+
+echo "1. Running: ls"
+ls
+echo "Exit code: $?"
+echo
+
+echo "2. Running: touch /root/myfile"
+touch /root/myfile
+echo "Exit code: $?"
+echo
+
+echo "3. Running: grep 'unknown-user' in /etc/passwd"
+cat /etc/passwd | grep "unknown-user"
+echo "Exit code: $?"
+echo
+
+echo "4. Running: ls -l 'unknown-file'"
+ls -l "unknown-file"
+echo "Exit code: $?"
+echo
+
+echo "5. Running: unknown-command"
+unknown-command
+echo "Exit code: $?"
+echo
+
+# NOTE:
+1. Create a script file without executable permissions, you will get exit code '126'
+2. Run a script with syntax error, you will get exit code '2'
+3. Use Ctrl+C & you will get the exit code '130'
