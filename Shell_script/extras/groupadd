@@ -1,0 +1,35 @@
+#!/bin/bash
+# Description: To create a group if does not exists & add multiple users to the group
+
+read -p "Enter group name: " group
+
+# Check if group exists
+if grep -q "$group:" /etc/group; then
+  echo "Group exists"
+else
+  echo "Group does not exist, creating it..."
+  sudo groupadd "$group"
+  echo "Success: group '$group' added"
+fi
+
+echo
+echo "Enter the users to add to the group '$group'"
+echo "Type 'done' when finished"
+
+# Start user addition loop
+while true; do
+  read -p "Enter username: " user
+
+  if [[ "$user" == "done" ]]; then
+    echo "User addition complete"
+    break
+  fi
+
+  # Check if user exists
+  if grep -q "$user" /etc/passwd; then
+    sudo usermod -aG "$group" "$user"
+    echo "Added $user to $group"
+  else
+    echo "'$user' does not exist. Skipping."
+  fi
+done
