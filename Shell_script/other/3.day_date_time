@@ -3,22 +3,28 @@
 # Date: 29-07-2024 | # Modified: 31-07-2024
 # Description: To display day, date, UTC Time, IST Time
 
-echo "Today is"
-date | awk '{print $1}'
+#!/bin/bash # Description: To check date & time
 
-echo
-echo "The Date is"
-date | awk '{print $2, $3, $6}'
+while true; do
+read -p "What do you want to check (date/time/ist/exit): " input
 
-echo
-echo "The UTC time is:"
+if [[ $input == "date" ]]; then
+echo "The date is:"
+date | awk '{print $2 $3, $6}'
+
+elif [[ $input == "time" ]]; then
+echo "The time in UTC is:"
 date | awk '{print $4}'
 
-echo
-ist=$(date -d "+5 hours 30 minutes" +"%H:%M:%S")
-echo "The Indian time is:"
-echo "$ist"
+elif [[ $input == "ist" ]]; then
+i=$(date -d "+5hours 30minutes" "+%H:%M")
+echo "The time in IST is:"
+echo $i
 
-# Note:
-# 'awk' is used to read, $1 means 1st column only
-# We can use 'date +"%A"' alternatively to display the complete day of the week
+elif [[ $input == "exit" ]]; then
+break;
+
+else
+echo "Invalid input"
+fi
+done
