@@ -1,4 +1,8 @@
-# The below only show the physical disks & partitions & will exclude loop devices
+# --------------------------------
+# HOW TO MOUNT A VOLUME IN LINUX?
+# --------------------------------
+
+# List block volumes
 sudo lsblk -e7
 
 # Let's assume our block name is "/dev/xvdf" from the list
@@ -13,13 +17,16 @@ sudo mkfs -t ext4 /dev/xvdf
 
 # CREATE MOUNT POINT & MOUNT VOLUME TO MOUNT POINT
 # Note: 
-# Adding the files in '/mnt' is standard practice, you can create mount points wherever you want
+# You can create mount points wherever you want; but using '/mnt' is standard practice
+
 sudo mkdir /mnt/data
 sudo mount /dev/xvdf /mnt/data
 
 # MAKE THE VOLUME PERSISTENT
 # Note: Persistent volume will make the volume available even after server restart
+
 sudo vi /etc/fstab
+
 # Add below
 /dev/xvdf /mnt/data ext4 defaults,nofail 0 2
 
