@@ -4,32 +4,24 @@
 echo "# -------------- #"
 echo "# FIND & REPLACE #"
 echo "# -------------- #"
-echo
-echo "Enter file name:"
-read f
-echo
-echo "Enter complete file path:"
-read p
-path=$(find $p -type f -name $f)
-if [ $? -eq 0 ]
-then
-echo
-echo "File found at $path"
-echo
-echo "Enter word to find:"
-read old
-echo
-echo "Enter word to replace:"
-read new
-sed -i "s/$old/$new/g" "$path"
-echo
-echo "Success: The word '$old' was replaced with '$new'"
-echo
-echo "# ----------- #"
-echo "# FILE OUTPUT #"
-echo "# ----------- #"
-cat $path
-echo
+read -p "Enter file to search: " file
+
+sudo find / -type f -name $file > output.txt
+if grep -q $file "output.txt"; then
+echo “Success: We have found the below files”
+cat output.txt
 else
-echo "File not found"
+echo "Error: File not found"
 fi
+
+echo
+read -p "Enter the file name with full path you want to modify: " name
+read -p "Enter the word to find: " old
+read -p "Enter the word to replace: " new
+
+sed -i "s/$old/$new/g" $name
+echo "Success: The word '$old' has been replaced with '$new'"
+echo "#----------"
+echo "File output"
+echo "#----------"
+cat $name
