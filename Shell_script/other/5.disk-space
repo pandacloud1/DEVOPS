@@ -1,34 +1,24 @@
 #!/bin/bash
-# Author: Nasir
-# Date: 29-07-2024 | Modified Date: 31-07-2024
-# Description: To check disk space
+# Author           : Nasir
+# Created on       : 29-07-2024 
+# Last Modified    : 26-07-2025
+# Description      : To check disk space
 
-echo "# ---------------- #"
-echo "# CHECK DISK SPACE #"
-echo "# ---------------- #"
-echo
-echo "The disk space is below:"
-echo
-df -h
-echo
+echo "Enter the limit to check (eg: 80%)"
+read n
 
-# Check if space exceeds a defined limit
-a=$(df -h | tail -n +2 | awk '{print $5}' | cut -d '%' -f1)
+a=$(df -h | awk '{print $5}' | tail -n +2 | cut -d "%" -f1)
+echo
 for i in $a
 do
-      if [ $i -ge 10 ]
-      then
-      echo "# ---------------- #"
-      echo "# DISK SPACE > 10% #"
-      echo "# ---------------- #"
-      echo
-      echo "Warning"
-      echo "The disk space is more than 10% for below for systems:"
-      echo $(df -h | grep $i | awk '{print $1}')
-      echo
-      fi
+if [ $i -ge $n ]; then
+ echo "-------------------------------------------------"
+ echo "Warning: the file systems exceeds $n% for below"
+ echo "-------------------------------------------------"
+ echo $(df -h | grep $i)
+ echo
+fi
 done
-
 
 # Note:
 # cut -d '%' -f1: This will discard "%" & filter only the 1st value (d: delimeter; f: field)
