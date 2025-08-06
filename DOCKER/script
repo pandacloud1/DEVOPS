@@ -1,42 +1,105 @@
 #!/bin/bash
-# Description: Script to list images, containers, delete images, containers and stop containers
+# Description: Script to pull images, list images/containers, create containers, delete images/containers, stop containers, and clear screen
 
 while true; do
-echo
-echo "#----------------------------"
-echo "Choose an option:"
-echo "1. List Docker images"
-echo "2. List containers"
-echo "3. Stop all containers"
-echo "4. Remove all containers"
-echo "5. Delete all unused images"
-echo "6. Quit"
-echo "#----------------------------"
-read -p "What do you want to do?: " input
-echo "#----------------------------"
-echo
-case "$input" in
-  1)
-    echo "These are the images in your system:"
-    docker images ;;
-  2)
-    echo "These are all the containers:"
-    docker ps -a ;;
-  3)
-    echo "Stopping all containers..."
-    docker stop $(docker ps -aq)
-    echo;;
-  4)
-    echo "Removing all containers..."
-    docker rm $(docker ps -aq)
-    echo;;
-  5)
-    echo "Deleting all unused images..."
-    docker image prune -af
-    echo;;
-  6) break;;
-  *)
-    echo "Invalid option. Please choose 1–6."
-    ;;
-esac
+  echo
+  echo "#----------------------------"
+  echo "Choose an option:"
+  echo "1. Pull Docker image"
+  echo "2. List Docker images"
+  echo "3. Create container from image"
+  echo "4. List containers"
+  echo "5. Stop all containers"
+  echo "6. Remove all containers"
+  echo "7. Remove all unused images"
+  echo "8. Clear the screen"
+  echo "q. Quit"
+  echo "#----------------------------"
+  read -p "What do you want to do?: " input
+  echo "#----------------------------"
+  echo
+
+  case "$input" in
+    1)
+      read -p "Enter image name (e.g., nginx): " image_name
+      read -p "Enter image version (e.g., latest): " image_version
+      full_image="${image_name}:${image_version}"
+      echo "Pulling image: $full_image"
+      docker pull "$full_image"
+      echo
+      ;;
+
+    2)
+      images=$(docker images)
+      if [ -z "$images" ]; then
+        echo "Sorry, no images are present."
+      else
+        echo "These are the images in your system:"
+        echo "$images"
+      fi
+      ;;
+
+    3)
+      read -p "Enter container name: " container_name
+      read -p "Enter image name (e.g., nginx): " image_base
+      read -p "Enter image version (e.g., latest): " image_version
+      image_name="${image_base}:${image_version}"
+      read -p "Run mode interactive or detached (i/d): " mode
+
+      if [ "$mode" == "i" ]; then
+        docker run -it --name "$container_name" "$image_name"
+        echo "Container '$container_name' created successfully in interactive mode."
+      elif [ "$mode" == "d" ]; then
+        docker run -dt --name "$container_name" "$image_name"
+        echo "Container '$container_name' created successfully in detached mode."
+      else
+        echo "Invalid mode. Please enter 'i' or 'd'."
+      fi
+      ;;
+
+    4)
+      containers=$(docker ps -a)
+      if [ -z "$containers" ]; then
+        echo "Sorry, no containers are present."
+      else
+        echo "These are all the containers:"
+        echo "$containers"
+      fi
+      ;;
+
+    5)
+      echo "Stopping all containers..."
+      docker stop $(docker ps -aq) >/dev/null 2>&1
+      echo "Success: All containers stopped."
+      echo
+      ;;
+
+    6)
+      echo "Removing all containers..."
+      docker rm $(docker ps -aq) >/dev/null 2>&1
+      echo "Success: All containers have been removed."
+      echo
+      ;;
+
+    7)
+      echo "Removing all unused images..."
+      docker image prune -af
+      echo "Success: Unused images removed."
+      echo
+      ;;
+
+    8)
+      echo "Clearing the screen..."
+      clear
+      ;;
+
+    q)
+      echo "Thank you!"
+      break
+      ;;
+
+    *)
+      echo "Invalid option. Please choose 1–8 or q to quit."
+      ;;
+  esac
 done
