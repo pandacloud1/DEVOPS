@@ -1,0 +1,42 @@
+#!/bin/bash
+# Description: Script to list images, containers, delete images, containers and stop containers
+
+while true; do
+echo
+echo "#----------------------------"
+echo "Choose an option:"
+echo "1. List Docker images"
+echo "2. List containers"
+echo "3. Stop all containers"
+echo "4. Remove all containers"
+echo "5. Delete all unused images"
+echo "6. Quit"
+echo "#----------------------------"
+read -p "What do you want to do?: " input
+echo "#----------------------------"
+echo
+case "$input" in
+  1)
+    echo "These are the images in your system:"
+    docker images ;;
+  2)
+    echo "These are all the containers:"
+    docker ps -a ;;
+  3)
+    echo "Stopping all containers..."
+    docker stop $(docker ps -aq)
+    echo;;
+  4)
+    echo "Removing all containers..."
+    docker rm $(docker ps -aq)
+    echo;;
+  5)
+    echo "Deleting all unused images..."
+    docker image prune -af
+    echo;;
+  6) break;;
+  *)
+    echo "Invalid option. Please choose 1–6."
+    ;;
+esac
+done
