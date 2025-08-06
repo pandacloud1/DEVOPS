@@ -1,0 +1,32 @@
+# --------------------------------
+# MULTI-STAGE DOCKERFILE
+# --------------------------------
+
+# STAGE 1: BUILD
+FROM ubuntu:22.04 AS builder
+
+LABEL maintainer="Panda Cloud"
+LABEL description="Stage 1: Cloning web app repository"
+
+RUN apt-get update && \
+    apt-get install -y git && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN git clone https://github.com/pandacloud1/webapp3.git
+
+# STAGE 2: FINAL IMAGE
+FROM ubuntu:22.04
+
+LABEL maintainer="Panda Cloud"
+LABEL description="Stage 2: Apache Web Server"
+
+RUN apt-get update && \
+    apt-get install -y apache2 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY --from=builder /webapp3 /var/www/html/
+
+EXPOSE 80
+CMD ["apache2ctl", "-D", "FOREGROUND"]
