@@ -4,12 +4,12 @@
 while true; do
   echo
   echo "#----------------------------"
-  echo "Please choose an option:"
+  echo "PLEASE CHOOSE AN OPTION:"
   echo "#----------------------------"
   echo "1. Pull Docker image"
   echo "2. Build image from Dockerfile"
   echo "3. List Docker images"
-  echo "4. Create container from Dockerfile"
+  echo "4. Create container from Image"
   echo "5. List containers"
   echo "6. Go inside a container"
   echo "7. Push image to DockerHub"
@@ -19,7 +19,7 @@ while true; do
   echo "c. Clear the screen"
   echo "q. Quit"
   echo "#----------------------------"
-  read -p "What do you want to do?: " input
+  read -p "WHAT DO YOU WANT TO DO?: " input
   echo "#----------------------------"
   echo
 
