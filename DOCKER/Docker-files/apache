@@ -1,0 +1,16 @@
+# vi Dockerfile
+# ---------------------------------------
+# Pull an Ubuntu image
+# Install Git, Apache2
+# Clone files from Github & copy all files in your container
+# Build image from Dockerfile 
+# Create container with apache webserver
+# ---------------------------------------
+FROM ubuntu:22.04
+LABEL maintainer=“Panda Cloud”
+LABEL description=“To create webserver using Apache”
+RUN apt update && apt install -y apache2 git     
+RUN git clone https://github.com/pandacloud1/webapp3.git 
+RUN cd webapp3/ && cp -R * /var/www/html/
+CMD ["apache2ctl", "-D", "FOREGROUND"]
+EXPOSE 80
