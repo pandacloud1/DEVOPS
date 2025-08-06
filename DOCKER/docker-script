@@ -67,15 +67,15 @@ while true; do
         break
       fi
 
-      read -p "Enter image name to use (built from Dockerfile): " dockerfile_image
+      read -p "Enter the image name to use : " image_name
       read -p "Enter container name: " container_name
       read -p "Run mode interactive or detached (i/d): " mode
 
       if [ "$mode" == "i" ]; then
-        docker run -it --name "$container_name" $port_option "$dockerfile_image"
+        docker run -it --name "$container_name" $port_option "$image_name"
         echo "Success: Container '$container_name' created in interactive mode."
       elif [ "$mode" == "d" ]; then
-        docker run -dt --name "$container_name" $port_option "$dockerfile_image"
+        docker run -dt --name "$container_name" $port_option "$image_name"
         echo "Success: Container '$container_name' created in detached mode."
       else
         echo "Invalid mode. Please enter 'i' or 'd'."
