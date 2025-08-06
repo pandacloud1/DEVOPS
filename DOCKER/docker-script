@@ -1,5 +1,5 @@
 #!/bin/bash
-# Description: Script to pull images, list images/containers, create containers, delete images/containers, stop containers, and clear screen
+# Description: Docker management script with image/container operations, Dockerfile support, and DockerHub push
 
 while true; do
   echo
@@ -9,10 +9,13 @@ while true; do
   echo "2. List Docker images"
   echo "3. Create container from image"
   echo "4. List containers"
-  echo "5. Stop all containers"
-  echo "6. Remove all containers"
-  echo "7. Remove all unused images"
-  echo "8. Clear the screen"
+  echo "5. Build image from Dockerfile"
+  echo "6. Create container from Dockerfile"
+  echo "7. Push image to DockerHub"
+  echo "8. Stop all containers"
+  echo "9. Remove all containers"
+  echo "10. Remove all unused images"
+  echo "c. Clear the screen"
   echo "q. Quit"
   echo "#----------------------------"
   read -p "What do you want to do?: " input
@@ -68,27 +71,83 @@ while true; do
       ;;
 
     5)
+      if [ ! -f Dockerfile ]; then
+        echo "Dockerfile does not exist, please create one."
+        break
+      fi
+
+      read -p "Enter image name to build from Dockerfile: " dockerfile_image
+      docker build -t "$dockerfile_image" .
+      echo "Success: Docker image '$dockerfile_image' created."
+      ;;
+
+    6)
+      read -p "Do you want to map ports? (y/n): " port_map
+      if [ "$port_map" == "y" ]; then
+        read -p "Enter host port: " host_port
+        read -p "Enter container port: " container_port
+        port_option="-p ${host_port}:${container_port}"
+      elif [ "$port_map" == "n" ]; then
+        port_option=""
+      else
+        echo "Invalid input. Please enter 'y' or 'n'."
+        break
+      fi
+
+      read -p "Enter image name to use (built from Dockerfile): " dockerfile_image
+      read -p "Enter container name: " container_name
+      read -p "Run mode interactive or detached (i/d): " mode
+
+      if [ "$mode" == "i" ]; then
+        docker run -it $port_option --name "$container_name" "$dockerfile_image" /bin/bash
+        echo "Success: Container '$container_name' created in interactive mode."
+      elif [ "$mode" == "d" ]; then
+        docker run -dt $port_option --name "$container_name" "$dockerfile_image" /bin/bash
+        echo "Success: Container '$container_name' created in detached mode."
+      else
+        echo "Invalid mode. Please enter 'i' or 'd'."
+      fi
+      ;;
+
+    7)
+      read -p "Enter DockerHub username: " username
+      echo "Logging in to DockerHub..."
+      docker login -u "$username"
+
+      read -p "Enter local image name to push (e.g., myapp): " local_image
+      read -p "Enter version tag (e.g., v1.0): " version_tag
+
+      remote_image="${username}/${local_image}:${version_tag}"
+      echo "Tagging image as: $remote_image"
+      docker tag "$local_image" "$remote_image"
+
+      echo "Pushing image to DockerHub..."
+      docker push "$remote_image"
+      echo "Success: Image '$remote_image' pushed to DockerHub."
+      ;;
+
+    8)
       echo "Stopping all containers..."
       docker stop $(docker ps -aq) >/dev/null 2>&1
       echo "Success: All containers stopped."
       echo
       ;;
 
-    6)
+    9)
       echo "Removing all containers..."
       docker rm $(docker ps -aq) >/dev/null 2>&1
       echo "Success: All containers have been removed."
       echo
       ;;
 
-    7)
+    10)
       echo "Removing all unused images..."
       docker image prune -af
       echo "Success: Unused images removed."
       echo
       ;;
 
-    8)
+    c)
       echo "Clearing the screen..."
       clear
       ;;
@@ -99,7 +158,7 @@ while true; do
       ;;
 
     *)
-      echo "Invalid option. Please choose 1–8 or q to quit."
+      echo "Invalid option. Please choose 1–11 or q to quit."
       ;;
   esac
 done
