@@ -9,7 +9,7 @@ while true; do
   echo "1. Pull Docker image"
   echo "2. Build image from Dockerfile"
   echo "3. List Docker images"
-  echo "4. Create container from Docker Image"
+  echo "4. Create container from Dockerfile"
   echo "5. List containers"
   echo "6. Go inside a container"
   echo "7. Push image to DockerHub"
@@ -45,12 +45,12 @@ while true; do
       ;;
 
     3)
-      images=$(docker images)
-      if [ -z "$images" ]; then
-        echo "Sorry, no images are present."
+      image_count=$(docker images -q | wc -l)
+      if [ "$image_count" -eq 0 ]; then
+        echo "Sorry, there are no images in your system."
       else
         echo "These are the images in your system:"
-        echo "$images"
+        docker images
       fi
       ;;
 
@@ -83,12 +83,12 @@ while true; do
       ;;
 
     5)
-      containers=$(docker ps -a)
-      if [ -z "$containers" ]; then
-        echo "Sorry, no containers are present."
+      container_count=$(docker ps -a -q | wc -l)
+      if [ "$container_count" -eq 0 ]; then
+        echo "Sorry, there are no containers in your system."
       else
         echo "These are all the containers:"
-        echo "$containers"
+        docker ps -a
       fi
       ;;
 
