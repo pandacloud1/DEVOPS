@@ -6,11 +6,11 @@ while true; do
   echo "#----------------------------"
   echo "Choose an option:"
   echo "1. Pull Docker image"
-  echo "2. List Docker images"
-  echo "3. Create container from image"
-  echo "4. List containers"
-  echo "5. Build image from Dockerfile"
-  echo "6. Create container from Dockerfile Image"
+  echo "2. Build image from Dockerfile"
+  echo "3. List Docker images"
+  echo "4. Create container from Docker Image"
+  echo "5. List containers"
+  echo "6. Go inside a container"
   echo "7. Push image to DockerHub"
   echo "8. Stop all containers"
   echo "9. Remove all containers"
@@ -33,44 +33,6 @@ while true; do
       ;;
 
     2)
-      images=$(docker images)
-      if [ -z "$images" ]; then
-        echo "Sorry, no images are present."
-      else
-        echo "These are the images in your system:"
-        echo "$images"
-      fi
-      ;;
-
-    3)
-      read -p "Enter container name: " container_name
-      read -p "Enter image name (e.g., nginx): " image_base
-      read -p "Enter image version (e.g., latest): " image_version
-      image_name="${image_base}:${image_version}"
-      read -p "Run mode interactive or detached (i/d): " mode
-
-      if [ "$mode" == "i" ]; then
-        docker run -it --name "$container_name" "$image_name"
-        echo "Success: Container '$container_name' has been created in interactive mode."
-      elif [ "$mode" == "d" ]; then
-        docker run -dt --name "$container_name" "$image_name"
-        echo "Success: Container '$container_name' created in detached mode."
-      else
-        echo "Invalid mode. Please enter 'i' or 'd'."
-      fi
-      ;;
-
-    4)
-      containers=$(docker ps -a)
-      if [ -z "$containers" ]; then
-        echo "Sorry, no containers are present."
-      else
-        echo "These are all the containers:"
-        echo "$containers"
-      fi
-      ;;
-
-    5)
       if [ ! -f Dockerfile ]; then
         echo "Dockerfile does not exist, please create one."
         break
@@ -81,7 +43,17 @@ while true; do
       echo "Success: Docker image '$dockerfile_image' created."
       ;;
 
-    6)
+    3)
+      images=$(docker images)
+      if [ -z "$images" ]; then
+        echo "Sorry, no images are present."
+      else
+        echo "These are the images in your system:"
+        echo "$images"
+      fi
+      ;;
+
+    4)
       read -p "Do you want to map ports? (y/n): " port_map
       if [ "$port_map" == "y" ]; then
         read -p "Enter host port: " host_port
@@ -99,14 +71,43 @@ while true; do
       read -p "Run mode interactive or detached (i/d): " mode
 
       if [ "$mode" == "i" ]; then
-        docker run -it $port_option --name "$container_name" "$dockerfile_image" /bin/bash
+        docker run -it --name "$container_name" $port_option "$dockerfile_image"
         echo "Success: Container '$container_name' created in interactive mode."
       elif [ "$mode" == "d" ]; then
-        docker run -dt $port_option --name "$container_name" "$dockerfile_image" /bin/bash
+        docker run -dt --name "$container_name" $port_option "$dockerfile_image"
         echo "Success: Container '$container_name' created in detached mode."
       else
         echo "Invalid mode. Please enter 'i' or 'd'."
       fi
+      ;;
+
+    5)
+      containers=$(docker ps -a)
+      if [ -z "$containers" ]; then
+        echo "Sorry, no containers are present."
+      else
+        echo "These are all the containers:"
+        echo "$containers"
+      fi
+      ;;
+
+    6)
+      read -p "Enter container name to access: " container_name
+      is_running=$(docker inspect -f '{{.State.Running}}' "$container_name" 2>/dev/null)
+
+      if [ "$is_running" != "true" ]; then
+        echo "Container '$container_name' is not running."
+        read -p "Do you want to start it? (y/n): " start_choice
+        if [ "$start_choice" == "y" ]; then
+          docker start "$container_name"
+          echo "Container '$container_name' started."
+        else
+          echo "Aborted entering container."
+          break
+        fi
+      fi
+
+      docker exec -it "$container_name" /bin/bash
       ;;
 
     7)
@@ -158,7 +159,7 @@ while true; do
       ;;
 
     *)
-      echo "Invalid option. Please choose 1–11 or q to quit."
+      echo "Invalid option. Please choose 1–10, c, or q to quit."
       ;;
   esac
 done
