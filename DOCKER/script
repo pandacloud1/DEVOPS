@@ -48,10 +48,10 @@ while true; do
 
       if [ "$mode" == "i" ]; then
         docker run -it --name "$container_name" "$image_name"
-        echo "Container '$container_name' created successfully in interactive mode."
+        echo "Success: Container '$container_name' has been created in interactive mode."
       elif [ "$mode" == "d" ]; then
         docker run -dt --name "$container_name" "$image_name"
-        echo "Container '$container_name' created successfully in detached mode."
+        echo "Success: Container '$container_name' created in detached mode."
       else
         echo "Invalid mode. Please enter 'i' or 'd'."
       fi
