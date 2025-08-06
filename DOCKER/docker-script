@@ -10,7 +10,7 @@ while true; do
   echo "3. Create container from image"
   echo "4. List containers"
   echo "5. Build image from Dockerfile"
-  echo "6. Create container from Dockerfile"
+  echo "6. Create container from Dockerfile Image"
   echo "7. Push image to DockerHub"
   echo "8. Stop all containers"
   echo "9. Remove all containers"
