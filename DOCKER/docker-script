@@ -67,8 +67,8 @@ while true; do
         break
       fi
 
-      read -p "Enter the image name to use : " image_name
-      read -p "Enter container name: " container_name
+      read -p "Enter the image name to use: " image_name
+      read -p "Give a name to the container: " container_name
       read -p "Run mode interactive or detached (i/d): " mode
 
       if [ "$mode" == "i" ]; then
