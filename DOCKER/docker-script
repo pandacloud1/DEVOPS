@@ -4,7 +4,8 @@
 while true; do
   echo
   echo "#----------------------------"
-  echo "Choose an option:"
+  echo "Please choose an option:"
+  echo "#----------------------------"
   echo "1. Pull Docker image"
   echo "2. Build image from Dockerfile"
   echo "3. List Docker images"
