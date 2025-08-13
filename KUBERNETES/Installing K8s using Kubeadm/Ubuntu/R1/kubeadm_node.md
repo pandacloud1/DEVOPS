@@ -1,6 +1,13 @@
 
 #### Step 1: Setup containerd
 ```sh
+sudo su -
+hostnamectl set-hostname node1
+bash
+apt update
+```
+
+```sh
 cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
 overlay
 br_netfilter
