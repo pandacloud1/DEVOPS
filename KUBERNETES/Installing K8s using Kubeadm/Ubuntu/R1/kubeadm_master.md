@@ -4,6 +4,7 @@
 sudo su -
 hostnamectl set-hostname master
 bash
+apt update
 ```
 
 ```sh
