@@ -1,4 +1,11 @@
----
+# JOB & CRONJOB
+## 📌 Notes
+- A **Job** is used to run a task **to completion** (e.g., batch processing, one-time scripts).  
+- A **CronJob** is used to run Jobs on a **schedule** (like a Linux cron).  
+- Unlike Deployments, Jobs/CronJobs ensure that tasks **complete successfully** instead of running continuously.  
+
+## 📝 JOB
+```yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -12,13 +19,91 @@ spec:
       - name: hello-container
         image: busybox
         command: ["sh", "-c", "echo Hello, Good Morning! && sleep 10"]
-      restartPolicy: Never                        # Ensures that the pod will not be restarted after it completes its task
-  backoffLimit: 4                                 # Defines the number of retries before considering the Job as failed
-...
+      restartPolicy: Never    # Ensures the pod won't restart after completion
+  backoffLimit: 4             # Number of retries before marking Job as failed
+````
 
+### ⚡ Commands for Job
+Apply the job:
+```bash
+kubectl apply -f job.yaml
+```
 
-# Commands
-# kubectl apply -f job.yaml
-# kubectl get jobs - w                           # Check the job completion
-# kubectl get pods                               # Check the pods
-# kubectl logs <pod-name>                        # Check the pod logs
+Check job status:
+```bash
+kubectl get jobs -w
+```
+
+Check pods created by the job:
+```bash
+kubectl get pods
+```
+
+View pod logs:
+```bash
+kubectl logs <pod-name>
+```
+
+✅ **Expected Output**
+When you check the logs, you should see:
+```
+Hello, Good Morning!
+```
+
+## 📝 CRONJOB
+```yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello-cronjob
+spec:
+  schedule: "*/1 * * * *"   # Runs every minute
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello-container
+            image: busybox
+            command: ["sh", "-c", "echo Hello, Good Morning! && sleep 10"]
+          restartPolicy: OnFailure
+```
+
+### ⚡ Commands for CronJob
+Apply the cronjob:
+```bash
+kubectl apply -f cronjob.yaml
+```
+
+Check cronjob status:
+```bash
+kubectl get cronjob -w
+```
+
+Check pods created by the cronjob:
+```bash
+kubectl get pods
+```
+
+View pod logs:
+```bash
+kubectl logs <pod-name>
+```
+
+Wait for 5 minutes to see multiple Jobs created automatically by the CronJob.
+
+✅ **Expected Output**
+
+Every minute, a pod will run and print:
+
+```
+Hello, Good Morning!
+```
+
+## 🚀 Key Difference
+
+| Feature   | Job                           | CronJob                        |
+| --------- | ----------------------------- | ------------------------------ |
+| Execution | Runs **once** until completed | Runs **on a schedule**         |
+| Use Case  | One-time batch tasks          | Recurring tasks (backups, etc) |
+| Restart   | `Never` / `OnFailure`         | Based on Job template rules    |
