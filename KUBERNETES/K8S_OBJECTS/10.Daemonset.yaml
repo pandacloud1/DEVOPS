@@ -1,7 +1,18 @@
-# To test daemonset create atleast two nodes & one master
-# Create a yaml file
-# vi daemonset.yaml
----
+# 🚀 DAEMONSET
+
+## 📌 What is a DaemonSet?
+A **DaemonSet** ensures that a copy of a Pod runs on **all (or some) nodes** in a Kubernetes cluster.  
+- If new nodes are added, Pods are automatically scheduled on them.  
+- If nodes are removed, the Pods are also removed.  
+- Commonly used for **monitoring agents, log collectors, networking agents, etc.**
+
+## 📝 Pre-requisites
+- A Kubernetes cluster with at least **1 master** and **2 worker nodes**.  
+- `kubectl` configured to interact with the cluster.  
+
+## 📝 DaemonSet Manifest
+
+```yaml
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -20,10 +31,56 @@ spec:
         image: nginx
         ports:
         - containerPort: 80
-...
+````
 
-# kubectl apply -f daemonset.yaml
-# Now, check if the daemonset pod is running in all the nodes using below command
+## ⚡ Commands
 
-# kubectl get pods -o wide
-# This will give an output of my-daemonset-xyz pods in all the nodes
+### 1. Apply the DaemonSet
+
+```bash
+kubectl apply -f daemonset.yaml
+```
+
+### 2. Verify the Pods
+
+```bash
+kubectl get pods -o wide
+```
+
+✅ You should see multiple `my-daemonset-xxxx` Pods running across all **worker nodes**.
+
+## 🔍 Expected Output
+
+If you have 2 worker nodes, you’ll see something like:
+
+```bash
+NAME                   READY   STATUS    RESTARTS   AGE   IP           NODE
+my-daemonset-abc12     1/1     Running   0          20s   10.0.1.5     worker-node1
+my-daemonset-def34     1/1     Running   0          20s   10.0.2.7     worker-node2
+```
+
+## 🛠 Use Cases for DaemonSets
+
+* **Monitoring:** Deploying Prometheus Node Exporter on every node.
+* **Logging:** Running Fluentd or Filebeat on all nodes to collect logs.
+* **Networking:** Deploying CNI plugins like Calico, Weave, or Cilium.
+* **Security:** Running security/antivirus agents on each node.
+
+## 🚀 Key Notes
+
+* By default, DaemonSets run on **all worker nodes**.
+* You can **restrict DaemonSets** to specific nodes using:
+
+  * `nodeSelector`
+  * `nodeAffinity`
+  * `taints and tolerations`
+
+---
+
+## 🖥️ Cleanup
+
+To delete the DaemonSet:
+
+```bash
+kubectl delete -f daemonset.yaml
+```
