@@ -1,0 +1,104 @@
+# INGRESS 
+(Example: Car-App & Game-App 🚀)
+
+## Step 1: Create Application Pods
+```sh
+kubectl run car-app --image pandacloud/webapp1
+kubectl run game-app --image pandacloud/webapp3
+````
+
+## Step 2: Expose Pods as Services
+
+```sh
+kubectl expose pod car-app --name=car-service --port=80 --target-port=80
+kubectl expose pod game-app --name=game-service --port=80 --target-port=80
+```
+
+Verify services:
+
+```sh
+kubectl get service
+```
+
+## Step 3: Create Ingress Manifest
+
+```sh
+vi ingress.yaml
+```
+
+Add the following:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /car
+        pathType: Prefix
+        backend:
+          service:
+            name: car-service
+            port:
+              number: 80
+      - path: /game
+        pathType: Prefix
+        backend:
+          service:
+            name: game-service
+            port:
+              number: 80
+```
+
+Apply the ingress:
+
+```sh
+kubectl apply -f ingress.yaml
+```
+
+## Step 4: Deploy Ingress Controller (NGINX)
+
+Reference: [NGINX Ingress Controller on AWS](https://kubernetes.github.io/ingress-nginx/deploy/#aws)
+
+```sh
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.13.1/deploy/static/provider/aws/deploy.yaml
+```
+
+Check controller pods:
+```sh
+kubectl get pods -n ingress-nginx
+```
+
+## Step 5: Verify Ingress
+Get ingress details:
+
+```sh
+kubectl get ingress
+```
+
+Test via curl:
+
+```sh
+curl <ALB-DNS>/car
+curl <ALB-DNS>/game
+```
+
+## Step 6: Access in Browser 🌐
+
+Open your browser and test:
+
+```
+http://<ALB-DNS>/car
+http://<ALB-DNS>/game
+```
+
+✅ You should now see:
+
+* `/car` → Car-App 
+* `/game` → Game-App
