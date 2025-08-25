@@ -30,6 +30,7 @@ sudo vi /etc/ansible/ansible.cfg
 Add or update the following settings:
 
 ```ini
+[defaults]
 inventory = /etc/ansible/hosts
 sudo_user = root
 
