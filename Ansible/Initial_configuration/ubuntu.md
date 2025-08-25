@@ -80,7 +80,7 @@ ssh ansadmin@<node2-private-ip>                  # connect master with node2
 
 ---
 
-## Step 3: Manual Key Copy (if `ssh-copy-id` fails mostly in Ubuntu systems)
+## OR: Manual Key Copy (if Step-2 fails, `ssh-copy-id` fails mostly in Ubuntu systems)
 
 If you encounter **`Permission denied`** while running `ssh-copy-id`, use this method:
 
