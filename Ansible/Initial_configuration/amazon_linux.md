@@ -46,8 +46,9 @@ Edit SSH server configuration file
 vi /etc/ssh/sshd_config     
 ```
 Set parameter `PasswordAuthentication yes` <br>
-Note: Password authentication is enabled so that we can copy the ssh keys from master to node using a password
-      Once the keys are copied, we can disable password authentication for added security
+Note: 
+1. Password authentication is enabled so that we can copy the ssh keys from master to node using a password
+2. Once the keys are copied, we can disable password authentication for added security
 
 ## Step4: Restart the SSH service.
 ```sh
