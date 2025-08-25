@@ -18,10 +18,10 @@ bash
 
 ## Step 1: Create a user & set a password
 ```sh
-sudo su                        # Switch to the root user
-apt update && apt upgrade -y   # Update the package lists and upgrade the system
-adduser ansadmin               # Create a normal user
-passwd ansadmin                # Set the password for the user
+sudo su                        
+apt update && apt upgrade -y   
+adduser ansadmin               
+passwd ansadmin                
 ```
 
 ## Step2: Give sudo priviledges to the user
