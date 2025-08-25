@@ -16,7 +16,7 @@ hostnamectl set-hostname node1
 bash
 ```
 
-## Step 1: Create a user & set a password
+## Step-1: Create a user & set a password
 ```sh
 sudo su                        
 apt update && apt upgrade -y   
@@ -24,7 +24,7 @@ adduser ansadmin
 passwd ansadmin                
 ```
 
-## Step2: Give sudo priviledges to the user
+## Step-2: Give sudo priviledges to the user
 ### NOTE:
 1. You cannot install or update packages being a normal user (eg. ansadmin)
 2. Try running `sudo apt update -y` & it will show permission error.
@@ -41,7 +41,7 @@ Add the below line
 ansadmin ALL=(ALL) NOPASSWD: ALL
 ```
 
-## Step3: Enable 'Password Authentication' in the SSH server's configuration file 
+## Step-3: Enable 'Password Authentication' in the SSH server's configuration file 
 Edit SSH server configuration file & set parameter `PasswordAuthentication yes`
 ```sh
 vi /etc/ssh/sshd_config     
@@ -51,7 +51,7 @@ Note:
 1. Password authentication is enabled so that we can copy the ssh keys from master to node using a password
 2. Once the keys are copied, we can disable password authentication for added security.
 
-## Step4: Restart the SSH service.
+## Step-4: Restart the SSH service.
 ```sh
 service sshd restart         
 ```
