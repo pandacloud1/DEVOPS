@@ -41,11 +41,11 @@ ansadmin ALL=(ALL) NOPASSWD: ALL
 ```
 
 ## Step3: Enable 'Password Authentication' in the SSH server's configuration file 
-Edit SSH server configuration file
+Edit SSH server configuration file & set parameter `PasswordAuthentication yes`
 ```sh
 vi /etc/ssh/sshd_config     
 ```
-Set parameter `PasswordAuthentication yes` <br>
+
 Note: 
 1. Password authentication is enabled so that we can copy the ssh keys from master to node using a password
 2. Once the keys are copied, we can disable password authentication for added security.
