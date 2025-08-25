@@ -1,5 +1,5 @@
 # Ansible Configuration for Amazon Linux 2
-### NOTE: The below steps to be performed in the master & the nodes.
+NOTE: The below steps to be performed in the master & the nodes.
 
 ## Set hostname for master & nodes (OPTIONAL)
 ## Run in Master
