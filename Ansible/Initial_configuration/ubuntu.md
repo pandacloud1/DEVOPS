@@ -56,7 +56,7 @@ systemctl restart ssh
 ```
 
 # Passwordless Authentication
-## Step 1: Generate SSH Keys on the Master 
+## Step-1: Generate SSH Keys on the Master 
 ```bash
 su ansadmin
 ssh-keygen -t rsa
@@ -64,7 +64,7 @@ ssh-keygen -t rsa
 # ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa
 ````
 
-## Step 2: Copy SSH Key from Master to Nodes
+## Step-2: Copy SSH Key from Master to Nodes
 
 This will prompt for the **password** the first time. Once the key is copied, passwordless SSH is established.
 
