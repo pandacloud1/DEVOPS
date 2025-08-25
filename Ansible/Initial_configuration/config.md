@@ -54,6 +54,11 @@ Note:
 ```sh
 systemctl restart ssh         
 ```
+OR
+```sh
+# For Amazon Linux
+systemctl restart sshd         
+```
 
 # Passwordless Authentication
 ## Step-1: Generate SSH Keys on the Master 
