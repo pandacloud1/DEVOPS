@@ -5,7 +5,7 @@
 sudo apt update
 sudo apt install software-properties-common
 sudo add-apt-repository --yes --update ppa:ansible/ansible
-sudo apt install ansible
+sudo apt install ansible -y
 ansible --version
 ```
 
@@ -15,6 +15,6 @@ ansible --version
 ```bash
 sudo dnf install ansible
 sudo dnf install ansible-core
-sudo dnf install ansible-collection-community-general
+sudo dnf install -y ansible-collection-community-general
 ansible --version
 ```
