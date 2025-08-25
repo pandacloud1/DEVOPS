@@ -2,14 +2,14 @@
 NOTE: The below steps to be performed in the master & the nodes.
 
 ## Set hostname for master & nodes (OPTIONAL)
-## Run in Master
+Run in Master
 ```sh
 sudo su -
 hostnamectl set-hostname master
 bash
 ```
 
-## Run in Nodes
+Run in Nodes
 ```sh
 sudo su -
 hostnamectl set-hostname node1
