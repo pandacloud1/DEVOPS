@@ -57,7 +57,7 @@ service sshd restart
 
 
 # Passwordless Authentication
-## Step 1: Generate SSH Keys on the Master 
+## Step-1: Generate SSH Keys on the Master 
 ```bash
 su ansadmin
 ssh-keygen -t rsa
@@ -65,7 +65,7 @@ ssh-keygen -t rsa
 # ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa
 ````
 
-## Step 2: Copy SSH Key from Master to Nodes
+## Step-2: Copy SSH Key from Master to Nodes
 
 This will prompt for the **password** the first time. Once the key is copied, passwordless SSH is established.
 
@@ -81,7 +81,7 @@ ssh ansadmin@<node2-private-ip>                  # connect master with node2
 
 ---
 
-## Step 3: Manual Key Copy (if `ssh-copy-id` fails mostly in Ubuntu systems)
+## OR: Manual Key Copy (if Step-2 fails, `ssh-copy-id` fails mostly in Ubuntu systems)
 
 If you encounter **`Permission denied`** while running `ssh-copy-id`, use this method:
 
