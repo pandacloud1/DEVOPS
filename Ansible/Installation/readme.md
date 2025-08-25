@@ -1,7 +1,7 @@
 # Installing Ansible in Ubuntu
-## Ref: ```txt 
+## Ref: 
 https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-ubuntu 
-```
+
 ```bash
 sudo apt update
 sudo apt install software-properties-common
@@ -11,9 +11,9 @@ ansible --version
 ```
 
 # Installing Ansible in Linux
-## Ref: ```txt 
+## Ref: 
 https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-fedora-linux 
-```
+
 ```bash
 sudo dnf install ansible
 sudo dnf install ansible-core
