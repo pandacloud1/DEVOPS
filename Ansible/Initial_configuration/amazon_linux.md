@@ -54,3 +54,57 @@ Note:
 ```sh
 service sshd restart         
 ```
+
+
+# Passwordless Authentication
+## Step 1: Generate SSH Keys on the Master 
+```bash
+su ansadmin
+ssh-keygen -t rsa
+# OR
+# ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa
+````
+
+## Step 2: Copy SSH Key from Master to Nodes
+
+This will prompt for the **password** the first time. Once the key is copied, passwordless SSH is established.
+
+```bash
+ssh-copy-id ansadmin@<node1-private-ip>          # copy ssh keys from master to node1  
+ssh-copy-id ansadmin@<node2-private-ip>          # copy ssh keys from master to node2
+
+ssh ansadmin@<node1-private-ip>                  # connect master with node1
+exit                                             # exit from node1
+
+ssh ansadmin@<node2-private-ip>                  # connect master with node2
+```
+
+---
+
+## Step 3: Manual Key Copy (if `ssh-copy-id` fails mostly in Ubuntu systems)
+
+If you encounter **`Permission denied`** while running `ssh-copy-id`, use this method:
+
+On the Master:
+```bash
+su - ansadmin
+cat ~/.ssh/id_rsa.pub                            # copy the key content
+```
+
+On the Node:
+```bash
+su - ansadmin
+mkdir -p ~/.ssh && cd ~/.ssh
+vi authorized_keys                               # paste the key content copied from master
+```
+
+Back on the Master:
+```bash
+ssh ansadmin@<node-ip>                           # test passwordless SSH
+```
+
+## Comments & Best Practices
+
+* **SSH Key-Based Authentication** is **more secure** and recommended.
+* **Password-Based Authentication** may be used temporarily or as a fallback, but it is less secure.
+* ✅ **Best Practice**: Once SSH keys are set up, **disable password authentication** in the SSH configuration file to enhance security.
