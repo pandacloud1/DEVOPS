@@ -18,7 +18,6 @@ bash
 
 ## Step-1: Create a user & set a password
 ```sh
-sudo su                        
 apt update && apt upgrade -y   
 adduser ansadmin               
 passwd ansadmin                
