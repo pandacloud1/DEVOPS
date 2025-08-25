@@ -107,4 +107,4 @@ ssh ansadmin@<node-ip>                           # test passwordless SSH
 
 * **SSH Key-Based Authentication** is **more secure** and recommended.
 * **Password-Based Authentication** may be used temporarily or as a fallback, but it is less secure.
-* ✅ **Best Practice**: Once SSH keys are set up, **disable password authentication** in the SSH configuration file to enhance security.
+* **Best Practice**: Once SSH keys are set up, **disable password authentication** in the SSH configuration file to enhance security.
