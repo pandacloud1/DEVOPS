@@ -32,7 +32,7 @@ passwd ansadmin
 5. To safely edit the sudoers file, use the "visudo" command, which checks the file for syntax errors before saving
 
 ```sh
-visudo                       #(to give sudo privilege to a normal user)
+visudo
 ```
 
 (Add the below line)
