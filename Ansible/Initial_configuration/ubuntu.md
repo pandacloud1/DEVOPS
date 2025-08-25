@@ -52,5 +52,5 @@ Note:
 
 ## Step-4: Restart the SSH service.
 ```sh
-service sshd restart         
+systemctl restart ssh         
 ```
