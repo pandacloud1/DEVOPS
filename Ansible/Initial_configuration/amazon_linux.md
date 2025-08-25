@@ -35,7 +35,7 @@ passwd ansadmin
 visudo
 ```
 
-(Add the below line)
+Add the below line
 ```sh
 ansadmin ALL=(ALL) NOPASSWD: ALL
 ```
