@@ -26,12 +26,11 @@ passwd ansadmin
 
 ## Step-2: Give sudo priviledges to the user
 ### NOTE:
-1. You cannot install or update packages being a normal user (eg. ansadmin)
-2. Try running `sudo apt update -y` & it will show permission error.
-3. Add the normal user (eg. ansadmin) to sudoers file, try running `sudo apt update -y` & it will work!
-4. The sudoers file should be edited with care. Using a regular text editor like nano or vi can lead to syntax errors. `vi /etc/sudoers`
-5. To safely edit the sudoers file, use the `visudo` command, which checks the file for syntax errors before saving
-
+1. Normal users cannot install or update packages.
+2. If a user (e.g., ansadmin) is added to the sudoers file, they can run commands with root privileges using sudo.
+3. The sudoers file must be edited carefully. Editing directly with vi or nano may cause syntax errors. `vi /etc/sudoers`
+4. Use the `visudo` command instead — it safely edits the file and checks for errors before saving.
+   
 ```sh
 visudo
 ```
