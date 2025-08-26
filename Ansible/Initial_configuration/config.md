@@ -18,7 +18,8 @@ bash
 
 ## Step-1: Create a user & set a password
 ```sh
-apt update && apt upgrade -y   
+apt update && apt upgrade -y
+# For Amazon Linux use `yum update -y`   
 adduser ansadmin               
 passwd ansadmin                
 ```
