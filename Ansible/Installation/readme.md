@@ -9,7 +9,7 @@ sudo apt install ansible -y
 ansible --version
 ```
 
-# Installing Ansible in Linux
+# Installing Ansible in Amazon Linux
 #### Ref: https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html#installing-ansible-on-fedora-linux 
 
 ```bash
