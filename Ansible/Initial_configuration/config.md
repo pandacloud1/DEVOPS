@@ -1,4 +1,4 @@
-# Ansible Configuration for linux
+# Ansible Configuration for Linux
 NOTE: The below steps to be performed in the master & the nodes
 
 ## Set hostname for master & nodes (Optional)
