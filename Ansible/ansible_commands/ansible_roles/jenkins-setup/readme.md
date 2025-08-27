@@ -1,5 +1,6 @@
-# Directory structure for Jenkins Role
-First, edit the ansible.cfg file to allow ansible roles
+# JENKINS ROLE
+
+## Allow Roles in Ansible configuration file
 ```sh
 sudo vi /etc/ansible/ansible.cfg
 ```
@@ -8,7 +9,7 @@ Add below
 roles_path = /etc/ansible/roles
 ```
 
-Now let's create Jenkins Role
+## Create Jenkins Role
 ```sh
 cd /etc/ansible/roles
 ```
@@ -127,4 +128,21 @@ jenkins_repo_url: "https://pkg.jenkins.io/redhat-stable/jenkins.repo"
 jenkins_gpg_key_url: "https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key"
 java_package: "java-17-amazon-corretto"
 ...
+```
+## Create your main jenkins playbook
+Note: You can create the playbook in any path, the config file will automatically fetch the roles as per the path defined
+```sh
+vi jenkins-role.yml
+```
+```yaml
+---
+- name: Installing Jenkins using Ansible Roles
+  hosts: all
+  become: true
+  roles:
+    - jenkins
+...
+```
+```sh
+ansible-playbook jenkins-role.yml
 ```
