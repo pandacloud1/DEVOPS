@@ -45,7 +45,7 @@ sudo vi defaults/main.yml
 ```
 ```yaml
 ---
-jenkins_node_ip: "172.31.14.245"  # Enter your Node's Private IP here
+jenkins_node_ip: "<Node-Private-IP>"     # Enter your Node's Private IP here
 ...
 ```
 
