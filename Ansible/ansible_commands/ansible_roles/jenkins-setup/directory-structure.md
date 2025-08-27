@@ -1,5 +1,5 @@
 # Directory structure for Jenkins Role
-Edit the ansible.cfg file to allow ansible roles
+First, edit the ansible.cfg file to allow ansible roles
 ```sh
 sudo vi /etc/ansible/ansible.cfg
 ```
@@ -7,6 +7,8 @@ Add below
 ```sh
 roles_path = /etc/ansible/roles
 ```
+
+Now let's create Jenkins Role
 ```sh
 cd /etc/ansible/roles
 ```
