@@ -1,5 +1,20 @@
 # JENKINS ROLE
 
+## Create your main jenkins playbook
+Note: You can create the playbook in any path, the config file will automatically fetch the roles as per the path defined
+```sh
+vi jenkins-role.yml
+```
+```yaml
+---
+- name: Installing Jenkins using Ansible Roles
+  hosts: all
+  become: true
+  roles:
+    - jenkins
+...
+```
+
 ## Allow Roles in Ansible configuration file
 ```sh
 sudo vi /etc/ansible/ansible.cfg
@@ -130,20 +145,8 @@ java_package: "java-17-amazon-corretto"
 ...
 ```
 
-## Create your main jenkins playbook
-Note: You can create the playbook in any path, the config file will automatically fetch the roles as per the path defined
+## Run your main Jenkins playbook
 ```sh
-vi jenkins-role.yml
-```
-```yaml
----
-- name: Installing Jenkins using Ansible Roles
-  hosts: all
-  become: true
-  roles:
-    - jenkins
-...
-```
-```sh
+cd ~
 ansible-playbook jenkins-role.yml
 ```
