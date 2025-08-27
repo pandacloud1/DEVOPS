@@ -24,8 +24,3 @@ See the directory structure
 cd test
 tree
 ```
-
-Import a role to Ansible Galaxy from a git repository 
-```sh
-ansible-galaxy role import <namespace> <repository>
-```
