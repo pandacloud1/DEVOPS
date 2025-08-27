@@ -1,8 +1,19 @@
-# Install tree package in your Linux system
-# Eg: 
-  # sudo yum install tree -y
-# Run 'tree' command in your 'jenkins-setup' directory, it will output below
-
+# Directory structure for Jenkins Role
+Install tree package in your Linux system
+```sh
+cd /etc/ansible/roles
+```
+```sh
+sudo ansible-galaxy init jenkins
+```
+```sh
+sudo yum install tree –y        	# (OR) sudo apt install tree -y
+```
+Run 'tree' command, it will show below output
+```sh
+tree
+```
+```sh
 jenkins-setup/
 ├── defaults/
 │   └── main.yaml        # Default variables (jenkins_node_ip)
@@ -12,3 +23,4 @@ jenkins-setup/
 │   └── main.yaml        # Tasks for installing Jenkins
 └── vars/
     └── main.yaml        # Predefined variables (if needed)
+```
