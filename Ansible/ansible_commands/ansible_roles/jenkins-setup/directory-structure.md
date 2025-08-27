@@ -14,7 +14,7 @@ Run 'tree' command, it will show below output
 tree
 ```
 ```sh
-jenkins-setup/
+jenkins/
 ├── defaults/
 │   └── main.yaml        # Default variables (jenkins_node_ip)
 ├── handlers/
