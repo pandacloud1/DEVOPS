@@ -1,0 +1,30 @@
+# CREATE AN EC2 INSTANCE
+
+```yaml
+#STEP1: DEFINE AWS VERSION
+terraform {
+   required_providers {
+      aws = {
+          source = "hashicorp/aws"
+          version = “5.67.0”
+      }
+   }
+}
+
+#STEP2: DEFINE THE REGION (N. Virginia)
+provider "aws" {
+    region = "us-east-1"
+}
+
+#STEP3: CREATE AN EC2 INSTANCE
+resource "aws_instance" "MyServer" {
+    ami = "ami-018ba43095ff50d08"
+    instance_type = "t2.micro"
+    tags = {
+        Name = "My_Server"
+}
+```
+
+```sh
+terraform apply --auto-approve
+```
