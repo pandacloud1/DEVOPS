@@ -1,4 +1,4 @@
-# CREATE 3 EC2 INSTANCES WITH NAMES SERVER1 TO SERVER3 (USING 'COUNT')
+# CREATE 3 EC2 INSTANCES (USING 'COUNT')
 
 ```yaml
 resource "aws_instance" "MyServer" {
