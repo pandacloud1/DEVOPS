@@ -38,7 +38,7 @@ mypassword: "P@$$w0RD@12345"
 Run the user-password playbook
 ```sh
 ansible-playbook playbook.yaml --ask-vault-pass
-# Enter the vault file password to run the playbook
+# Enter the vault file password & the playbook will be executed
 ```
 
 ## Ansible Vault Commands
