@@ -3,7 +3,7 @@
 * This playbook will update user password
 * The password will be stored securely in ansible vault & will be referenced in the playbook
 
-Create a user & reference the vault file under `vars_file`
+Create a user & reference the vault file under `vars_file` <br>
 Create a variable `mypassword` & add the variable in the ansible vault
 ```sh
 vi user-password.yaml
