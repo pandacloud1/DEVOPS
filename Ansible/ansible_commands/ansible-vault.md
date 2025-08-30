@@ -1,4 +1,4 @@
-# ANSIBLE VAULT 
+<img width="503" height="264" alt="image" src="https://github.com/user-attachments/assets/73c9be8a-58fc-4be6-9f52-c2aa09b7d002" /># ANSIBLE VAULT 
 ## Update the user password
 * This playbook will update user password
 * The password will be stored securely in ansible vault & will be referenced in the playbook
@@ -8,7 +8,7 @@
 Create a user & reference the vault file under `vars_file` <br>
 Create a variable `mypassword` & add the variable in the ansible vault
 ```sh
-vi user-password.yaml
+vi playbook.yaml
 ```
 ```yaml
 ---
@@ -37,7 +37,7 @@ mypassword: "P@$$w0RD@12345"
 
 Run the user-password playbook
 ```sh
-ansible-playbook user-password.yaml --ask-vault-pass
+ansible-playbook playbook.yaml --ask-vault-pass
 # Enter the vault file password to run the playbook
 ```
 
