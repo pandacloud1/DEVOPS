@@ -1,4 +1,4 @@
-<img width="503" height="264" alt="image" src="https://github.com/user-attachments/assets/73c9be8a-58fc-4be6-9f52-c2aa09b7d002" /># ANSIBLE VAULT 
+# ANSIBLE VAULT 
 ## Update the user password
 * This playbook will update user password
 * The password will be stored securely in ansible vault & will be referenced in the playbook
