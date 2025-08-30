@@ -1,5 +1,5 @@
 # ANSIBLE VAULT 
-## Update the user password
+## Playbook to update the user password
 * This playbook will update user password
 * The password will be stored securely in ansible vault & will be referenced in the playbook
 
