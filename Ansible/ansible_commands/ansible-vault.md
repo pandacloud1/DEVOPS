@@ -41,7 +41,7 @@ ansible-playbook playbook.yaml --ask-vault-pass
 # Enter the vault file password to run the playbook
 ```
 
-## Commands
+## Ansible Vault Commands
 Create a New Encrypted Playbook
 ```sh
 ansible-vault create playbook.yaml
