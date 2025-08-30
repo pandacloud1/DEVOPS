@@ -3,6 +3,8 @@
 * This playbook will update user password
 * The password will be stored securely in ansible vault & will be referenced in the playbook
 
+<img width="503" height="264" alt="image" src="https://github.com/user-attachments/assets/2c6b3287-aeee-4a1e-8be8-ee85de4794f5" />
+
 Create a user & reference the vault file under `vars_file` <br>
 Create a variable `mypassword` & add the variable in the ansible vault
 ```sh
