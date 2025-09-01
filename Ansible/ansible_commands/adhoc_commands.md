@@ -31,6 +31,14 @@ ansible all -m file -a "path=/tmp/testdir state=directory"
 echo "This is Master File" > my-file
 ansible all -m copy -a "src=/home/ansadmin/my-file dest=/tmp/"
 ```
+## Install apache on the Nodes (Amazon Linux)
+```sh
+ansible all -m yum -a "name=httpd state=present"
+```
+## Install apache on the Nodes (Ubuntu)
+```sh
+ansible all -m apt -a "name=apache2 state=present"
+```
 ## Check free memory
 ```sh
 ansible all -m shell -a "free -m"
