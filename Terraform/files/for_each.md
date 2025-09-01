@@ -1,4 +1,5 @@
-# CREATE MULTIPLE EC2 WITH DIFFERENT INSTANCE TYPE USING `FOR_EACH` BLOCK
+# FOR EACH
+## CREATE MULTIPLE EC2 WITH DIFFERENT INSTANCE TYPE USING `FOR_EACH` BLOCK
 
 ```sh
 main.tf
@@ -35,3 +36,28 @@ terraform destroy --auto-approve
 
 Output <br>
 <img width="877" height="252" alt="image" src="https://github.com/user-attachments/assets/79862723-9439-40ce-bad9-53278238b9f6" />
+
+## CREATE TWO VPC’s USING FOR_EACH BLOCK
+```sh
+main.tf
+```
+```hcl
+resource "aws_vpc" "my_vpc" {
+  for_each = {
+    prod = "10.0.0.0/16",
+    dev = "192.168.0.0/16"
+  }
+  tags = {
+    Name = each.key
+  }
+  cidr_block = each.value
+}
+```
+```sh
+terraform apply --auto-approve
+```
+```sh
+terraform destroy --auto-approve
+```
+Output <br>
+<img width="636" height="154" alt="image" src="https://github.com/user-attachments/assets/934c1c7f-31af-4aaa-9e04-0fddd4bb278f" />
