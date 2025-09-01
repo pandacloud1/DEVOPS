@@ -6,7 +6,7 @@ Note:
 
 ## Check connectivity of the Nodes
 ```sh
-ansible -m ping all             
+ansible all -m ping              
 ```
 
 ## Check hostnames of the Nodes
