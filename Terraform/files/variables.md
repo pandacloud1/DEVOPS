@@ -21,7 +21,7 @@ resource "aws_instance" "MyServer" {
 }
 ```
 
-## Create multiple EC2 instances using variables
+## Create multiple EC2 instances using variables & `count.index`
 ```hcl
 variable "ami" {
   default = "ami-0360c520857e3138f"
