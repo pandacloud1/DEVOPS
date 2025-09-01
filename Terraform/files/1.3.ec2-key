@@ -1,0 +1,16 @@
+# CREATE EC2 USING PEM KEY
+
+```hcl
+resource "aws_instance" "my_ec2_instance" {
+  ami = "ami-0a5c3558529277641"
+  instance_type = "t2.micro"
+  key_name = "my-key" 	# Enter your key name 
+			# do not use extension '.pem' in the file name
+  tags = {
+    Name = "WEBSERVER"
+  }
+}
+```
+## NOTE:
+* In Terraform, we cannot create a '.pem' key by writing the code.
+* Instead, we can either create a new key from AWS console or call the existing key.
