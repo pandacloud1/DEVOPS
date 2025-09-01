@@ -9,13 +9,13 @@ variable "ami" {
 variable "instance_type" {
     default = "t2.micro"
 }
-variable "tag" {
+variable "tags" {
     default = "My-Server"
 }
 resource "aws_instance" "MyServer" {
   ami = var.ami
   instance_type = var.instance_type
-  tags = { Name = var.tag }
+  tags = { Name = var.tags }
 }
 ```
 ```sh
