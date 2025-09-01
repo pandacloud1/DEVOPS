@@ -20,8 +20,17 @@ resource "aws_instance" "MyServer" {
   tags = { Name = var.tags }
 }
 ```
+```sh
+terraform apply --auto-approve
+```
+```sh
+terraform destroy --auto-approve
+```
 
 ## Create multiple EC2 instances using variables & `count.index`
+```sh
+variables.tf
+```
 ```hcl
 variable "ami" {
   default = "ami-0360c520857e3138f"
