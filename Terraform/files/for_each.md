@@ -18,6 +18,9 @@ resource "aws_instance" "my_instance" {
   instance_type = each.value
 }
 ```
+```sh
+outputs.tf
+```
 ```hcl
 output "My-Server_Public_IP" {
     value = values(aws_instance.my-ec2)[*].public_ip
