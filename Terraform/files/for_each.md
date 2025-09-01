@@ -4,14 +4,14 @@
 main.tf
 ```
 ```hcl
-resource “aws_instance” “my_instance” {
+resource "aws_instance" "my_instance" {
   # Set of map
   for_each = {
-    “Server1” = “t2.small”,
-    “Server2” = “t2.micro”,
-    “Server3” = “t2.medium”
+    "Server1" = "t2.small",
+    "Server2" = "t2.micro",
+    "Server3" = "t2.medium"
   }
-  ami = “ami-0a5c3558529277641”
+  ami = "ami-0360c520857e3138f"
   tags = {
     Name = each.key
   }
@@ -19,7 +19,7 @@ resource “aws_instance” “my_instance” {
 }
 ```
 ```hcl
-output “My-Server_Public_IP” {
+output "My-Server_Public_IP" {
     value = values(aws_instance.my-ec2)[*].public_ip
 }
 ```
