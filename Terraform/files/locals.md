@@ -5,7 +5,7 @@ locals {
   my_tag = {
     Name = "My-Server",
     Type = "Web Server",
-    Owner = "Alexa",
+    Owner = "PandaCloud",
     Env = "Prod"
   }
 }
