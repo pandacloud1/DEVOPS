@@ -15,6 +15,13 @@ resource "aws_instance" "MyServer" {
 }
 ```
 
+```sh
+terraform apply --auto-approve
+```
+```sh
+terraform destroy --auto-approve
+```
+
 NOTE
 * `variables.tf` file is used to declare the default variables.
 * `terraform.tfvars` file overwrites the default variables.
