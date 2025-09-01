@@ -32,7 +32,7 @@ terraform apply --auto-approve
 terraform destroy --auto-approve
 ```
 
-## Get output of multiple EC2 instances
+## Get output of multiple EC2 instances using `[*]`
 ```sh
 outputs.tf
 ```
