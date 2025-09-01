@@ -26,7 +26,7 @@ ansible all -m file -a "path=/tmp/test state=touch"
 ```sh
 ansible all -m file -a "path=/tmp/testdir state=directory"
 ```
-## Copy a local file to /tmp/ on the target machines.
+## Copy a local file `my-file` to `/tmp` on the target machines.
 ```sh
 echo "This is Master File" > my-file
 ansible all -m copy -a "src=/home/ansadmin/my-file dest=/tmp/"
