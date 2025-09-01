@@ -36,10 +36,18 @@ ansible all -m copy -a "src=/home/ansadmin/my-file dest=/tmp/"
 ansible all -m yum -a "name=httpd state=present"
 ansible all -m service -a "name=httpd state=started
 ```
+## Remove apache on the Nodes (Amazon Linux)
+```sh
+ansible all -m yum -a "name=httpd state=absent"
+```
 ## Install apache on the Nodes (Ubuntu)
 ```sh
 ansible all -m apt -a "name=apache2 state=present"
 ansible all -m service -a "name=apache2 state=started
+```
+## Remove apache on the Nodes (Ubuntu)
+```sh
+ansible all -m yum -a "name=apache2 state=absent"
 ```
 ## Check free memory
 ```sh
