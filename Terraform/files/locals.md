@@ -9,7 +9,7 @@ locals {
 }
 # USE THE LOCAL VARIABLES WITHIN THE RESOURCE BLOCK
 resource "aws_instance" "MyServer" {
-  ami = "ami-0a5c3558529277641"
+  ami = "ami-0360c520857e3138f"
   instance_type = "t2.micro"
   tags = local.my_tag
 }
