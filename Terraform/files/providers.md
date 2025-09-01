@@ -1,5 +1,5 @@
 # PROVIDERS BLOCK
-Ref: https://registry.terraform.io/providers/hashicorp/aws/latest/docs <br>
+Ref: https://registry.terraform.io/providers/hashicorp/aws/latest/docs <br> <br>
 Note:
 * The file is stored as `providers.tf`
 * It contains the information of different cloud providers
