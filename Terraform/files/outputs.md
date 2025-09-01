@@ -1,6 +1,6 @@
 # OUTPUT BLOCK
 
-## Create an EC2 instance & get the Public IP
+## Create an EC2 instance & get the PublicIP, PrivateIP & InstanceID
 ```sh
 output.tf
 ```
