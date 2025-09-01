@@ -23,3 +23,9 @@ output “My-Server_Public_IP” {
     value = values(aws_instance.my-ec2)[*].public_ip
 }
 ```
+```sh
+terraform apply --auto-approve
+```
+```sh
+terraform destroy --auto-approve
+```
