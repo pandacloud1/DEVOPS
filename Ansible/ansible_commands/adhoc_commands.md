@@ -1,5 +1,6 @@
 # ANSIBLE ADHOC COMMANDS
 Note:
+* Syntax -> `ansible <node> -m <module> -a <argument>`
 * -m : module
 * -a : argument
 
