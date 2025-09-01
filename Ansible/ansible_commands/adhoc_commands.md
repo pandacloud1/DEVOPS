@@ -34,10 +34,12 @@ ansible all -m copy -a "src=/home/ansadmin/my-file dest=/tmp/"
 ## Install apache on the Nodes (Amazon Linux)
 ```sh
 ansible all -m yum -a "name=httpd state=present"
+ansible all -m service -a "name=httpd state=started
 ```
 ## Install apache on the Nodes (Ubuntu)
 ```sh
 ansible all -m apt -a "name=apache2 state=present"
+ansible all -m service -a "name=apache2 state=started
 ```
 ## Check free memory
 ```sh
