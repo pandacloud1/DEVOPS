@@ -1,7 +1,7 @@
 # DATA BLOCK
 
 Fetch the existing security group from AWS
-```
+```hcl
 data "aws_security_group" "existing_SG" {
   id = “<SG-Id>” # Replace with your existing security group id
 }
@@ -18,4 +18,10 @@ resource "aws_instance" "my_instance" {
     Name = "MyServer"
   }
 }
+```
+```sh
+terraform apply --auto-approve
+```
+```sh
+terraform destroy --auto-approve
 ```
