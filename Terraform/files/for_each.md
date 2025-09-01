@@ -32,3 +32,6 @@ terraform apply --auto-approve
 ```sh
 terraform destroy --auto-approve
 ```
+
+Output
+<img width="877" height="252" alt="image" src="https://github.com/user-attachments/assets/79862723-9439-40ce-bad9-53278238b9f6" />
