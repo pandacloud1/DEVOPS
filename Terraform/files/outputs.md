@@ -6,7 +6,7 @@ outputs.tf
 ```
 ```hcl
 resource "aws_instance" "my_instance" {
-  ami = ami-0360c520857e3138f
+  ami = "ami-0360c520857e3138f"
   instance_type = "t2.micro"
   tags = {
     Name = "My-Server"
@@ -38,7 +38,7 @@ outputs.tf
 ```
 ```hcl
 resource "aws_instance" "my_instance" {
-  ami = ami-0360c520857e3138f
+  ami = "ami-0360c520857e3138f"
   instance_type = "t2.micro"
   count = 3
   tags = {
