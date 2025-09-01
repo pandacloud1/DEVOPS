@@ -3,7 +3,7 @@
 Fetch the existing security group from AWS
 ```hcl
 data "aws_security_group" "existing_SG" {
-  id = “<SG-Id>” # Replace with your existing security group id
+  id = "<SG-Id>" # Replace with your existing security group id
 }
 ```
 
