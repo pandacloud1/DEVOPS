@@ -2,7 +2,7 @@
 
 ## Create an EC2 instance & get the PublicIP, PrivateIP & InstanceID
 ```sh
-output.tf
+outputs.tf
 ```
 ```hcl
 resource "aws_instance" "my_instance" {
