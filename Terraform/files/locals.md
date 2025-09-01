@@ -2,9 +2,10 @@
 ```hcl
 locals {
   my_tag = {
-    Name = "Jenkins-Server",
-    Type = "Production",
+    Name = "My-Server",
+    Type = "Web Server",
     Owner = "Alexa",
+    Env = "Prod"
   }
 }
 # USE THE LOCAL VARIABLES WITHIN THE RESOURCE BLOCK
