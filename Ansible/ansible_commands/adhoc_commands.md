@@ -18,7 +18,11 @@ ansible all -a "hostname"
 ```sh
 ansible all -a "ls -a"               
 ```
-## Create a directory /tmp/testdir on all hosts
+## Create a file `test` in all hosts
+```sh
+ansible all -m file -a "path=/tmp/test state=touch"
+```
+## Create a directory `/tmp/testdir` in all hosts
 ```sh
 ansible all -m file -a "path=/tmp/testdir state=directory"
 ```
