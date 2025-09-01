@@ -24,10 +24,8 @@ ansible all -m file -a "path=/tmp/testdir state=directory"
 ```
 ## Copy a local file to /tmp/ on the target machines.
 ```sh
-su ansadmin
-cd ~
-echo "This is Master File" > master-file
-ansible all -m copy -a "src=/home/ansadmin/master-file dest=/tmp/"
+echo "This is Master File" > my-file
+ansible all -m copy -a "src=/home/ansadmin/my-file dest=/tmp/"
 ```
 ## Check free memory
 ```sh
