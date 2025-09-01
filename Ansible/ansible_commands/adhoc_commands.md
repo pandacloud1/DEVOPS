@@ -18,7 +18,7 @@ ansible all -a "hostname"
 ```sh
 ansible all -a "ls -a"               
 ```
-## Create a file `test` in all hosts
+## Create a file `test` in all Nodes
 ```sh
 ansible all -m file -a "path=/tmp/test state=touch"
 ```
@@ -35,7 +35,7 @@ ansible all -m copy -a "src=/home/ansadmin/my-file dest=/tmp/"
 ```sh
 ansible all -m shell -a "free -m"
 ```
-## Reboot the remote hosts
+## Reboot the remote Nodes
 ```sh
 ansible all -m reboot
 ```
