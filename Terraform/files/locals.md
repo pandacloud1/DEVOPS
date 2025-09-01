@@ -1,5 +1,6 @@
 # CREATE EC2 USING LOCALS BLOCK
 ```hcl
+# DECLARE THE LOCAL VARIABLES
 locals {
   my_tag = {
     Name = "My-Server",
