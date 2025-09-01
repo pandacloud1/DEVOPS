@@ -1,4 +1,4 @@
-# PROVIDER BLOCK
+# PROVIDERS BLOCK
 Note:
 * The file is stored as `providers.tf`
 * It contains the information of different cloud providers
