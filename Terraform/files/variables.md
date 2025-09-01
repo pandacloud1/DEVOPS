@@ -4,7 +4,7 @@ variables.tf
 ```
 ```hcl
 variable "ami" {
-    default = "ami-04aa00acb1165b32a"
+    default = "ami-0360c520857e3138f"
 }
 variable "instance_type" {
     default = "t2.micro"
