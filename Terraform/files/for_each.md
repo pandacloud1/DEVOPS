@@ -34,7 +34,7 @@ terraform apply --auto-approve
 terraform destroy --auto-approve
 ```
 
-Output <br>
+Output <br> <br>
 <img width="877" height="252" alt="image" src="https://github.com/user-attachments/assets/79862723-9439-40ce-bad9-53278238b9f6" />
 
 ## CREATE TWO VPC’s USING FOR_EACH BLOCK
@@ -59,6 +59,6 @@ terraform apply --auto-approve
 ```sh
 terraform destroy --auto-approve
 ```
-Output <br>
+Output <br> <br>
 <img width="1547" height="263" alt="image" src="https://github.com/user-attachments/assets/5cf96997-6060-4335-9b4e-a275666a452b" />
 
