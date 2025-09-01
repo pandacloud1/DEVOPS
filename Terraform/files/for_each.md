@@ -60,4 +60,5 @@ terraform apply --auto-approve
 terraform destroy --auto-approve
 ```
 Output <br>
-<img width="636" height="154" alt="image" src="https://github.com/user-attachments/assets/934c1c7f-31af-4aaa-9e04-0fddd4bb278f" />
+<img width="1547" height="263" alt="image" src="https://github.com/user-attachments/assets/5cf96997-6060-4335-9b4e-a275666a452b" />
+
