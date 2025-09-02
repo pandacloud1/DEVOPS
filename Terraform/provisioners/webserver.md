@@ -36,9 +36,13 @@ resource "aws_security_group" "my_security_group" {
 Use `depends_on` meta-argument to create EC2 only after SG is created
 ```hcl
 resource "aws_instance" "my_ec2_instance" {
-  ami = "ami-0a5c3558529277641"
+  ami = "ami-00ca32bbc84273381"
   instance_type = "t2.micro"
+
+  # Use `depends_on` meta-argument
   depends_on = [aws_security_group.my_sg]       # Ensures security group is created first
+
+  # Use SG created above
   vpc_security_group_ids = [aws_security_group.my_security_group.id]
   key_name = "My-key" 		                      # Enter your key-name here, do not use extension '.pem’
   tags = {
@@ -56,7 +60,7 @@ resource "aws_instance" "my_ec2_instance" {
   # ESTABLISHING SSH CONNECTION WITH EC2
     connection {
       type = "ssh"
-      private_key = file("./My-key.pem") # enter your key-name, store the pem key in same folder
+      private_key = file("./My-key.pem")     # enter key-name with '.pem', store it in the same folder as your code
       user = "ec2-user"
       host = self.public_ip
     }
