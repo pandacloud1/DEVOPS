@@ -1,4 +1,4 @@
-## 🚀 CONFIGURE S3 & DYNAMODB AS REMOTE BACKEND
+# 🚀 CONFIGURE S3 & DYNAMODB AS REMOTE BACKEND
 
 > 📌 **Why?**  
 Storing the Terraform state file locally is not recommended for team environments or production use. Instead, we use:
