@@ -1,6 +1,6 @@
 # TERRAFORM PROVISIONERS
 
-## STEP1: CREATE A SECURITY GROUP
+## STEP-1: CREATE A SECURITY GROUP
 
 ```hcl
 resource "aws_security_group" "my_security_group" {
@@ -32,7 +32,7 @@ resource "aws_security_group" "my_security_group" {
   }
 }
 ```
-## STEP2: CREATE AN EC2 INSTANCE USING SECURITY GROUP & USING THE PEM KEY
+## STEP-2: CREATE AN EC2 INSTANCE USING SECURITY GROUP & USING THE PEM KEY
 Use `depends_on` meta-argument to create EC2 only after SG is created
 ```hcl
 resource "aws_instance" "my_ec2_instance" {
@@ -45,13 +45,13 @@ resource "aws_instance" "my_ec2_instance" {
     Name = "WEBSERVER"
   }
 
-  # STEP2.1: USE 'LOCAL-EXEC' TO PRINT A MESSAGE
+  # STEP-2.1: USE 'LOCAL-EXEC' TO PRINT A MESSAGE
   # USING LOCAL-EXEC PROVISIONER
   provisioner "local-exec" {
     command = "echo 'WE ARE INSTALLING APACHE IN AWS EC2 INSTANCE’”
   }
 
-  # STEP2.2: USE 'REMOTE-EXEC' PROVISIONER TO SETUP APACHE PACKAGE
+  # STEP-2.2: USE 'REMOTE-EXEC' PROVISIONER TO SETUP APACHE PACKAGE
   provisioner "remote-exec" {
   # ESTABLISHING SSH CONNECTION WITH EC2
     connection {
@@ -72,7 +72,7 @@ resource "aws_instance" "my_ec2_instance" {
 }
 ```
 
-## STEP3: USE OUTPUT BLOCK TO GET THE PUBLIC IP OF EC2
+## STEP-3: USE OUTPUT BLOCK TO GET THE PUBLIC IP OF EC2
 ```hcl
 output "ec2_public_ip" {
   value = aws_instance.my_ec2_instance.public_ip
