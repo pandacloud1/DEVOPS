@@ -1,4 +1,8 @@
-# STEP1: CREATE A SECURITY GROUP
+# USING LOCAL & REMOTE EXEC PROVISIONERS
+
+## STEP1: CREATE A SECURITY GROUP
+
+```hcl
 resource "aws_security_group" "my_security_group" {
   name = "my-security-group"
   description = "Allow SSH, HTTP, and HTTPS traffic"
@@ -27,9 +31,10 @@ resource "aws_security_group" "my_security_group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
-# STEP2: CREATE AN EC2 INSTANCE USING SECURITY GROUP & USING AN EXISTING/NEW PEM KEY
-# CREATE EC2 ONLY AFTER SG IS CREATED USING DEPENDS_ON META-ARGUMENT
+```
+## STEP2: CREATE AN EC2 INSTANCE USING SECURITY GROUP & USING THE PEM KEY
+Use `depends_on` meta-argument to create EC2 only after SG is created
+```hcl
 resource "aws_instance" "my_ec2_instance" {
   ami = "ami-0a5c3558529277641"
   instance_type = "t2.micro"
@@ -65,12 +70,18 @@ resource "aws_instance" "my_ec2_instance" {
      ]
   }
 }
+```
 
-# STEP3: USE OUTPUT BLOCK TO GET THE PUBLIC IP OF EC2
-# OUTPUT PUBLIC IP OF EC2 INSTANCE
+## STEP3: USE OUTPUT BLOCK TO GET THE PUBLIC IP OF EC2
+```hcl
 output "ec2_public_ip" {
   value = aws_instance.my_ec2_instance.public_ip
 }
+```
 
-
-  
+```sh
+terraform apply --auto-approve
+```
+```sh
+terraform destroy --auto-approve
+```
