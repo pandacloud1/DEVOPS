@@ -1,4 +1,4 @@
-resource "aws_vpc" "main" {
+resource "aws_vpc" "my_vpc" {
   cidr_block = var.cidr_block
   tags = {
     Name = var.vpc_name
@@ -12,6 +12,6 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "${var.vpc_name}-subnet"
+    Name = "${var.vpc_name}"
   }
 }
