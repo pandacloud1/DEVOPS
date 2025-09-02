@@ -5,7 +5,7 @@ Storing the Terraform state file locally is not recommended for team environment
 - **Amazon S3** to store the state file remotely
 - **DynamoDB** to enable state locking and prevent concurrent modifications
 
-## STEP-1: Create `S3` Bucket & `DynamoDB` Table
+## Step-1: Create `S3` Bucket & `DynamoDB` Table
 
 ### `backend.tf` (resource definitions)
 
@@ -33,7 +33,7 @@ resource "aws_dynamodb_table" "my_table" {
 }
 ```
 
-## STEP-2: Apply the Resources
+## Step-2: Apply the Resources
 
 ```bash
 terraform init
@@ -42,7 +42,7 @@ terraform init
 terraform apply --auto-approve
 ```
 
-## STEP-3: Configure Remote Backend in Your Terraform Code
+## Step-3: Configure Remote Backend in Your Terraform Code
 
 > Add this block to your root `main.tf` or a dedicated `backend.tf` file:
 
@@ -60,7 +60,7 @@ terraform {
 
 > ⚠️ Note: You cannot apply this backend block using `terraform apply`. You must run `terraform init` to initialize or migrate the backend.
 
-## STEP-4: Reinitialize Terraform
+## Step-4: Reinitialize Terraform
 
 ```bash
 terraform init
@@ -68,7 +68,7 @@ terraform init
 > Terraform will prompt you to migrate your local state to the configured S3 backend.
 
 
-## STEP-5: Apply or Destroy Resources
+## Step-5: Apply or Destroy Resources
 
 ```bash
 terraform apply --auto-approve
