@@ -6,7 +6,7 @@ Note:
 * If using multiple AWS accounts, then use `profile` & save the credentials in aws `.config` file with [dev] [prod], etc
 
 ```
-provider.tf
+providers.tf
 ```
 
 ```hcl
