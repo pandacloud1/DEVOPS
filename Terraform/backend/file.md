@@ -13,7 +13,7 @@ Storing the Terraform state file locally is not recommended for team environment
 
 ```hcl
 resource "aws_s3_bucket" "my_s3" {
-  bucket        = "nasir-bucket-03012024"  # Must be globally unique
+  bucket        = "panda-bucket-01012020"  # Must be globally unique
   force_destroy = true                     # Allows bucket deletion even if non-empty
 }
 ```
