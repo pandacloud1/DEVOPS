@@ -1,6 +1,6 @@
 # TERRAFORM WORKSPACE
 
-Create file:
+Create file
 ```sh
 main.tf
 ```
