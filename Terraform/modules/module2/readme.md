@@ -1,5 +1,6 @@
 ## Folder structure 
 
+```sh
 terraform/
 ├── main.tf
 ├── variables.tf
@@ -17,3 +18,4 @@ terraform/
 │       ├── main.tf
 │       ├── variables.tf
 │       ├── outputs.tf
+```
