@@ -118,7 +118,7 @@ output "EC2_Public_IP" {
 ```sh
 terraform apply --auto-approve
 ```
-Get the EC2-PublicIP & access your apache application from the browser
+* Get the `EC2-PublicIP` & access your apache application from the browser
 
 ```sh
 terraform destroy --auto-approve
