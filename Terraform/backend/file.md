@@ -33,16 +33,14 @@ resource "aws_dynamodb_table" "my_table" {
 }
 ```
 
----
-
 ## STEP 2: Apply the Resources
 
 ```bash
 terraform init
+```
+```bash
 terraform apply --auto-approve
 ```
-
----
 
 ## STEP 3: Configure Remote Backend in Your Terraform Code
 
