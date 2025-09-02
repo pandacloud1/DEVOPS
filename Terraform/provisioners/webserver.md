@@ -1,7 +1,11 @@
 # TERRAFORM PROVISIONERS
 
-## STEP-1: CREATE A SECURITY GROUP
+Note:
+* Copy your pem key in the same location as your terraform code
+* Local provisioner `local-exe` is used to run commands in your local machine
+* Remote provisioner `remote-exec` is used to run commands in your remote machine (host)
 
+## STEP-1: CREATE A SECURITY GROUP
 ```hcl
 resource "aws_security_group" "my_security_group" {
   name = "my-security-group"
@@ -32,7 +36,7 @@ resource "aws_security_group" "my_security_group" {
   }
 }
 ```
-## STEP-2: CREATE AN EC2 INSTANCE USING SECURITY GROUP & USING THE PEM KEY
+## STEP-2: CREATE AN EC2 INSTANCE USING SECURITY GROUP & THE PEM KEY
 Use `depends_on` meta-argument to create EC2 only after SG is created
 ```hcl
 resource "aws_instance" "my_ec2_instance" {
