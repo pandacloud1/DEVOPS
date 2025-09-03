@@ -9,7 +9,7 @@ Storing the Terraform state file locally is not recommended for team environment
 
 ### `backend.tf` (resource definitions)
 
-#### Create S3 Bucket
+#### S3 Bucket code
 
 ```hcl
 resource "aws_s3_bucket" "my_s3" {
@@ -18,7 +18,7 @@ resource "aws_s3_bucket" "my_s3" {
 }
 ```
 
-#### Create DynamoDB Table
+#### DynamoDB Table code
 
 ```hcl
 resource "aws_dynamodb_table" "my_table" {
