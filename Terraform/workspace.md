@@ -41,9 +41,13 @@ variable "name" {
 ### Create new workspaces
 
 ```sh
-terraform workspace new dev      # creates 'dev' workspace
-terraform workspace new stage    # creates 'stage' workspace
-terraform workspace new prod     # creates 'prod' workspace
+terraform workspace new dev
+```
+```sh
+terraform workspace new stage
+```
+```sh
+terraform workspace new prod
 ```
 
 ### List all workspaces
@@ -52,13 +56,13 @@ terraform workspace new prod     # creates 'prod' workspace
 terraform workspace list         # shows all available workspaces
 ```
 
-### Select a workspace
+### Select a workspace (dev)
 
 ```sh
-terraform workspace select prod  # switch to 'prod' workspace
+terraform workspace select dev  
 ```
 
-### Apply resources in selected workspace
+Apply resources in dev workspace
 
 ```sh
 terraform apply --auto-approve
@@ -66,14 +70,43 @@ terraform apply --auto-approve
 
 > Note: `--target` is optional and used only when you want to apply specific resources.
 
-### Destroy resources in current workspace
+Destroy resources in current workspace
 
 ```sh
 terraform destroy --auto-approve
 ```
 
-### Switch to another workspace
+### Switch to another workspace (stage)
 
 ```sh
-terraform workspace select dev   # switch back to 'dev' workspace
+terraform workspace select stage
+```
+
+Apply resources in selected workspace
+
+```sh
+terraform apply --auto-approve
+```
+
+Destroy resources in current workspace
+
+```sh
+terraform destroy --auto-approve
+```
+### Switch to another workspace (prod)
+
+```sh
+terraform workspace select prod
+```
+
+Apply resources in selected workspace
+
+```sh
+terraform apply --auto-approve
+```
+
+Destroy resources in current workspace
+
+```sh
+terraform destroy --auto-approve
 ```
