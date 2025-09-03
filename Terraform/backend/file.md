@@ -22,7 +22,7 @@ resource "aws_s3_bucket" "my_s3" {
 
 ```hcl
 resource "aws_dynamodb_table" "my_table" {
-  name         = "state-file-locking"
+  name         = "my-table"
   billing_mode = "PAY_PER_REQUEST"         # On-demand mode (no need to set capacity)
   hash_key     = "LockID"                  # Required primary key
 
@@ -49,10 +49,10 @@ terraform apply --auto-approve
 ```hcl
 terraform {
   backend "s3" {
-    bucket         = "nasir-bucket-03012024"              # Must match your created bucket
-    key            = "state-file/terraform.tfstate"       # Path inside the bucket
+    bucket         = "panda-bucket-01012020"              # Must match your created bucket
+    key            = "state/terraform.tfstate"       # Path inside the bucket
     region         = "us-east-1"
-    dynamodb_table = "state-file-locking"                 # Enables state locking
+    dynamodb_table = "my-table"                           # Enables state locking
     encrypt        = true                                 # Encrypt state at rest
   }
 }
