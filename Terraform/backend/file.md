@@ -69,7 +69,16 @@ terraform init
 
 
 ## Step-5: Apply or Destroy Resources
-
+Try creating a test EC2
+```hcl
+resource "aws_instance" "my_instance" {
+  ami = "ami-00ca32bbc84273381"
+  instance_type = "t2.micro"
+  tags = {
+    Name = "My-Server"
+  }
+}
+```
 ```bash
 terraform apply --auto-approve
 ```
