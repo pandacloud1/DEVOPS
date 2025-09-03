@@ -75,38 +75,4 @@ Destroy resources in current workspace
 ```sh
 terraform destroy --auto-approve
 ```
-
-### Switch to another workspace (stage)
-
-```sh
-terraform workspace select stage
-```
-
-Apply resources in selected workspace
-
-```sh
-terraform apply --auto-approve
-```
-
-Destroy resources in current workspace
-
-```sh
-terraform destroy --auto-approve
-```
-### Switch to another workspace (prod)
-
-```sh
-terraform workspace select prod
-```
-
-Apply resources in selected workspace
-
-```sh
-terraform apply --auto-approve
-```
-
-Destroy resources in current workspace
-
-```sh
-terraform destroy --auto-approve
-```
+Follow the same commands as above to create & destroy resources in `stage` & `prod` workspace
