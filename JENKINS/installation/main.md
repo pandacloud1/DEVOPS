@@ -99,13 +99,12 @@ output "Jenkins-Server-Access" {
 }
 ```
 
-### 🛠️ Terraform Commands
+### Terraform Commands
 
 ```bash
-# Deploy Jenkins EC2
 terraform apply --auto-approve
-
-# Destroy after use
+```
+```bash
 terraform destroy --auto-approve
 ```
 
