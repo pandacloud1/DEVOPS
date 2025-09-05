@@ -67,6 +67,13 @@ resource "aws_instance" "my-ec2" {
     Name = "Jenkins-Server"
   }
 
+  connection {
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file("./my-key.pem")  # Replace with your actual PEM file path
+      host        = self.public_ip
+  }
+
   provisioner "remote-exec" {
     inline = [
       "sudo apt-get update -y",
@@ -81,13 +88,6 @@ resource "aws_instance" "my-ec2" {
       "echo 'Jenkins Initial Admin Password:'",
       "sudo cat /var/lib/jenkins/secrets/initialAdminPassword"
     ]
-
-    connection {
-      type        = "ssh"
-      user        = "ubuntu"
-      private_key = file("~/.ssh/my-key.pem")  # Replace with your actual PEM file path
-      host        = self.public_ip
-    }
   }
 }
 ```
