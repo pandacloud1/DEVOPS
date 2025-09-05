@@ -107,9 +107,3 @@ terraform apply --auto-approve
 ```bash
 terraform destroy --auto-approve
 ```
-
-### 🔐 What You'll See in Output
-
-After `terraform apply`, your terminal will show:
-- The public IP of the Jenkins server
-- The initial admin password from `/var/lib/jenkins/secrets/initialAdminPassword`
