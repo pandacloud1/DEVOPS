@@ -1,4 +1,4 @@
-## Install Jenkins on Ubuntu
+## Install Jenkins on Ubuntu 🛠️ 
 Ref: https://www.jenkins.io/doc/book/installing/linux/#debian-stable
 
 ### 1. **Provider Configuration**
