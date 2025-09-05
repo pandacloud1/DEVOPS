@@ -3,6 +3,7 @@ Ref: https://www.jenkins.io/doc/book/installing/linux/#debian-stable
 
 ### 1. **Provider Configuration**
 ```hcl
+# DEFINE PROVIDER
 provider "aws" {
   region = "us-east-1"
 }
@@ -10,6 +11,7 @@ provider "aws" {
 
 ### 2. **Security Group for Jenkins**
 ```hcl
+# CREATE SECURITY GROUP FOR JENKINS
 resource "aws_security_group" "my-sg" {
   name        = "Prometheus-Grafana-SG"
   description = "Allow SSH, HTTP, HTTPS & Jenkins Port"
@@ -57,6 +59,7 @@ resource "aws_security_group" "my-sg" {
 
 ### 3. **EC2 Instance with Jenkins Installation**
 ```hcl
+# CREATE AN EC2 INSTANCE & INSTALL JENKINS
 resource "aws_instance" "my-ec2" {
   ami                    = "ami-0360c520857e3138f"  # Ubuntu 24.04 (us-east-1)
   instance_type          = "t2.micro"
@@ -74,6 +77,7 @@ resource "aws_instance" "my-ec2" {
       host        = self.public_ip
   }
 
+  # INSTALL JENKINS  
   provisioner "remote-exec" {
     inline = [
       "sudo apt-get update -y",
@@ -94,8 +98,9 @@ resource "aws_instance" "my-ec2" {
 
 ### 4. **Output Jenkins Access Info**
 ```hcl
+# GET THE JENKINS SERVER URL
 output "Jenkins-Server-Access" {
-  value = "{aws_instance.my-ec2.public_ip}:8080"
+  value = "http://${aws_instance.my-ec2.public_ip}:8080"
 }
 ```
 
