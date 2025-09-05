@@ -1,4 +1,4 @@
-## Terraform Script to Deploy Jenkins on AWS EC2
+## Create Jenkins on Ubuntu
 Ref: https://www.jenkins.io/doc/book/installing/linux/#debian-stable
 
 ### 1. **Provider Configuration**
