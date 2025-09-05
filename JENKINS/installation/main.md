@@ -95,7 +95,7 @@ resource "aws_instance" "my-ec2" {
 ### 4. **Output Jenkins Access Info**
 ```hcl
 output "Jenkins-Server-Access" {
-  value = "ubuntu@${aws_instance.my-ec2.public_ip}"
+  value = "{aws_instance.my-ec2.public_ip}:8080"
 }
 ```
 
