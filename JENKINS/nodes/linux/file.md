@@ -46,7 +46,7 @@ cat ~/.ssh/id_rsa
 ```
 
 ### Configure the Node in Jenkins
-
+---
 1. **Navigate to Jenkins Node Management**
    - Go to: `Manage Jenkins` → `Nodes` → `New Node`
 
@@ -77,7 +77,7 @@ cat ~/.ssh/id_rsa
    - Go to the newly created node `node1`
    - Click `Launch agent`
    - Confirm that the connection is successful
-
+---
 
 ### Test connection
 ```groovy
