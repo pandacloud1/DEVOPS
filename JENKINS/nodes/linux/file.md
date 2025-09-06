@@ -2,12 +2,14 @@
 
 ### Create a Node (Install Java)
 ```hcl
+# CREATE AN EC2 INSTANCE
 resource "aws_instance" "node1" {
   ami                    = "ami-0360c520857e3138f"        # Ubuntu 24.04 (us-east-1)
   instance_type          = "t2.micro"
   key_name               = "my-key"                       # Replace with your actual key name
   vpc_security_group_ids = [aws_security_group.my-sg.id]  # Create this if not created already
 
+  # INSTALL JAVA
   user_data = <<-EOF
               #!/bin/bash
               sudo apt update
