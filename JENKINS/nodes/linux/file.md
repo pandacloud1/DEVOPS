@@ -93,3 +93,4 @@ pipeline {
     }
 }
 ```
+This should create a `file1` inside `home/jenkins` in your Node
