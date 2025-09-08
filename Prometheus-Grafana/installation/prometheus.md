@@ -12,7 +12,7 @@ tar -xvf prometheus-3.0.0-beta.0.linux-amd64.tar.gz
 cd prometheus-3.0.0-beta.0.linux-amd64/
 nohup ./prometheus --config.file=prometheus.yml > /root/prometheus.log 2>&1 &
 ```
-NOTE: Access Promethus using `EC2_PubicIP:9090`
+Access Promethus using `EC2_PubicIP:9090`
 
 ## INSTALLING NODE EXPORTER
 Note: 
