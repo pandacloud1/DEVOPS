@@ -1,4 +1,4 @@
-# INSTALL PROMETHEUS
+# INSTALL PROMETHEUS 🛠️
 REF: https://prometheus.io/download/
 
 ## INSTALLING PROMETHEUS
