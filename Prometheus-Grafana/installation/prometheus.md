@@ -66,7 +66,7 @@ port=9090
 echo "Access Prometheus Server: http://$ip:$port"
 ```
 
-Queries
-`up`                              # shows uptime
-`node_cpu_seconds_total`          # shows cpu utilization
-`node_memory_MemAvailable_bytes`  # shows available memory
+Queries <br>
+`up`                              # shows uptime <br>
+`node_cpu_seconds_total`          # shows cpu utilization <br>
+`node_memory_MemAvailable_bytes`  # shows available memory 
