@@ -1,0 +1,446 @@
+# Linux Command Reference
+
+A quick reference to commonly used Linux commands, organized by topic. Commands and terminal examples are formatted as inline code for readability.
+
+## ==========================
+## BASIC COMMANDS
+## ==========================
+* `cp` 
+  - `Copy command, used to copy files/directories`
+  - `cp dir1 /home/ubuntu`
+  - Above command will copy 'dir1' in '/home/ubuntu' location
+
+* `mv`
+  - `Move/ Rename command, used to move or rename files/directories`
+  - `mv file1 /home/ubuntu`  (moves file 'file1' inside '/home/ubuntu' location)
+  - `mv file1 file2`  (renames 'file1' to 'file2')
+
+* `rm`
+  - `Remove/Delete files/directories`
+  - `Used to remove files/directories`
+  - `rm -rf file1`  (this command is commonly used for files/directories; -rf: remove forcefully)
+
+* `ls`
+  - `List command, used to list files/directories`
+  - `ls -a`  (will list files/directories along with hidden files/directories; a: all)
+  - `ls -la`  (will list files/directories along with hidden files/directories with details)
+  - `Output looks like below:`
+    drw-rw-rw-- 1 alexa alexa 398 Jan 01 10:10 my-file
+    Details: File type*, Permissions**, no of hardlink, owner, group, file size in bytes, last modified date/time, file_name
+  - File type*: 
+    d: directory; -: file; l: softlink  
+  - Permissions** looks like rwxrw-r--; 
+    Here, 
+    rwx   = owner permissions (read, write & execute)
+    rw-   = group permissions (read & write)
+    r--   = other users permisisons (read only)
+
+* `cd`
+  - `Change directory`
+  - `cd <file/dir path>`
+  - `cd /home/ubuntu`  (to go to 'ubuntu' directory inside '/home' directory)
+  - `cd ..`  (to go back by one directory)
+
+* `pwd`
+  - `Print work directory`
+  - `To display the directory you are working in`
+
+## ==========================
+## OS INFORMATION
+## ==========================
+* `hostnamectl`
+  - `Displays OS info with kernel version, hostname, architecture`
+  - `To change hostname`
+    - `sudo su`
+    - `echo "<your-new-hostname>" > /etc/hostname`
+    - `hostname <your-new-hostname>  #` (Switch the user to reflect the changes)
+    OR
+    - `sudo hostnamectl set-hostname <new-name>`
+    - `bash`
+
+* `uname -a`
+  - `Displays system information, kernel version, hostname and architecture`
+
+* `cat /etc/os-release`
+  - `Displays OS info with distribution name, version, ID, and other details`
+  - Alternatively, use `cat /etc/*-release`
+
+* `lsb_release -a`
+  - `Displays OS info with distribution ID, description, release number, and codename`
+  - `Note: This command is not supported in Amazon Linux`
+
+## ==========================
+## SHELL
+## ==========================
+* `echo $0`
+  - `Displays the current shell`
+
+* `cat /etc/shells`
+  - `Displays all the shell in the current system`
+
+* `bash`
+  - `To change the current shell to 'bash'`
+
+# '#!/bin/bash'  (known as 'shebang' or 'hashbang')
+  - `Ensures that the script is executed using 'bash' regardless of the current shell`
+
+## ==========================
+## DIRECTORY CREATION
+## ==========================
+* 'mkdir' (make directory)
+  - `Command to create a directory`
+  - `mkdir my-dir`
+  - `mkdir dir1 dir2 dir3`  (creates multiple directories in a single go)
+  - `mkdir dir{1..20}`  (create dir1 to dir20  in a single go)
+  - `mkdir -p /abc/def/my-dir`  (creates 'my-dir' along with parent directories 'abc' & 'def'; p: parent)
+  - `mkdir -m 777 my-dir`  (creates 'my-dir' with permissions, r/w/x permissions to owner, group & other users; m: mode)
+
+## ==========================
+## FILE COMMANDS
+## ==========================
+* `touch`
+  - `Create empty files`
+  - `touch file1`
+  - `touch file1 file2 file3`  (create multiple files in a single go)
+  - `touch file{1..20}`  (create file1 to file20 in a single go)
+
+* `echo`
+  - `Displays text passed as input.`
+  - `Can also be used to input text into a file`
+  - `echo "hello world" > file`  (creates a new file if doesn't exists or replace text in the existing file)
+  - `echo "hello world" >> file` (creates a new file if doesn't exists or add text in the existing file content)
+  - `echo -e "Line1\nLine2\nLine3" > file`  (adds Line1 to Line3 one after other in the file)
+  - `printf "Line1\nLine2\nLine3" > file`  (alternate command of the above command)
+
+* `cat`
+  - `Read a file`
+  - `cat file1`
+
+* 'vi' (visual) or 'vim'
+  - `File editor`
+  - `vi file1`  (make necessary changes)
+  - `Use ":wq" to exit from file or use "q!" to exit forcefully`
+
+* `nano`
+  - `File editor same as 'vi'`
+  - `Use 'Ctrl X' --> 'Y' --> (Enter key) --> to save & exit`
+  - `nano is basic command & mostly available in modern Linux OS`
+
+## ==========================
+## USER
+## ==========================
+* `adduser` / `useradd`
+  - `Create user`
+  - `adduser alexa`
+  - `cat /etc/passwd`  (see the list of users)
+
+* `userdel`
+  - `Delete user`
+  - `userdel alexa`
+
+* `passwd`
+  - `Set user password`
+
+* `addgroup` / 'groupadd'
+  - `Create user group`
+  - `addgroup amazon`
+  - `cat /etc/group`  (to see the list of groups)
+
+* `delgroup` / 'groupdel'
+  - `Delete group`
+
+* `gpasswd` (-a, -M) OR 'usermod'
+  - `Add user(s) to a group`
+  - `gpasswd -a alexa amazon`  (add 'alexa' to 'amazon' group)
+  - `gpasswd -M user1,user2,user3 my-group  (add multiple users to a group in one go)`
+  - `usermod -G <group-name> <user-name>` (alternate command, here 'G' means group)
+
+* `whoami`
+  - `Shows the name of current user`
+  - Alternatively, we can use 'echo $USER'
+
+* `su`
+  - `Switch user`
+
+## ==============================================
+## CHANGE OWNER/GROUP/PERMISSIONS OF FILE/DIRECTORY
+## ==============================================
+* `chown`
+  - `Change owner of file/directory`
+  - `chown user1 dir1`  (Changes the owner of 'dir1' to 'user1')
+  - `chown -R user1 dir1`  (Changes the owner of 'dir1' along with all sub-directories & files inside 'dir1' to 'user1')
+  - `chown -R user1:group1 dir1`  (Changes the owner & the group of 'dir1' to 'user1' & 'group1' respectively)
+
+* `chgrp`
+  - `Change group of file/directory`
+  - `chgrp group1 dir1`  (Changes the group of 'dir1' to 'group1')
+  - `chgrp -R group1 dir1`  (Changes the group of 'dir1' along with all sub-directories & files of 'dir1' to 'group1')
+
+* `chmod`
+  - `Changes mode of a file/directory` (r/w/x: 4/2/1)
+  - `chmod 764 file1`  (Changes the permissions of 'file1'--> as below)
+    [OWNER: Read, Write, eXecute]
+    [GROUP: Read & Write]
+    [OTHER-USERS: Read-only]
+  - `chmod -R 700 dir1`  (Changes the permissions of all files/directories inside 'dir1')
+
+* `umask`
+  - `Read/write/execute default permissions`
+
+## ==========================
+## FILE LINKS
+## ==========================
+* `ln -s`
+  - `Softlink`
+  - `Creates a shortcut of file/directory, but the shortcut becomes inaccessible after deleting the original file`
+  - `(Note: This is same as shortcut in Windows)`
+  - `ln -s file1 file1-softlink`  (Creates a shortcut with name 'file1-softlink' from the original file 'file1')
+  - `If you run "ls -la", the softlink will be displayed as a "l" which means "link"`
+
+* `ln`
+  - `Hardlink`
+  - `Creates a shortcut of file, but the shortcut is still retained even after deleting the original file`
+  - `(Note: Hardlinks can be created for directories, but is only permissible to root user & it avoided in most cases avoid complications)`
+  - `ln file1 file1-hardlink`  (Creates a link with name 'file1-hardlink' from the file 'file1')
+  - `If you run "ls -la", the hardlink will be displayed as a normal file`
+
+## ==========================
+## FILE CONTENT
+## ==========================
+* `more` / `less`
+  - `Used to read content in a file` (Space: Scroll page; Enter: Scroll line, b: back; q; quit)
+  - `for i in {1..100}; do echo "Line$i" >> file1; done`  (Create file with Line1 to Line100)
+  - `more file1`
+  - `less is similar to 'more' but with advanced features` (Press ":q" to exit)
+
+* `head` (-n)
+  - `Shows content in first few lines of a file` (default 10 lines)
+  - `head -n file1`  (shows the first 3 lines of the file)
+
+* `tail` (-n)
+  - `Shows content in last few lines of a file` (default 10 lines)
+  - `tail -n file1`
+ 
+* `wc`
+  - `Word count`
+  - `echo -n 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' > file1`
+  - `wc file1`  (shows the no of lines (0), no of words(1), no of characters(26))
+
+* `diff` (-y)
+  - `Compare difference between files`
+  - `diff file1 file2`
+
+* `sort` (-r, -u, -n)
+  - `Arranges the file lines in sorted way` (eg. arranging lines of code in alphabetical order)
+  - `echo -e "banana\ncherry\napple" > file1`
+  - `sort file1`  (Output "apple banana cherry")
+  - `sort -r file1`  (Output "cherry banana apple"; r: reverse)
+  - `sort -u file1`  (Arranges only the unique words, ignores duplicate words)
+  - `sort -n file1`  (To arrange numbers in ascending order)
+
+* `uniq` (-d, -u, -c)
+  - `List unique items/duplicates`
+  - `echo -e "apple\ncherry\nbanana\ncherry\napple\ndates" > file1`
+  - `sort file1 | uniq`  (Output will display only apply, banana, cherry, dates)
+  - `sort file1 | uniq -d`  (Will display only the duplicate items --> apple & cherry)
+  - `sort file1 | uniq -u`  (Will display only the unique items --> banana, dates)
+  - `sort file1 | uniq -c`  (Will display the count of all items --> 2apple, 1banana, 2cherry, 1date)
+
+* `which`
+  - `Check location of app`
+  - `which git`  (shows the path where git is installed)
+
+## ==========================
+## FIND CONTENT/FILE/FOLDER
+## ==========================
+* `find`
+  - `Find `<path> -name <file/dir>`` (e.g., `find / -type d -name 'my-dir'` to find only directories named 'my-dir')
+  - `find / -type d -name 'my-dir'`  (finds only directory with name 'my-dir' in '/' location)
+  - `find / -name 'abc'`  (finds file or directory with name 'abc' in '/' location)
+
+* `locate`
+  - `Locate `<file/dir>`` (To install use command `apt install -y plocate` or `apt install -y mlocate`)
+  - `locate my-dir`
+  - `locate my-file | grep '^/home/ubuntu'`  (searches for 'my-file' & filter out results only from '/home/ubuntu')
+
+* `grep`
+  - `Global regular expression print`
+  - `Used to find content from a file`
+  - `grep "apple" file1`  (Will only search for the word "apple" in the file)
+  - `grep -i 'apple' file1`  (Will search the word irrespective of its case)
+
+* `egrep`
+  - `Extended global regular expression print`
+  - `More advanced version of grep`
+  - `We can search multiple words, case-insensitive search, etc.`
+  - `egrep 'apple | cherry' file1`
+  - `egrep -i 'apple' file1` (Will search word even if it is in different case)
+
+* `awk`
+  - `Aho, Weinberger, and Kernighan`
+  - ``awk '{print $1}' <file_name>`` (pulls out the content of 1st column from the file)
+  - `echo "HELLO WORLD" | awk '{print $1}'`  (Output: "HELLO")
+  - `awk ‘NR ==2 {print $2}’ file1` (Output: Word from 2nd row and 2nd column)
+  - `awk ‘/apple/ {print $0}’ file1` (Ouput: Displays lines consisting only of the word ‘apple’)
+
+* `cut` (-c, -d, -f)
+  - `View a specific content (word/character) in a file`
+  - `echo "apple" | cut -c 1`  (Output: a)
+  - `echo "apple" | cut -c 1,5` (Output: ae)
+  - `echo "apple" | cut -c 1-3` (Output: app)
+  - `echo "apple,banana,cherry" | cut -d ',' -f3`  (Output: cherry; d: delimeter (separator); f: field)
+
+* `sed`
+  - `Stream editor`
+  - `sed -e 's/oldtext/newtext/g' file-name` (`s` means substitute and `g` means global)
+  - `sed -i 's/oldtext/newtext/g' file1`  (i: in-place editing; s: substitute; g: global)
+  - `sed -e 's/apple/banana/g' file1`  (Here the word 'apple' will get replaced by 'banana' in 'file1')
+  - `sed ‘2d’ file1` (Ignores line no 2 & prints the output (d: delete))
+  - `sed ‘1i\#Line1’ file1` (Adds “#Line1” in the output (i: insert))
+
+
+## ==========================
+## TAR, GZIP & ZIP
+## ==========================
+* `tar`
+  - `Tape archive`
+  - `tar will combine multiple file into a single file` (also called as 'archive')
+  - `But it won't perform compression (i.e., it won't reduce size), so it is combined with 'gzip'`
+  - `tar preserves the directory structure and file metadata (permissions/ownership/timestamps) within the archive.`
+  - `tar is more commonly used in Unix/Linux environments.`
+  - `tar -cvf archive.tar <dir-name>` (Will create tar file from directory; c: create; v: verbose; f: file-name)
+  - `tar -xvf archive.tar`  (Extract directory from tar; x: extract)
+
+* `gzip` / 'gunzip'
+  - `GNU Zip`
+  - `Used to compress tar files, tar doesn't performs compression hence 'gzip' is used to serve the purpose`
+  - `gzip archive.tar`  (Output: archive.tar.gz)
+  - `gunzip `archive.tar.gz``  (To unzip the compressed files to .tar format)
+
+* 'zip' / 'unzip'
+  - `zip is used to compress & archive files`
+  - `Thus, it is a combination of 'tar + gzip' command`
+  - `zip is more commonly used across Unix/Linux, Windows, and macOS environments.`
+  - `zip -r archive.zip <dir-name>`  (r: recursive to include sub-directories & files)
+  - `unzip archive.zip`  (to unzip zipped file)
+
+## =============================
+## RAM / CPU / DRIVE/ DISK SPACE
+## =============================
+* `ps -aux`
+  - `Running processes` (a: all, u: users, x: not attached to terminal)
+  - `ps -a`  (shows all running processes)
+  - `ps aux | grep jenkins`  (filters out processes with name 'jenkins'  ('ps -ef' can also be used instead)
+
+* `kill <PID>`
+  - `The kill a running process based on its ID`
+
+* `lsof`
+  - `to list information about files that are currently opened by processes.`
+  - `lsof -i :22: List the processes using port 22`
+
+* `free -h`
+  - `RAM information`
+  - Here 'h' means human readable size in KB, MB, GB, etc.
+
+* `vmstat -s`
+  - `Shows the RAM statistics`
+
+* `cat /proc/meminfo`
+  - `Shows RAM information from the kernel`
+
+* `cat /proc/cpuinfo`
+  - `Shows CPU information from the kernel`
+
+* `top`
+  - `Information of running processes along with RAM & CPU`
+  - `This is similar to Task Manager --> Performance in Windows`
+
+* `htop`
+  - `'htop' is more advanced version of 'top', but it must be installed separately`
+  - `sudo apt install htop -y (OR) - sudo yum install htop -y`
+
+* `df -ah`
+  - `Disk free` (drives)
+  - `Used to check size of file systems` (i.e., Disks)
+  - `The 'tmpfs' are used to store temporary files for RAM like cache files, runtime data, etc`
+  - `df -ah`  (Output will display size of all drives in KB, MB format)
+
+* `du -ah`
+  - `Disk utilization` (directories/files)
+  - `du -ah <dir/file>`  (Check the size of all dir/file; h: human-readable size in KB, MB, etc)
+
+## ==========================
+## NETWORKING
+## ==========================
+* `ping`
+  - `ping `www.google.com``
+
+* `netstat`
+  - `Shows a list of all active network connections & ports`
+  - `netstat maybe required to be installed in some Unix/Linux systems` (`apt install net-tools -y`)
+  - `netstat -tunlp`  (`t`: tcp, `u`: udp, `n`: numerical address, `l`: listening ports, `p`: processID)
+  - Alternatively, we can also use 'ss' command. 'lsof' command will show list of open files by which processes
+
+* `ifconfig`
+  - `View private IP`
+
+* `curl ifconfig.me`
+  - `View public IP`
+
+## ==========================
+## DOWNLOAD PACKAGES
+## ==========================
+* `wget`
+  - `wget <url>`
+
+* `curl`
+  - `Advanced version of wget`
+  - `curl <url>`
+
+## ==========================
+## PACKAGE MANAGERS
+## ==========================
+* `apt`
+  - `Update/install/remove packages for Debian distros` (apt: advanced package tool)
+
+* `yum`
+  - `Update/install/remove packages for RHEL distros` (yum: yellowdog updater modified)
+
+* `dnf`
+  - `Advanced version of `yum` for RHEL distros` (dnf: dandified yum)
+
+## ==========================
+## SCHEDULER
+## ==========================
+* `crontab` (-e)
+  - `Schedule a task in a specific period`
+  - ``Min Hour Date Month Day`` (starts from Monday)
+  - ``* * * * *``
+  - `Let's create scheduler to automatically create new file every minute`
+  - `vi script`
+    - #!/bin/bash
+    - `for i in {1..10}; do touch newfile$i; sleep 60; done`
+  - `chmod a+x script`
+  - `crontab -e`
+    - `* * * * * /home/ec2-user/script`
+
+## ==========================
+## MISCELLANEOUS
+## ==========================
+* `date`
+  - `Shows current date`
+
+* `cal`
+  - `Calender`
+  - `(e.g., `apt install ncal -y`)`
+
+* `alias`
+  - `Name your own commands`
+  - `Replace an existing command with a user-defined one` (e.g., `alias list='ls -la'`)
+
+* `nohup`
+  - `No hangup, Runs processes/ applications in the background`
+
+* `history`
+  - `Check the history of all the commands run in the server`
