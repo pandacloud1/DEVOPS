@@ -26,9 +26,10 @@
     File type*, Permissions**, no of hardlink, owner, group, file size (bytes), last modified date/time, file_name
     ```
     ```txt
-    - File type*: 
+    File type*: 
     d: directory; -: file; l: softlink  
-    - Permissions** looks like rwxrw-r--; 
+
+    Permissions** looks like rwxrw-r--; 
     Here, 
     rwx   = owner permissions (read, write & execute)
     rw-   = group permissions (read & write)
