@@ -173,7 +173,10 @@
   - Changes mode of a file/directory `(r/w/x: 4/2/1)`
   - `chmod 764 file1`  (Changes the permissions of 'file1'--> as below)
     ```txt
-    [7: owner: r,w,x; 6: group: r,w; 4:other-users: r]
+    7: owner: r,w,x
+    6: group: r,w
+    4:other-users: r
+    ```
   - `chmod -R 700 dir1`  (Changes the permissions of all files/directories inside 'dir1')
 
 * `umask`
