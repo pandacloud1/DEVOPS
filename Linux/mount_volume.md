@@ -1,33 +1,33 @@
-# HOW TO MOUNT A VOLUME IN LINUX?
+## HOW TO MOUNT A VOLUME IN LINUX?
 
-## List block volumes
+Step1: List block volumes
 ```sh
 sudo lsblk -e7
 ```
 
-## Let's assume our block name is `/dev/xvdf` from the list
+Let's assume our block name is `/dev/xvdf` from the list
 ```sh
 df -ah
 ```
 
-## CREATE A FILESYSTEM
+Step2: Create a filesystem
 Note: 
-- File structure is useful to the OS to structure the files & directories
-- Without file structure, the OS will consider the disk as raw with just a stream of bytes without any proper structure
+- File system is useful to the OS to structure the files & directories
+- Without file system, the OS will consider the disk as raw with just a stream of bytes without any proper structure
 
 ```sh
 sudo mkfs -t ext4 /dev/xvdf
 ```
 
-## CREATE MOUNT POINT & MOUNT VOLUME TO MOUNT POINT
+Step3: Create mount point & mount the volume to the mount point
 Note: 
-- You can create mount points wherever you want; but using '/mnt' is standard practice
+- You can create mount points wherever you want; but mounting inside `/mnt` directory is recommended
 ```sh
 sudo mkdir /mnt/data
 sudo mount /dev/xvdf /mnt/data
 ```
 
-## MAKE THE VOLUME PERSISTENT
+Step4: Make the volume persistent (Optional)
 Note: 
 - Persistent volume will make the volume available even after server restart
 ```sh
