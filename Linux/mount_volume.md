@@ -6,9 +6,6 @@ sudo lsblk -e7
 ```
 
 Let's assume our block name is `/dev/xvdf` from the list
-```sh
-df -ah
-```
 
 ### Step-2: Create a filesystem
 
