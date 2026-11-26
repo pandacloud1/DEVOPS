@@ -1,4 +1,4 @@
-# Linux Commands
+# LINUX COMMANDS
 
 ## BASIC COMMANDS
 * `cp` 
@@ -352,7 +352,7 @@
 
 ## NETWORKING
 * `ping`
-  - `ping `www.google.com``
+  - `ping www.google.com`
 
 * `netstat`
   - Shows a list of all active network connections & ports
