@@ -25,16 +25,7 @@
     drw-rw-rw-- 1 alexa alexa 398 Jan 01 10:10 my-file
     File type*, Permissions**, no of hardlink, owner, group, file size (bytes), last modified date/time, file_name
     ```
-    ```txt
-    - File type*: 
-    d: directory; -: file; l: softlink  
-    - Permissions** looks like rwxrw-r--; 
-    Here, 
-    rwx   = owner permissions (read, write & execute)
-    rw-   = group permissions (read & write)
-    r--   = other users permisisons (read only)
-    ```
-    
+        
 * `cd`
   - Change directory
   - `cd <file/dir path>`
