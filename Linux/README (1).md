@@ -6,7 +6,7 @@ A quick reference to commonly used Linux commands, organized by topic. Commands 
 ## BASIC COMMANDS
 ## ==========================
 * `cp` 
-  - `Copy command, used to copy files/directories`
+  - Copy command, used to copy files/directories
   - `cp dir1 /home/ubuntu`
   - Above command will copy 'dir1' in '/home/ubuntu' location
 
