@@ -1,38 +1,49 @@
-# --------------------------------
 # HOW TO MOUNT A VOLUME IN LINUX?
-# --------------------------------
 
-# List block volumes
+## List block volumes
+```sh
 sudo lsblk -e7
+```
 
-# Let's assume our block name is "/dev/xvdf" from the list
+## Let's assume our block name is `/dev/xvdf` from the list
+```sh
 df -ah
+```
 
-# CREATE A FILESYSTEM
-# Note: 
-# File structure is useful to the OS to structure the files & directories
-# Without file structure, the OS will consider the disk as raw with just a stream of bytes without any proper structure
+## CREATE A FILESYSTEM
+Note: 
+- File structure is useful to the OS to structure the files & directories
+- Without file structure, the OS will consider the disk as raw with just a stream of bytes without any proper structure
 
+```sh
 sudo mkfs -t ext4 /dev/xvdf
+```
 
-# CREATE MOUNT POINT & MOUNT VOLUME TO MOUNT POINT
-# Note: 
-# You can create mount points wherever you want; but using '/mnt' is standard practice
-
+## CREATE MOUNT POINT & MOUNT VOLUME TO MOUNT POINT
+Note: 
+- You can create mount points wherever you want; but using '/mnt' is standard practice
+```sh
 sudo mkdir /mnt/data
 sudo mount /dev/xvdf /mnt/data
+```
 
-# MAKE THE VOLUME PERSISTENT
-# Note: Persistent volume will make the volume available even after server restart
-
+## MAKE THE VOLUME PERSISTENT
+Note: 
+- Persistent volume will make the volume available even after server restart
+```sh
 sudo vi /etc/fstab
+```
 
-# Add below
+Add below
+```sh
 /dev/xvdf /mnt/data ext4 defaults,nofail 0 2
+```
 
-# Note:
+```txt
+Note:
 /dev/xvdf      /mnt/data      ext4                    defaults,nofail                                              0                         2
 device name    mount point    file system type        defaults = standard mount options (read/write, etc.)         back up file system       file system check order
                               (common for linux)      nofail = system won't fail to boot if this mount fails       (0: No)                   1 = root filesystem
                                                                                                                                              2 = others
                                                                                                                                              0 = don't check
+```
