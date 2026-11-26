@@ -11,6 +11,7 @@ df -ah
 ```
 
 Step2: Create a filesystem
+
 Note: 
 - File system is useful to the OS to structure the files & directories
 - Without file system, the OS will consider the disk as raw with just a stream of bytes without any proper structure
